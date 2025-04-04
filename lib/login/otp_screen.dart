@@ -1,6 +1,7 @@
 import 'package:backbone/constant/app_colors.dart';
 import 'package:backbone/constant/app_images.dart';
 import 'package:backbone/utils/action_button.dart';
+import 'package:backbone/utils/bottom_navigation_screen.dart';
 import 'package:backbone/utils/flutter_custom_text.dart';
 import 'package:backbone/utils/flutter_input_field.dart';
 import 'package:backbone/utils/gradient_coloured_button.dart';
@@ -222,7 +223,9 @@ class _Otp_ScreenState extends State<Otp_Screen> {
                 padding: EdgeInsets.only(left: 50, right: 50),
                 child: SizedBox(height: 44,width: 300,
                   child: GradientColoredButton(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Bottom_Navigation()));
+                    },
                     child: FlutterCustomText(
                       text: 'VERIFY',
                       color: AppColors().blackColor,

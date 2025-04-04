@@ -1,3 +1,4 @@
+import 'package:backbone/login/bottom_navigation/chit_plans.dart';
 import 'package:backbone/login/bottom_navigation/home_screen.dart';
 import 'package:backbone/login/login_screen.dart';
 import 'package:backbone/login/otp_screen.dart';
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
-        home: Bottom_Navigation(),
+        home: My_Chit_Plans(),
       ),
     );
   }

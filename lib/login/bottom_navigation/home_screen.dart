@@ -1,5 +1,6 @@
 import 'package:backbone/constant/app_colors.dart';
 import 'package:backbone/constant/app_images.dart';
+import 'package:backbone/utils/action_button.dart';
 import 'package:backbone/utils/flutter_custom_text.dart';
 import 'package:backbone/utils/flutter_input_field.dart';
 import 'package:backbone/utils/gradient_border_color.dart';
@@ -25,6 +26,13 @@ class _Home_ScreenState extends State<Home_Screen> {
       appBar: AppBar(
         backgroundColor: Colors.black,
         leading: Icon(Icons.menu,color: Colors.white,),
+        actions: [
+          GestureDetector(
+            onTap: () {},
+            child: ImageCard(imageUrl: AppImages().whatsAppIcon),
+          ),
+          ActionButton(url: AppImages().bellIcon, onTap: () {}),
+        ],
       ),
       backgroundColor: Colors.black,
       extendBodyBehindAppBar: true,
@@ -73,7 +81,7 @@ class _Home_ScreenState extends State<Home_Screen> {
                             borderRadius: BorderRadius.circular(50.r),
                             isStack: true,
                             child: GradientText(text: 'View Chit Plans',
-                            fontSize: 12.sp,),
+                              fontSize: 12.sp,),
                           ),
                         ),
                       ),
