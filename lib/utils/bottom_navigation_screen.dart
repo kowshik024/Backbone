@@ -1,3 +1,4 @@
+import 'package:backbone/MyChit/myChit.dart';
 import 'package:backbone/constant/app_colors.dart';
 import 'package:backbone/constant/app_images.dart';
 import 'package:backbone/login/bottom_navigation/history_screen.dart';
@@ -34,9 +35,18 @@ class _Bottom_NavigationState extends State<Bottom_Navigation> {
     {"title": "Complaint & Help","icon": Icons.person_2_outlined},
   ];
 
+  final List<Map<String, dynamic>> page = [
+    {"title": "Home"},
+    {"title": "My Chits"},
+    {"title": "Live Auction"},
+    {"title": "history"}
+  ];
+
+  int index =0;
+
   final List<Widget> _screens = [
     Home_Screen(),
-    My_Chits_Screen(),
+    Mychit(),
     Live_Auction_Screen(),
     History_Screen(),
   ];
@@ -89,10 +99,12 @@ class _Bottom_NavigationState extends State<Bottom_Navigation> {
     );
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          title: Text(page[_selectedIndex]['title']),
           iconTheme: IconThemeData(color: Colors.white),
           foregroundColor: Colors.white,
           backgroundColor: Colors.transparent,
@@ -156,6 +168,7 @@ class _Bottom_NavigationState extends State<Bottom_Navigation> {
         ),
         backgroundColor: Colors.black,
         body: _screens[_selectedIndex],
+
         bottomNavigationBar:  Padding(
         padding: const EdgeInsets.only(bottom:10,left: 16,right: 16),
     child: ClipRRect(

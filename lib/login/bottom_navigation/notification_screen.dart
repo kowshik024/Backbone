@@ -13,7 +13,7 @@ class Notification_Screen extends StatefulWidget {
   State<Notification_Screen> createState() => _Notification_ScreenState();
 }
 
-class _Notification_ScreenState extends State<Notification_Screen> {
+class _Notification_ScreenState extends State<Notification_Screen> with SingleTickerProviderStateMixin  {
 
   final List<Map<String, String>> officialNotifications = [
     {
@@ -51,6 +51,13 @@ class _Notification_ScreenState extends State<Notification_Screen> {
     }
   ];
 
+  late TabController _tabController;
+  @override
+  void initState() {
+    _tabController = TabController(length: 2, vsync: this);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -75,6 +82,7 @@ class _Notification_ScreenState extends State<Notification_Screen> {
                   horPadding: 0,
                   borderRadius: BorderRadius.circular(50.r),
                   child: TabBar(
+                    controller: _tabController,
                     unselectedLabelStyle: TextStyle(
                       fontFamily: 'Inria Sans',
                       fontSize: 14.sp,
@@ -92,7 +100,7 @@ class _Notification_ScreenState extends State<Notification_Screen> {
                     indicatorPadding: EdgeInsets.zero,
                     padding: EdgeInsets.zero,
                     indicatorSize: TabBarIndicatorSize.tab,
-                    indicatorColor: Colors.red,
+                    indicatorColor: Colors.white,
                     indicator: BoxDecoration(
                      gradient: LinearGradient(colors: AppColors().gradients),
                       borderRadius: BorderRadius.circular(18.r),
@@ -107,6 +115,7 @@ class _Notification_ScreenState extends State<Notification_Screen> {
               ),
               Expanded(
                 child: TabBarView(
+                  controller: _tabController,
                   children: [NotificationList(notifications: officialNotifications),
                     NotificationList(notifications: paymentNotifications),],
                 ),

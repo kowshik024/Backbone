@@ -1,149 +1,144 @@
+import 'package:backbone/constant/app_colors.dart';
+import 'package:backbone/utils/gradient_container.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 
-class HistoryScreen extends StatelessWidget {
-  final List<Map<String, dynamic>> historyData = [
-    {
-      'month': 'November',
-      'date': '06/11/2024',
-      'time': '03.43 PM',
-      'transactionId': '2589654123',
-      'status': 'Paid',
-    },
-    {
-      'month': 'October',
-      'date': '06/10/2024',
-      'time': '01.13 PM',
-      'transactionId': '2589652132',
-      'status': 'Paid',
-    },
-    {
-      'month': 'October',
-      'date': '06/10/2024',
-      'time': '01.10 PM',
-      'transactionId': '2589652130',
-      'status': 'Failed',
-    },
-    {
-      'month': 'September',
-      'date': '03/09/2024',
-      'time': '02.56 PM',
-      'transactionId': '2589652132',
-      'status': 'Paid',
-    },
-  ];
 
-  HistoryScreen({super.key});
+class ChitHistoryScreen extends StatefulWidget {
+  @override
+  _ChitHistoryScreenState createState() => _ChitHistoryScreenState();
+}
+
+class _ChitHistoryScreenState extends State<ChitHistoryScreen> with SingleTickerProviderStateMixin  {
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    _tabController = TabController(length: 2, vsync: this);
+    super.initState();
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: const Text('History', style: TextStyle(color: Colors.white)),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.whatshot, color: Colors.green),
-            onPressed: () {},
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        backgroundColor: AppColors().blackColor,
+        resizeToAvoidBottomInset: true,
+        body:SafeArea(
+          child: Column(
+            children: [
+              Padding(
+                padding:  EdgeInsets.symmetric(horizontal: 15.w),
+                child: GradientContainer(
+                  vertPadding: 0,
+                  horPadding: 0,
+                  borderRadius: BorderRadius.circular(50.r),
+                  child: TabBar(
+                    controller: _tabController,
+                    unselectedLabelStyle: TextStyle(
+                      fontFamily: 'Inria Sans',
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white,
+                    ),
+                    labelStyle: TextStyle(
+                      fontFamily: 'Inria Sans',
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black,
+                    ),
+                    dividerHeight: 0,
+                    splashBorderRadius: BorderRadius.circular(8.r),
+                    indicatorPadding: EdgeInsets.zero,
+                    padding: EdgeInsets.zero,
+                    indicatorSize: TabBarIndicatorSize.tab,
+                    indicatorColor: Colors.white,
+                    indicator: BoxDecoration(
+                      gradient: LinearGradient(colors: AppColors().gradients),
+                      borderRadius: BorderRadius.circular(18.r),
+                    ),
+                    tabAlignment: TabAlignment.fill,
+                    tabs: [
+                      Tab(text: 'Official notification'),
+                      Tab(text: 'Payment Notification'),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(height: 15.h),
+              Expanded(
+                child: TabBarView(
+                  controller: _tabController,
+                  children: [
+                    ChitHistoryTab(),
+                    PaymentHistoryTab(),
+                  ],
+                ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
-      body: Column(
+    );
+  }
+}
+
+
+class ChitHistoryTab extends StatelessWidget {
+  Widget chitCard(String month, String chitValue, String totalInst, String status, String date) {
+    return ListView.builder(itemBuilder: (context , index){});
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      children: [
+        chitCard("May -2023", "₹100,000", "25/25", "completed", "12/06/2023"),
+        chitCard("June -2023", "₹100,000", "20/20", "completed", "10/03/2022"),
+      ],
+    );
+  }
+}
+
+
+class PaymentHistoryTab extends StatelessWidget {
+  Widget paymentTile(String title, String transactionId, String time, String date, String status) {
+    return ListTile(
+      leading: Icon(Icons.receipt, color: Colors.grey),
+      title: Text(title, style: TextStyle(color: Colors.white)),
+      subtitle: Text("Transaction ID: $transactionId\n$date", style: TextStyle(color: Colors.white70)),
+      trailing: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
+          Text(time, style: TextStyle(color: Colors.white)),
+          SizedBox(height: 5),
           Container(
-            margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-            padding: const EdgeInsets.all(4),
+            padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30),
-              color: Colors.grey[900],
+              color: status == "Paid" ? Colors.green : Colors.red,
+              borderRadius: BorderRadius.circular(5),
             ),
-            child: Row(
-              children: [
-                Expanded(
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(vertical: 10),
-                    decoration: BoxDecoration(
-                      color: Colors.transparent,
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    alignment: Alignment.center,
-                    child: const Text("Chit History", style: TextStyle(color: Colors.white)),
-                  ),
-                ),
-                Expanded(
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(vertical: 10),
-                    decoration: BoxDecoration(
-                      color: Colors.amber,
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    alignment: Alignment.center,
-                    child: const Text("Payment History", style: TextStyle(color: Colors.black)),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: historyData.length,
-              itemBuilder: (context, index) {
-                final item = historyData[index];
-                return Card(
-                  color: Colors.black,
-                  margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                  child: ListTile(
-                    leading: const Icon(Icons.receipt_long_outlined, color: Colors.white),
-                    title: Text(
-                      "${item['month']} Month Chit Amount",
-                      style: const TextStyle(color: Colors.amber),
-                    ),
-                    subtitle: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("Transaction ID : ${item['transactionId']}", style: const TextStyle(color: Colors.white)),
-                        Text(item['date'], style: const TextStyle(color: Colors.white70)),
-                      ],
-                    ),
-                    trailing: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(item['time'], style: const TextStyle(color: Colors.white)),
-                        Container(
-                          margin: const EdgeInsets.only(top: 5),
-                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-                          decoration: BoxDecoration(
-                            color: item['status'] == 'Paid' ? Colors.green : Colors.red,
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                          child: Text(
-                            item['status'],
-                            style: const TextStyle(color: Colors.white, fontSize: 12),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                );
-              },
-            ),
+            child: Text(status, style: TextStyle(color: Colors.white, fontSize: 12)),
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.black,
-        selectedItemColor: Colors.amber,
-        unselectedItemColor: Colors.white,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.assignment), label: 'My Chits'),
-          BottomNavigationBarItem(icon: Icon(Icons.gavel), label: 'Live Auction'),
-          BottomNavigationBarItem(icon: Icon(Icons.history), label: 'History'),
-        ],
-        currentIndex: 3,
-        onTap: (index) {},
-      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      children: [
+        paymentTile("November Month Chit Amount", "2589654123", "03:43 PM", "06/11/2024", "Paid"),
+        paymentTile("October Month Chit Amount", "2589652132", "01:13 PM", "06/10/2024", "Paid"),
+        paymentTile("October Month Chit Amount", "2589652130", "01:10 PM", "06/10/2024", "Failed"),
+        paymentTile("September Month Chit Amount", "2589652132", "02:56 PM", "03/09/2024", "Paid"),
+      ],
     );
   }
 }

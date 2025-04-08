@@ -1,5 +1,7 @@
+import 'package:backbone/MyChit/myChit.dart';
 import 'package:backbone/login/bottom_navigation/chit_plans.dart';
 import 'package:backbone/login/bottom_navigation/history%202.dart';
+import 'package:backbone/login/bottom_navigation/history_screen.dart';
 import 'package:backbone/login/bottom_navigation/home_screen.dart';
 import 'package:backbone/login/bottom_navigation/new_chit.dart';
 import 'package:backbone/login/bottom_navigation/notification_screen.dart';
@@ -29,7 +31,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
-        home:HistoryScreen(),
+        home:Bottom_Navigation(),
       ),
     );
   }
