@@ -52,4 +52,16 @@ class AppImages {
   String  dropDownIcon = 'assets/drop_down_icon.svg';
 
   String  chitFileIcon = 'assets/chit_file.png';
+
+  // Payment page
+
+
+  String  debitcard = 'assets/debitcard.png';
+  String  creditcard = 'assets/creditcard.png';
+  String  gpay = 'assets/gpay.png';
+  String  paypal = 'assets/paypal.png';
+  String  applepay = 'assets/applepay.png';
+  String  kotak = 'assets/kotak.png';
+  String  sbi = 'assets/sbi.png';
+  String  visa = 'assets/visa.png';
 }

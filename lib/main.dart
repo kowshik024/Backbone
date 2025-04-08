@@ -1,3 +1,5 @@
+import 'package:backbone/MyChit/PaymentPage.dart';
+import 'package:backbone/MyChit/myChit.dart';
 import 'package:backbone/login/bottom_navigation/chit_plans.dart';
 import 'package:backbone/login/bottom_navigation/home_screen.dart';
 import 'package:backbone/login/login_screen.dart';
@@ -26,7 +28,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
-        home: My_Chit_Plans(),
+        home: Mychit(),
       ),
     );
   }
