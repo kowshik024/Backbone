@@ -11,19 +11,9 @@ import '../utils/flutter_custom_text.dart';
 import '../utils/flutter_input_field.dart';
 import '../utils/gradient_coloured_button.dart';
 
-void main() => runApp(register());
 
-class register extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: ReferAndEarnScreen(),
-    );
-  }
-}
 
-class ReferAndEarnScreen extends StatelessWidget {
+class Register_Ref extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +21,9 @@ class ReferAndEarnScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.black,
         elevation: 0,
-        leading: Icon(Icons.arrow_back_ios, color: Colors.white),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: Icon(Icons.arrow_back_ios, color: Colors.white)),
         title: Text("Refer & Earn", style: TextStyle(color: Colors.white)),
         actions: [Icon(Icons.notifications_none, color: Colors.white)],
       ),

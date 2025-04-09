@@ -41,7 +41,9 @@ class _PersonalDetailScreenState extends State<profile> {
       appBar: AppBar(
         backgroundColor: Colors.black,
         title: Text('Profile',style: TextStyle(color: Colors.white),),
-        leading: Icon(Icons.arrow_back_ios,color: Colors.white,),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: Icon(Icons.arrow_back_ios,color: Colors.white,)),
         actions: [Image(image: AssetImage("assets/whatsapp.png"))],
       ),
       body: Column(

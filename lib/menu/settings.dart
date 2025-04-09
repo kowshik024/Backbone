@@ -26,40 +26,40 @@ class SettingsPage extends StatelessWidget {
         body: ListView(
           children: [
             ListTile(
-              leading: GradientIcon(child: Icon(Icons.system_update,color: Colors.white,)),
+              leading: GradientIcon(child: Icon(Icons.system_update)),
               title:GradientText(text: "Update",fontSize: 14,),
-              trailing: GradientIcon(child: Icon(Icons.arrow_forward_ios_rounded,color: Colors.white,))
+              trailing: GradientIcon(child: Icon(Icons.arrow_forward_ios_rounded))
               ,             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) => update()));
             },
             ),
             Divider(
-              color:  Color(0xffDEAB3D),
+              color: Colors.yellow,
               indent: 10,
               endIndent: 10,
             ),
             ListTile(
-              leading:GradientIcon(child: Icon(Icons.settings_suggest_rounded,color: Colors.white,)),
+              leading:GradientIcon(child: Icon(Icons.settings_suggest_rounded)),
               title: GradientText(text: "Permission",fontSize: 14,),
-              trailing: GradientIcon(child: Icon(Icons.arrow_forward_ios_rounded,color: Colors.white,)),
+              trailing: GradientIcon(child: Icon(Icons.arrow_forward_ios_rounded)),
               onTap: () { Navigator.push(context, MaterialPageRoute(builder: (context) => PermissionsScreen()));
               },
             ),
             Divider(
-              color:  Color(0xffDEAB3D),
+              color: Colors.yellow,
               indent: 10,
               endIndent: 10,
             ),
             ListTile(
-              leading: GradientIcon(child: Icon(Icons.credit_card_off_outlined,color: Colors.white,)),
+              leading: GradientIcon(child: Icon(Icons.credit_card_off_outlined)),
               title: GradientText(text: "Delete User Data",fontSize: 14,),
-              trailing: GradientIcon(child: Icon(Icons.arrow_forward_ios_rounded,color: Colors.white,)),
+              trailing: GradientIcon(child: Icon(Icons.arrow_forward_ios_rounded)),
               onTap: () {
                 // Delete user data logic
               },
             ),
             Divider(
-              color:  Color(0xffDEAB3D),
+              color: Colors.yellow,
               indent: 10,
               endIndent: 10,
             ),

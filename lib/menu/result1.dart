@@ -1,8 +1,12 @@
 import 'package:backbone/menu/settings.dart';
-import 'package:backbone/utils/gradient_icon.dart';
 import 'package:flutter/material.dart';
 
+import '../login/bottom_navigation/bottom_navigation_screen.dart';
 import '../utils/gradient_text.dart';
+
+
+
+
 
 
 
@@ -22,6 +26,8 @@ class _RegistrationSuccessPageState extends State<RegistrationSuccessPage>
   late Animation<double> _iconScaleAnimation;
   late Animation<Offset> _textSlideAnimation;
   late Animation<double> _buttonFadeAnimation;
+
+
 
   @override
   void initState() {
@@ -65,7 +71,17 @@ class _RegistrationSuccessPageState extends State<RegistrationSuccessPage>
     _iconController.forward();
     Future.delayed(Duration(milliseconds: 400), () => _textController.forward());
     Future.delayed(Duration(milliseconds: 800), () => _buttonController.forward());
+
+
+    Future.delayed(Duration(seconds: 3), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => Bottom_Navigation()),
+      );
+    });
   }
+
+
 
   @override
   void dispose() {
@@ -87,14 +103,18 @@ class _RegistrationSuccessPageState extends State<RegistrationSuccessPage>
             children: [
               ScaleTransition(
                 scale: _iconScaleAnimation,
-                child: GradientIcon(child: Icon(Icons.file_copy_sharp,color: Colors.white,size: 200,))
+                child: Icon(
+                  Icons.verified,
+                  color: Colors.green,
+                  size: 120,
+                ),
               ),
               SizedBox(height: 20),
               SlideTransition(
                 position: _textSlideAnimation,
                 child: Column(
                   children: [
-                    GradientText(text: "Documents Summited!",fontSize: 30,),
+                    GradientText(text: "Documents Summited ",fontSize: 30,),
                   ],
                 ),
               ),
