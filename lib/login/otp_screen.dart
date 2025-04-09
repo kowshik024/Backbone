@@ -1,7 +1,7 @@
 import 'package:backbone/constant/app_colors.dart';
 import 'package:backbone/constant/app_images.dart';
 import 'package:backbone/utils/action_button.dart';
-import 'package:backbone/utils/bottom_navigation_screen.dart';
+import 'package:backbone/login/bottom_navigation/bottom_navigation_screen.dart';
 import 'package:backbone/utils/flutter_custom_text.dart';
 import 'package:backbone/utils/flutter_input_field.dart';
 import 'package:backbone/utils/gradient_coloured_button.dart';

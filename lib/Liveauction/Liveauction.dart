@@ -1,6 +1,9 @@
+import 'package:backbone/Liveauction/LiveScreen.dart';
+import 'package:backbone/Liveauction/SealingAuction.dart';
 import 'package:backbone/utils/gradient_icon.dart';
 import 'package:backbone/utils/gradient_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Liveauction extends StatefulWidget {
   const Liveauction({super.key});
@@ -28,68 +31,80 @@ class _LiveauctionState extends State<Liveauction> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Text('Live Auction',style: TextStyle(color: Colors.white),),
-        leading: Icon(Icons.menu,color: Colors.white,),
-        actions: [Image(image: AssetImage("assets/whatsapp.png")),
-        Icon(Icons.notification_add,color: Colors.white,)
-        ],
-      ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 20,right: 20),
+        padding:  EdgeInsets.only(left: 20.w,right: 20.w),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-          SizedBox(height: 20,),
+          SizedBox(height: 20.h),
           GradientText(text: "Auction You Wish To Join"),
-        SizedBox(height: 30,),
-
+        SizedBox(height: 30.h),
             SizedBox(
-              height: 150,
+              height: 150.h,
               child: ListView.builder(
                 itemCount: 2,
                 itemBuilder: (context, index) {
                   return
                     Padding(
                     padding: const EdgeInsets.only(bottom: 20),
-                    child: Container(
-                      height: 50,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        gradient: LinearGradient(
-                          colors: gradients,
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                        ),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.all(2),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.black,
-                            borderRadius: BorderRadius.circular(8),
+                    child: GestureDetector(
+                      onTap: (){
+                        switch(Options[index]){
+                          case 'Sealing Auction':
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Sealingauction ()));
+                            break;
+                          case 'Bidding Auction':
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Livescreen ()));
+                            break;
+                          default:
+                            ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(content: Text('Coming Soon...')));
+                        }
+                      },
+                      child: Container(
+                        height: 50.h,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.r),
+                          gradient: LinearGradient(
+                            colors: gradients,
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
                           ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(
-                                  Options[index],
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.all(2.r),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.black,
+                              borderRadius: BorderRadius.circular(8.r),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Padding(
+                                  padding:  EdgeInsets.all(8.r),
+                                  child: Text(
+                                    Options[index],
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: GradientIcon(child: Icon(Icons.arrow_forward_ios,color: Colors.white,)),
-                              )
-                            ],
+                                Padding(
+                                  padding:  EdgeInsets.all(8.r),
+                                  child: GradientIcon(child: Icon(Icons.arrow_forward_ios,color: Colors.white,)),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),

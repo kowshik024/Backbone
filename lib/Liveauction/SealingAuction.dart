@@ -31,7 +31,9 @@ class _SealingauctionState extends State<Sealingauction> {
       appBar: AppBar(
         backgroundColor: Colors.black,
         title: Text('Sealing Auction',style: TextStyle(color: Colors.white),),
-        leading: Icon(Icons.arrow_back_ios,color: Colors.white,),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: Icon(Icons.arrow_back_ios,color: Colors.white,)),
         actions: [Image(image: AssetImage("assets/whatsapp.png")),
           Icon(Icons.notification_add,color: Colors.white,)
         ],
@@ -45,7 +47,6 @@ class _SealingauctionState extends State<Sealingauction> {
           GradientText(text: "Upcoming Auctions"),
           Text("19/12/2024",style: TextStyle(color: Colors.white),),
             SizedBox(height: 20,),
-
 
             Expanded(
               child: ListView.builder(

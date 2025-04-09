@@ -2,6 +2,7 @@ import 'package:backbone/constant/app_colors.dart';
 import 'package:backbone/constant/app_images.dart';
 import 'package:backbone/login/otp_screen.dart';
 import 'package:backbone/utils/action_button.dart';
+import 'package:backbone/login/bottom_navigation/bottom_navigation_screen.dart';
 import 'package:backbone/utils/flutter_custom_text.dart';
 import 'package:backbone/utils/flutter_input_field.dart' show FlutterInputField;
 import 'package:backbone/utils/flutter_text_button.dart';
@@ -141,7 +142,9 @@ class _Login_ScreenState extends State<Login_Screen> {
                   children: [
                     SizedBox(height: 44,width: 270,
                       child: GradientColoredButton(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> Bottom_Navigation()));
+                        },
                         child: FlutterCustomText(
                           text: 'Login',
                           color: AppColors().blackColor,
