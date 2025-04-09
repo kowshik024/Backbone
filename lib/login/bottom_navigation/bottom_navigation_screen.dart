@@ -15,6 +15,7 @@ import 'package:backbone/menu/settings.dart';
 import 'package:backbone/menu/terms%20and%20condition.dart';
 import 'package:backbone/menu/verification.dart';
 import 'package:backbone/utils/action_button.dart';
+import 'package:backbone/utils/gradient_container.dart';
 import 'package:backbone/utils/gradient_icon.dart';
 import 'package:backbone/utils/gradient_text.dart';
 import 'package:backbone/utils/image_card.dart';
@@ -73,33 +74,38 @@ class _Bottom_NavigationState extends State<Bottom_Navigation> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15.r),
           ),
-          content: Text(
-            "Are you sure you want to log out?",
-            style: TextStyle(fontSize: 16.sp),
+          content: GradientText(text:
+              "Are you sure you want to log out?",
+              fontSize: 16.sp,
           ),
           actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context),
-              child: Text(
-                "Cancel",
-                style: TextStyle(color: Colors.grey, fontSize: 16.sp),
-              ),
+            Row(
+              children: [
+                GestureDetector(
+                  onTap: (){
+                    Navigator.pop(context);
+                  },
+                  child: Container(
+                    height: 40.h,width: 100.w,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(colors: AppColors().gradients),
+                      borderRadius: BorderRadius.circular(5.r)
+                    ),
+                    child: Center(child: Text("No",style: GoogleFonts.inriaSans(fontSize: 18.sp,color: Colors.black),)),
+                  ),
+                ),
+                SizedBox(width: 10.w),
+                GestureDetector(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Login_Screen()));
+                  },
+                  child: GradientContainer(
+                      height: 40.h,width: 100.w,
+                      child: GradientText(text: "Yes",fontSize: 18.sp,)),
+                )
+              ],
             ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.purple,
-                padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 8.h),
-              ),
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>Login_Screen()));
-                ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text("successfully Logged out")));
-              },
-              child: Text(
-                "Logout",
-                style: TextStyle(color: Colors.white, fontSize: 16.sp),
-              ),
-            ),
+
           ],
         );
       },
