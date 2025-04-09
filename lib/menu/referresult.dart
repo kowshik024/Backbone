@@ -1,3 +1,4 @@
+import 'package:backbone/login/bottom_navigation/bottom_navigation_screen.dart';
 import 'package:backbone/menu/settings.dart';
 import 'package:flutter/material.dart';
 
@@ -64,6 +65,14 @@ class _referresultState extends State<referresult>
     _iconController.forward();
     Future.delayed(Duration(milliseconds: 400), () => _textController.forward());
     Future.delayed(Duration(milliseconds: 800), () => _buttonController.forward());
+
+    Future.delayed(Duration(seconds: 3), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => Bottom_Navigation()),
+      );
+    });
+
   }
 
   @override

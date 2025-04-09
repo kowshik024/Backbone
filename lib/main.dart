@@ -12,12 +12,14 @@ import 'package:backbone/login/otp_screen.dart';
 import 'package:backbone/login/splash_screen.dart';
 import 'package:backbone/login/welcome_screen.dart';
 import 'package:backbone/menu/profile.dart';
+import 'package:backbone/menu/result1.dart';
 import 'package:backbone/menu/verification.dart';
 import 'package:backbone/login/bottom_navigation/bottom_navigation_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'Liveauction/LiveScreen.dart';
+import 'MyChit/PaymentPage.dart';
 
 
 void main() {
