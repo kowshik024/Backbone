@@ -41,9 +41,16 @@ class _LivescreenState extends State<Livescreen> {
 
   void _startTimer() {
     _timer = Timer.periodic(Duration(seconds: 1), (Timer timer) {
+
+      if(_minutes == 0){
+        _timer.cancel();
+      }
       if (_seconds == 20) {
         if (_minutes == 1) {
           _showAlertDialog();
+          _minutes = 1;
+          _seconds = 20;
+
 
         } else {
           _minutes--;
@@ -168,7 +175,8 @@ class _LivescreenState extends State<Livescreen> {
                               Divider(
                                 endIndent: 30,
                                 indent: 30,
-                              )
+                              ),
+
                             ],
                           ),
                         );
@@ -176,6 +184,7 @@ class _LivescreenState extends State<Livescreen> {
                       },
                     ),
                   ),
+                  SizedBox(height: 20,),
                   if (_isColumnVisible)
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
