@@ -1,3 +1,5 @@
+import 'package:backbone/Liveauction/LiveScreen.dart';
+import 'package:backbone/Liveauction/Liveauction.dart';
 import 'package:backbone/MyChit/myChit.dart';
 import 'package:backbone/login/bottom_navigation/chit_plans.dart';
 import 'package:backbone/login/bottom_navigation/history%202.dart';
@@ -9,7 +11,9 @@ import 'package:backbone/login/login_screen.dart';
 import 'package:backbone/login/otp_screen.dart';
 import 'package:backbone/login/splash_screen.dart';
 import 'package:backbone/login/welcome_screen.dart';
-import 'package:backbone/utils/bottom_navigation_screen.dart';
+import 'package:backbone/menu/profile.dart';
+import 'package:backbone/menu/verification.dart';
+import 'package:backbone/login/bottom_navigation/bottom_navigation_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

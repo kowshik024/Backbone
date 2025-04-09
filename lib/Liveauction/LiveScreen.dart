@@ -1,7 +1,14 @@
+import 'package:backbone/constant/app_images.dart';
+import 'package:backbone/login/bottom_navigation/notification_screen.dart';
+import 'package:backbone/utils/action_button.dart';
+import 'package:backbone/utils/flutter_input_field.dart';
+import 'package:backbone/utils/gradient_container.dart';
 import 'package:backbone/utils/gradient_icon.dart';
 import 'package:backbone/utils/gradient_text.dart';
+import 'package:backbone/utils/image_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../constant/app_colors.dart';
 import '../utils/flutter_custom_text.dart';
 import '../utils/gradient_coloured_button.dart';
@@ -70,22 +77,22 @@ class _LivescreenState extends State<Livescreen> {
         isScrollControlled: true,
         builder: (BuildContext context) {
           return Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: EdgeInsets.all(20.r),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Icon(Icons.watch_later, color: Colors.red, size: 80),
+                Icon(Icons.watch_later, color: Colors.red, size: 80.sp),
                 SizedBox(height: 10),
                 Text(
                   "Bidding Close Soon! 0:59 sec",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: 20.h),
                 Container(
                   width: double.infinity,
-                  height: 50,
+                  height: 50.h,
                   child: GradientColoredButton(
-                    borderRadius: BorderRadius.circular(5),
+                    borderRadius: BorderRadius.circular(5.r),
                     onTap: () {},
                     child: FlutterCustomText(
                       text: 'Bid Now',
@@ -115,147 +122,172 @@ class _LivescreenState extends State<Livescreen> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Text('Live Auction',style: TextStyle(color: Colors.white),),
-        leading: Icon(Icons.arrow_back_ios,color: Colors.white,),
-        actions: [Image(image: AssetImage("assets/whatsapp.png")),
-          Icon(Icons.notification_add,color: Colors.white,)
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: Icon(Icons.arrow_back_ios)),
+        title: Text("Live Auction",style: GoogleFonts.inriaSans(fontSize: 20.sp,color: Colors.white),),
+        iconTheme: IconThemeData(color: Colors.white),
+        foregroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
+        actions: [
+          GestureDetector(
+            onTap: () {},
+            child: ImageCard(imageUrl: AppImages().whatsAppIcon),
+          ),
+          ActionButton(url: AppImages().bellIcon, onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>Notification_Screen()));
+          }),
         ],
       ),
       body: Padding(
         padding: const EdgeInsets.only(left: 20,right: 20),
-        child: Column(children: [
-          GradientText(text: '$_minutes:${_seconds.toString().padLeft(2, '0')} Min'),
-          SizedBox(height: 20.h,),
-          Container(
-            width: double.infinity.w,
-            child: Padding(
-              padding: const EdgeInsets.only(left: 20,right: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text("January Month Chit",style: TextStyle(color: Colors.white),),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: GradientText(text: '₹ 10,00,000'),
-                ),
-                  SizedBox(height: 10,),
-                  SizedBox(
-                    height: 200.h,
-                    child: ListView.builder(
-                      itemCount: 4,
-                      itemBuilder: (context, index) {
-                        return Center(
-                          child: Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                children: [
-                                  Image(image: AssetImage('assets/manemoji.png')),
-                                  Column(children: [
-                                    Text("Token No",style: TextStyle(color: Colors.white),),
-                                    GradientText(text: "SSC 901")
-                                  ],),
-                                  Column(children: [
-                                    Text("Bid value",style: TextStyle(color: Colors.white),),
-                                    GradientText(text: "₹ 10,00,000")
-                                  ],)
-                                ],
+        child: SingleChildScrollView(
+          child: Column(children: [
+            Row(
+              children: [
+                Text("Live",style: GoogleFonts.inriaSans(fontSize: 12.sp,color: Colors.white),),
+                SizedBox(width: 111.w,),
+                GradientText(text: '$_minutes:${_seconds.toString().padLeft(2, '0')} Min'),
+              ],
+            ),
+            SizedBox(height: 20.h,),
+            GradientContainer(
+              width: 328.w,
+              child: Padding(
+                padding:  EdgeInsets.only(left: 20.w,right: 20.w),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("January Month Chit",style: GoogleFonts.inriaSans(fontSize: 20.sp,color: Colors.white),),
+                    Padding(
+                      padding:  EdgeInsets.all(8.0),
+                      child: GradientText(text: '₹ 10,00,000'),
+                    ),
+                    SizedBox(height: 10,),
+                    SizedBox(
+                      height: 200.h,
+                      child: ListView.builder(
+                        itemCount: 4,
+                        itemBuilder: (context, index) {
+                          return Center(
+                            child: Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Image(image: AssetImage('assets/manemoji.png')),
+                                    Column(children: [
+                                      Text("Token No",style: TextStyle(color: Colors.white),),
+                                      GradientText(text: "SSC 901")
+                                    ],),
+                                    Column(children: [
+                                      Text("Bid value",style: TextStyle(color: Colors.white),),
+                                      GradientText(text: "₹ 10,00,000")
+                                    ],)
+                                  ],
+                                ),
+                                Divider(
+                                  endIndent: 30,
+                                  indent: 30,
+                                )
+                              ],
+                            ),
+                          );
+
+                        },
+                      ),
+                    ),
+                    if (_isColumnVisible)
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("Ongoing Bidding Value",style: GoogleFonts.inriaSans(fontSize: 20.sp,color: Colors.white),),
+                          SizedBox(height: 10,),
+                          SizedBox(height: 40.h,width: 140.w,
+                            child:Container(
+                              decoration: BoxDecoration(
+                                gradient: LinearGradient(colors: AppColors().gradients),
+                                borderRadius: BorderRadius.circular(5),
                               ),
-                              Divider(
-                                endIndent: 30,
-                                indent: 30,
-                              )
+                              child: Center(
+                                child: FlutterCustomText(
+                                  text: '₹ 5,00,000',
+                                  fontSize: 16.sp,
+                                  color: AppColors().blackColor,
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 10,),
+                          Text("Enter Your Bid",style: GoogleFonts.inriaSans(fontSize: 20.sp,color: Colors.white),),
+                          SizedBox(height: 10,),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              SizedBox(width: 140.w,
+                                height: 40.h,
+                                child: FlutterInputField(
+                                  inputType: TextInputType.text,
+                                  filled: true,
+                                  fillColor: AppColors().blackColor,
+                                  enableBorder: false,
+                                  verticalContentPadding: 8,
+                                  prefixIcon: GradientIcon(child: Icon(Icons.currency_rupee,color: Colors.white,)),
+                                  hintText: "5,200,000",
+                                  hintStyle: GoogleFonts.inriaSans(fontSize: 14.sp,color: Colors.white),
+                                ),
+                              ),
+                              SizedBox(height: 40.h,width: 100.w,
+                                child: GestureDetector(
+                                  onTap: () {},
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(colors: AppColors().gradients),
+                                      borderRadius: BorderRadius.circular(5),
+                                    ),
+                                    child: Center(
+                                      child: FlutterCustomText(
+                                        text: 'Bid',
+                                        fontSize: 16.sp,
+                                        color: AppColors().blackColor,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+
                             ],
                           ),
-                        );
-
-                      },
-                    ),
-                  ),
-                  if (_isColumnVisible)
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                    Text("Ongoing Bidding Value",style: TextStyle(color: Colors.white),),
-                    SizedBox(height: 10,),
-                    SizedBox(height: 34,width: 150,
-                      child: GradientColoredButton(
-                        borderRadius: BorderRadius.circular(5),
-                        onTap: () {},
-                        child: FlutterCustomText(
-                          text: '₹ 5,00,000',
-                          color: AppColors().blackColor,
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 10,),
-                    Text("Enter Your Bid",style: TextStyle(color: Colors.white),),
-                    SizedBox(height: 10,),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        SizedBox(
-                          height: 40.h,
-                          width: 150.w,
-                          child: TextFormField(
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(),
-                              prefixIcon: GradientIcon(child: Icon(Icons.currency_rupee,color: Colors.white,size: 15,))
+                          SizedBox(height: 10,),
+                          Center(
+                            child: SizedBox(height: 44.h,width: 260.w,
+                              child: GestureDetector(
+                                onTap: (){
+                                  setState(() {
+                                    _isColumnVisible = false;
+                                  });
+                                },
+                                child: Container(decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(5),
+                                  gradient: LinearGradient(colors: AppColors().gradients)
+                                ),
+                                  child: Center(
+                                    child: FlutterCustomText(
+                                      text: 'CALL OFF',
+                                      fontSize: 16.sp,
+                                      color: AppColors().blackColor,
+                                    ),
+                                  ),
+                                ),
+                              ),
                             ),
                           ),
-                        ),
-                        SizedBox(height: 40.h,width: 100.w,
-                          child: GradientColoredButton(
-                            borderRadius: BorderRadius.circular(5),
-                            onTap: () {},
-                            child: FlutterCustomText(
-                              text: 'Bid',
-                              color: AppColors().blackColor,
-                            ),
-                          ),
-                        ),
-
-                      ],
-                    ),
-                      SizedBox(height: 10,),
-
-                    Center(
-                      child: SizedBox(height: 34.h,width: 200.w,
-                        child: GradientColoredButton(
-                          borderRadius: BorderRadius.circular(5),
-                          onTap: () {
-                            setState(() {
-                              _isColumnVisible = false;
-                            });
-                          },
-                          child: FlutterCustomText(
-                            text: 'CALL OFF',
-                            color: AppColors().blackColor,
-                          ),
-                        ),
-                      ),
-                    ),
-                      SizedBox(height: 20,)
-                  ],)
-
-
-
-
-              ],),
+                          SizedBox(height: 20,)
+                        ],)],),
+              ),
             ),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              border: Border.all(
-                color: Colors.white
-              )
-            ),
-          ),
-
-        ],),
+          ],),
+        ),
       ),
     );
   }

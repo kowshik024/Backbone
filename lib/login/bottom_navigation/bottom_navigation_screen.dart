@@ -1,3 +1,5 @@
+import 'package:backbone/Liveauction/Liveauction.dart';
+import 'package:backbone/Liveauction/SealingAuction.dart';
 import 'package:backbone/MyChit/myChit.dart';
 import 'package:backbone/constant/app_colors.dart';
 import 'package:backbone/constant/app_images.dart';
@@ -47,7 +49,7 @@ class _Bottom_NavigationState extends State<Bottom_Navigation> {
   final List<Widget> _screens = [
     Home_Screen(),
     Mychit(),
-    Live_Auction_Screen(),
+    Liveauction(),
     History_Screen(),
   ];
 
@@ -133,18 +135,30 @@ class _Bottom_NavigationState extends State<Bottom_Navigation> {
                 ],),
                 Expanded(
                   child: ListView.builder(
-                      itemCount: "title".length,
+                      itemCount: chitPlans.length,
                       itemBuilder: (context,index){
                         return Padding(
                           padding:  EdgeInsets.only(right:30.w),
-                          child: Container(height: 41.h,width: 251.w,
-                            decoration: BoxDecoration(
-                              border: Border(bottom: BorderSide(color: Color(0xffDEAB3D)))
-                            ),
-                            child: ListTile(
-                              leading: GradientIcon(child: Icon(chitPlans[index]["icon"],color: Colors.white,size: 24.sp,)),
-                              title: GradientText(text: chitPlans[index]["title"],fontSize: 14.sp,),
-                              trailing: GradientIcon(child: Icon(Icons.arrow_forward_ios,size: 18.sp,color: Colors.white,))
+                          child: GestureDetector(
+                            onTap: (){
+                                 switch(chitPlans[index]){
+                                   case 'Profile':
+                                     Navigator.push(
+                                         context,
+                                         MaterialPageRoute(
+                                             builder: (context) => Sealingauction ()));
+                                     break;
+                                 }
+                            },
+                            child: Container(height: 45.h,width: 251.w,
+                              decoration: BoxDecoration(
+                                border: Border(bottom: BorderSide(color: Color(0xffDEAB3D)))
+                              ),
+                              child: ListTile(
+                                leading: GradientIcon(child: Icon(chitPlans[index]["icon"],color: Colors.white,size: 24.sp,)),
+                                title: GradientText(text: chitPlans[index]["title"],fontSize: 14.sp,),
+                                trailing: GradientIcon(child: Icon(Icons.arrow_forward_ios,size: 18.sp,color: Colors.white,))
+                              ),
                             ),
                           ),
                         );

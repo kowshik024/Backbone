@@ -93,8 +93,6 @@ class _Home_ScreenState extends State<Home_Screen> {
                 ),
                 context.verticalSpacing(10.h),
                 GradientContainer(
-                  horPadding: 16.w,
-                  vertPadding: 12.h,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
