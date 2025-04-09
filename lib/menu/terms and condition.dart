@@ -6,24 +6,10 @@ import '../utils/flutter_custom_text.dart';
 import '../utils/gradient_coloured_button.dart';
 import '../utils/gradient_text.dart';
 
-void main() {
-  runApp( terms());
-}
 
-class terms extends StatelessWidget {
-  terms({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: const UpdateScreen(),
-    );
-  }
-}
-
-class UpdateScreen extends StatelessWidget {
-  const UpdateScreen({super.key});
+class Terms extends StatelessWidget {
+  const Terms({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +25,7 @@ class UpdateScreen extends StatelessWidget {
         leading: IconButton(
           icon:  Icon(Icons.arrow_back_ios, color: Colors.white),
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsPage()));
+            Navigator.pop(context);
           },
 
         ),

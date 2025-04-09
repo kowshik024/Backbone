@@ -1,5 +1,8 @@
+import 'package:backbone/utils/image_card.dart';
 import 'package:flutter/material.dart';
 import 'package:backbone/constant/app_images.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../utils/gradient_text.dart';
 
 class PaymentPage extends StatefulWidget {
@@ -36,6 +39,21 @@ class _PaymentPageState extends State<PaymentPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: Icon(Icons.arrow_back_ios,color: Colors.white,)),
+        title: Text("Payment",style: GoogleFonts.inriaSans(fontSize: 20.sp,color: Colors.white),),
+        iconTheme: IconThemeData(color: Colors.white),
+        foregroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
+        actions: [
+          GestureDetector(
+            onTap: () {},
+            child: ImageCard(imageUrl: AppImages().whatsAppIcon),
+          ),
+        ],
+      ),
       backgroundColor: Colors.black,
       body: Padding(
         padding: const EdgeInsets.only(left: 20, right: 20),

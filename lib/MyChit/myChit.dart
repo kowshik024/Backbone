@@ -1,6 +1,9 @@
+import 'package:backbone/MyChit/PaymentPage.dart';
 import 'package:backbone/constant/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:backbone/constant/app_images.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../utils/flutter_custom_text.dart';
 import '../utils/gradient_coloured_button.dart';
 import '../utils/gradient_text.dart';
@@ -60,43 +63,41 @@ class _MychitState extends State<Mychit> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-            Text("Total Chit Overview:",style: TextStyle(color: Colors.white,fontSize: 18),),
+            Text("Total Chit Overview:",style: TextStyle(color: Colors.white,fontSize: 16.sp),),
             Padding(
-              padding: const EdgeInsets.only(right: 50),
+              padding:  EdgeInsets.only(right: 50.w),
               child: GradientText(text: '₹ 3540'),
             ),
-            SizedBox(height: 34,width: 100,
+            SizedBox(height: 34.h,width: 100.w,
               child: GradientColoredButton(
                 borderRadius: BorderRadius.circular(30),
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>PaymentPage()));
+                },
                 child: FlutterCustomText(
                   text: 'Pay',
                   color: AppColors().blackColor,
                 ),
               ),
             ),
-        
-        
-        
-          ],),
-          SizedBox(height: 20,),
-        
+            ],),
+          SizedBox(height: 20.h),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
+            padding: EdgeInsets.symmetric(horizontal: 20.h),
             child: Container(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(20.r),
               ),
               child: ExpansionTile(
                 title: GradientText(text: "Current Chit Overview"),
                 children: [
                   Container(
-                    padding: EdgeInsets.all(2.0),
+                    padding: EdgeInsets.all(2),
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       border: Border.all(
                         color: Colors.white,
-                        width: 4.0,
+                        width: 4,
                       ),
                     ),
                     child: CircleAvatar(
@@ -106,7 +107,7 @@ class _MychitState extends State<Mychit> {
                   ),
           
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding:  EdgeInsets.all(8),
                     child: Row(
                       children: [
                         Text("Name:", style: TextStyle(color: Colors.white)),
@@ -115,7 +116,7 @@ class _MychitState extends State<Mychit> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding:  EdgeInsets.all(8),
                     child: Row(
                       children: [
                         Text("User ID:", style: TextStyle(color: Colors.white)),
@@ -124,13 +125,13 @@ class _MychitState extends State<Mychit> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding:   EdgeInsets.all(8),
                     child: Column(
                       children: [
                         Container(
                           height: 50,
-                          width: double.infinity,
-                          padding: EdgeInsets.all(8.0),
+                          width: 320,
+                          padding: EdgeInsets.all(8),
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
                               colors: gradients,
@@ -144,14 +145,14 @@ class _MychitState extends State<Mychit> {
                             color: Colors.white,
                           ),
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding:   EdgeInsets.all(8),
                             child: Text("Chit Overview"),
                           ),
                         ),
                         Container(
-                          width: double.infinity, // Responsive width
+                          width: 320, // Responsive width
                           height: 230,
-                          padding: EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(8),
                           decoration: BoxDecoration(
                             border: Border.all(
                               color: Colors.white
@@ -192,21 +193,20 @@ class _MychitState extends State<Mychit> {
               ),
             ),
           ),
-        
-          SizedBox(height: 30,),
+          SizedBox(height: 30.h),
           Expanded(
             child: ListView.builder(
               itemCount: chitNames.length,
               itemBuilder: (context, index) {
                 return
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding:  EdgeInsets.all(8.r),
                     child: Column(children: [
                       Container(
-                        height: 50,
-                        width:320 ,
+                        height: 50.h,
+                        width:320.w,
                         child: Padding(
-                          padding: EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(8.r),
                           child:
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -217,7 +217,7 @@ class _MychitState extends State<Mychit> {
                                   _checkboxStates[index] ? Icons.check_box : Icons.check_box_outline_blank,                              ),
                               ),
                               Text(chitNames[index]),
-                              SizedBox(width: 70,),
+                              SizedBox(width: 70.w),
                               GestureDetector(
                                 onTap: () {
                                   setState(() {
@@ -239,15 +239,14 @@ class _MychitState extends State<Mychit> {
                               end: Alignment.bottomRight,
                             ),
                             borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(20),
-                                topRight: Radius.circular(20)
+                                topLeft: Radius.circular(20.r),
+                                topRight: Radius.circular(20.r)
                             ),
-        
                         ),
                       ),
                       Container(
-                        width: 320,
-                        height: 230,
+                        width: 320.w,
+                        height: 230.h,
                         child:
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -275,35 +274,37 @@ class _MychitState extends State<Mychit> {
                                 GradientText(text: "NPS"),
                                 Text("Current Bal",style: TextStyle(color: Colors.white),),
                                 GradientText(text: "₹ 45,000"),
-                               ElevatedButton(style: ElevatedButton.styleFrom(
+                               SizedBox(height: 30.h,width: 94.w,
+                                 child: GestureDetector(
+                                   onTap: (){
+                                     Navigator.push(context, MaterialPageRoute(builder: (context)=>PaymentPage()));
+                                   },
+                                   child: Container(
+                                     decoration: BoxDecoration(
+                                       gradient: LinearGradient(colors: AppColors().gradients),
+                                       borderRadius: BorderRadius.circular(20.r)
+                                     ),
+                                     child: Center(child: Text("Pay",style: GoogleFonts.inriaSans(fontSize: 14.sp,color: Colors.black),)),
+                                   ),
+                                 ),
                                ),
-                                   onPressed: (){}, child: Text("Pay"))
-        
-        
                               ],),
                           ],),
-        
-        
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.only(
-                                bottomRight: Radius.circular(20),
-                                bottomLeft: Radius.circular(20)
+                                bottomRight: Radius.circular(20.r),
+                                bottomLeft: Radius.circular(20.r)
                             ),
                             border: Border.all(
                                 color: Colors.white
                             )
                         ),
                       ),
-        
-        
                     ],),
                   );
-        
-              },
+                },
             ),
           ),
-        
-        
         ],
         ),
       ),

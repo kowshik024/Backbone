@@ -1,6 +1,7 @@
 import 'package:backbone/menu/result1.dart';
 import 'package:backbone/utils/gradient_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
@@ -44,9 +45,9 @@ class _VerificationScreenState extends State<VerificationScreen> {
         GestureDetector(
           onTap: () => _pickImage(key),
           child: Container(
-            width: 80,
-            height: 80,
-            margin: EdgeInsets.all(8),
+            width: 80.w,
+            height: 80.h,
+            margin: EdgeInsets.all(8.r),
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               border: Border.all(color: Colors.white),
@@ -69,7 +70,9 @@ class _VerificationScreenState extends State<VerificationScreen> {
       appBar: AppBar(
         backgroundColor: Colors.black,
         title: Text('Verification',style: TextStyle(color: Colors.white),),
-        leading: Icon(Icons.arrow_back_ios,color: Colors.white,),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: Icon(Icons.arrow_back_ios,color: Colors.white,)),
         actions: [Image(image: AssetImage("assets/whatsapp.png"))],
       ),
       body: SingleChildScrollView(
@@ -80,11 +83,11 @@ class _VerificationScreenState extends State<VerificationScreen> {
             
             Text("KYC Documents", style: TextStyle(color: Colors.white, fontSize: 18)),
             
-            SizedBox(height: 10),
+            SizedBox(height: 10.h),
            Row(
              children: [
                GradientText(text: "Aadhar Card"),
-               SizedBox(width: 20,),
+               SizedBox(width: 20.w),
                Icon(Icons.check_circle,color: Colors.green,)
              ],
            ),

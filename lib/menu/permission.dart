@@ -34,7 +34,7 @@ class _PermissionsScreenState extends State<PermissionsScreen> {
         backgroundColor: Colors.black,
         elevation: 0,
         leading: IconButton(onPressed: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsPage()));
+          Navigator.push(context, MaterialPageRoute(builder: (context) => Settings()));
         }, icon: Icon(Icons.arrow_back_ios,color: Colors.white,)),
         title: Text('Permissions', style: TextStyle(color: Colors.white)),
         actions: [Image(image: AssetImage("assets/whatsapp.png"))],

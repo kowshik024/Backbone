@@ -12,6 +12,7 @@ import 'package:backbone/utils/gradient_icon.dart';
 import 'package:backbone/utils/gradient_text.dart';
 import 'package:backbone/utils/image_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Login_Screen extends StatefulWidget {
   const Login_Screen({super.key});
@@ -50,51 +51,51 @@ class _Login_ScreenState extends State<Login_Screen> {
             children: [
               Container(
                 alignment: Alignment.centerLeft,
-                padding: EdgeInsets.only(left: 20, right: 20),
+                padding: EdgeInsets.only(left: 20.w, right: 20.w),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     GradientText(
                       text: 'Welcome to',
-                      fontSize: 35,
+                      fontSize: 35.sp,
                       fontWeight: FontWeight.w300,
                     ),
           
                     GradientText(
                       text: 'Backbone Chit Funds',
-                      fontSize: 30,
+                      fontSize: 30.sp,
                     ),
                   ],
                 ),
               ),
               ImageCard(
                 imageUrl: AppImages().goldTree,
-                width: 185,
-                height: 150,
+                width: 185.w,
+                height: 150.h,
                 fit: BoxFit.contain,
               ),
               Container(
-                padding: EdgeInsets.only(left: 40, right:40),
+                padding: EdgeInsets.only(left: 40.w, right:40.w),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     FlutterCustomText(
                       text: 'Login',
-                      fontSize: 20,
+                      fontSize: 20.sp,
                       fontWeight: FontWeight.w700,
                       color: AppColors().whiteColor,
                     ),
-                    SizedBox(height:15),
+                    SizedBox(height:15.h),
                     FlutterInputField(
                       controller: chitIdController,
                       inputType: TextInputType.text,
                       filled: true,
                       fillColor: AppColors().blackColor,
                       enableBorder: false,
-                      verticalContentPadding: 8,
+                      verticalContentPadding: 8.h,
                       hintText: 'Enter Chit Id',
                     ),
-                    SizedBox(height: 22,),
+                    SizedBox(height: 22.h),
                     FlutterInputField(
                       controller: passwordController,
                       inputType: TextInputType.text,
@@ -103,7 +104,7 @@ class _Login_ScreenState extends State<Login_Screen> {
                       enableBorder: false,
                       obscure: isPasswordObscure,
                       hintText: 'Enter Password',
-                      verticalContentPadding: 10,
+                      verticalContentPadding: 10.h,
                       suffixIcon: IconButton(
                         icon: GradientIcon(
                         child:  isPasswordObscure
@@ -117,7 +118,7 @@ class _Login_ScreenState extends State<Login_Screen> {
                         },
                       ),
                     ),
-                    SizedBox(height: 12),
+                    SizedBox(height: 1.h),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
@@ -125,7 +126,7 @@ class _Login_ScreenState extends State<Login_Screen> {
                           onPresssed: () {},
                           child: GradientText(
                             text: 'ForgetPassword?',
-                            fontSize: 15,
+                            fontSize: 15.sp,
                             fontWeight: FontWeight.w400,
                             decoration: TextDecoration.underline,
                           ),
@@ -135,12 +136,12 @@ class _Login_ScreenState extends State<Login_Screen> {
                   ],
                 ),
               ),
-              SizedBox(height:25),
+              SizedBox(height:1.h),
               Container(
-                padding: EdgeInsets.only(left: 50, right: 50, top: 15),
+                padding: EdgeInsets.only(left: 50.w, right: 50.w, top: 15.h),
                 child: Column(
                   children: [
-                    SizedBox(height: 44,width: 270,
+                    SizedBox(height: 44.h,width: 270.w,
                       child: GradientColoredButton(
                         onTap: () {
                           Navigator.push(context, MaterialPageRoute(builder: (context)=> Bottom_Navigation()));
@@ -151,14 +152,14 @@ class _Login_ScreenState extends State<Login_Screen> {
                         ),
                       ),
                     ),
-                    SizedBox(height:25),
+                    SizedBox(height:1.h),
                     FlutterCustomText(
                       text: '(Or) login with',
                       color: Colors.white,
                       fontWeight: FontWeight.w400,
                     ),
-                    SizedBox(height:20),
-                    SizedBox(height: 44,width: 270,
+                    SizedBox(height:1.h),
+                    SizedBox(height: 44.h,width: 270.w,
                       child: GradientBorderedButton(
                         onTap: () {
                           Navigator.push(context, MaterialPageRoute(builder: (context)=>Otp_Screen()));
@@ -169,7 +170,7 @@ class _Login_ScreenState extends State<Login_Screen> {
                   ],
                 ),
               ),
-              SizedBox(height:95),
+              SizedBox(height:5.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

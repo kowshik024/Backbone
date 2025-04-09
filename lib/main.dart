@@ -3,7 +3,6 @@ import 'package:backbone/Liveauction/Liveauction.dart';
 import 'package:backbone/MyChit/myChit.dart';
 import 'package:backbone/login/bottom_navigation/chit_plans.dart';
 import 'package:backbone/login/bottom_navigation/history%202.dart';
-import 'package:backbone/login/bottom_navigation/history_screen.dart';
 import 'package:backbone/login/bottom_navigation/home_screen.dart';
 import 'package:backbone/login/bottom_navigation/new_chit.dart';
 import 'package:backbone/login/bottom_navigation/notification_screen.dart';
@@ -12,10 +11,15 @@ import 'package:backbone/login/otp_screen.dart';
 import 'package:backbone/login/splash_screen.dart';
 import 'package:backbone/login/welcome_screen.dart';
 import 'package:backbone/menu/profile.dart';
+import 'package:backbone/menu/refer.dart';
+import 'package:backbone/menu/register.dart';
+import 'package:backbone/menu/settings.dart';
 import 'package:backbone/menu/verification.dart';
 import 'package:backbone/login/bottom_navigation/bottom_navigation_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'menu/alreadyagent.dart';
 
 
 void main() {
@@ -35,7 +39,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
-        home:Bottom_Navigation(),
+        home:SplashScreen(),
       ),
     );
   }

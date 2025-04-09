@@ -39,7 +39,7 @@ class UpdateScreen extends StatelessWidget {
         leading: IconButton(
           icon:  Icon(Icons.arrow_back_ios, color: Colors.white),
           onPressed: () {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsPage()));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => Settings()));
     },
 
         ),

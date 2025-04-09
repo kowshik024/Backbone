@@ -3,12 +3,17 @@ import 'package:backbone/Liveauction/SealingAuction.dart';
 import 'package:backbone/MyChit/myChit.dart';
 import 'package:backbone/constant/app_colors.dart';
 import 'package:backbone/constant/app_images.dart';
-import 'package:backbone/login/bottom_navigation/history_screen.dart';
+import 'package:backbone/login/bottom_navigation/history%202.dart';
 import 'package:backbone/login/bottom_navigation/home_screen.dart';
 import 'package:backbone/login/bottom_navigation/live_auction_screen.dart';
 import 'package:backbone/login/bottom_navigation/my_chits_screen.dart';
 import 'package:backbone/login/bottom_navigation/notification_screen.dart';
 import 'package:backbone/login/login_screen.dart';
+import 'package:backbone/menu/profile.dart';
+import 'package:backbone/menu/refer.dart';
+import 'package:backbone/menu/settings.dart';
+import 'package:backbone/menu/terms%20and%20condition.dart';
+import 'package:backbone/menu/verification.dart';
 import 'package:backbone/utils/action_button.dart';
 import 'package:backbone/utils/gradient_icon.dart';
 import 'package:backbone/utils/gradient_text.dart';
@@ -31,10 +36,10 @@ class _Bottom_NavigationState extends State<Bottom_Navigation> {
   final List<Map<String, dynamic>> chitPlans = [
     {"title": "Profile","icon": Icons.person_2_outlined,},
     {"title": "Verification","icon": Icons.domain_verification},
-    {"title": "Settings","icon": Icons.person_2_outlined},
-    {"title": "Terms & Conditions","icon": Icons.person_2_outlined},
-    {"title": "Refer & Earn","icon": Icons.person_2_outlined},
-    {"title": "Complaint & Help","icon": Icons.person_2_outlined},
+    {"title": "Settings","icon": Icons.settings},
+    {"title": "Terms & Conditions","icon": Icons.paste_outlined},
+    {"title": "Refer & Earn","icon": Icons.currency_rupee},
+    {"title": "Complaint & Help","icon": Icons.help_outline_outlined},
   ];
 
   final List<Map<String, dynamic>> page = [
@@ -50,7 +55,7 @@ class _Bottom_NavigationState extends State<Bottom_Navigation> {
     Home_Screen(),
     Mychit(),
     Liveauction(),
-    History_Screen(),
+    ChitHistoryScreen(),
   ];
 
   void _onItemTapped(int index) {
@@ -66,24 +71,24 @@ class _Bottom_NavigationState extends State<Bottom_Navigation> {
         return AlertDialog(
           backgroundColor: Colors.black,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(15.r),
           ),
           content: Text(
             "Are you sure you want to log out?",
-            style: TextStyle(fontSize: 16),
+            style: TextStyle(fontSize: 16.sp),
           ),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
               child: Text(
                 "Cancel",
-                style: TextStyle(color: Colors.grey, fontSize: 16),
+                style: TextStyle(color: Colors.grey, fontSize: 16.sp),
               ),
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.purple,
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 8.h),
               ),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>Login_Screen()));
@@ -92,7 +97,7 @@ class _Bottom_NavigationState extends State<Bottom_Navigation> {
               },
               child: Text(
                 "Logout",
-                style: TextStyle(color: Colors.white, fontSize: 16),
+                style: TextStyle(color: Colors.white, fontSize: 16.sp),
               ),
             ),
           ],
@@ -100,7 +105,6 @@ class _Bottom_NavigationState extends State<Bottom_Navigation> {
       },
     );
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -137,19 +141,46 @@ class _Bottom_NavigationState extends State<Bottom_Navigation> {
                   child: ListView.builder(
                       itemCount: chitPlans.length,
                       itemBuilder: (context,index){
-                        return Padding(
-                          padding:  EdgeInsets.only(right:30.w),
-                          child: GestureDetector(
-                            onTap: (){
-                                 switch(chitPlans[index]){
-                                   case 'Profile':
+                        return GestureDetector(
+                          onTap: (){
+                            switch(chitPlans[index]['title']){
+                              case 'Profile':
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => profile ()));
+                                break;
+                                case 'Verification':
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => VerificationScreen ()));
+                                  break;
+                               case  'Settings':
+                                 Navigator.push(
+                                     context,
+                                     MaterialPageRoute(
+                                         builder: (context) => Settings ()));
+                                 break;
+                                 case 'Terms & Conditions':
+                                   Navigator.push(
+                                       context,
+                                       MaterialPageRoute(
+                                           builder: (context) => Terms ()));
+                                   break;
+                                   case 'Refer & Earn':
                                      Navigator.push(
                                          context,
                                          MaterialPageRoute(
-                                             builder: (context) => Sealingauction ()));
+                                             builder: (context) => ReferAndEarnScreen ()));
                                      break;
-                                 }
-                            },
+                              default:
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(content: Text('Coming Soon...',style: TextStyle(color: Colors.white),)));
+                            }
+                          },
+                          child: Padding(
+                            padding:  EdgeInsets.only(right:30.w),
                             child: Container(height: 45.h,width: 251.w,
                               decoration: BoxDecoration(
                                 border: Border(bottom: BorderSide(color: Color(0xffDEAB3D)))
@@ -204,26 +235,26 @@ class _Bottom_NavigationState extends State<Bottom_Navigation> {
           BottomNavigationBarItem(
             icon: SvgImageCard(
               imageUrl: AppImages().homeIcon,
-              height: 30,
-              width: 30,
+              height: 30.h,
+              width: 30.w,
             ),
             activeIcon: SvgImageCard(
               imageUrl: AppImages().filledHomeIcon,
-              height: 30,
-              width: 30,
+              height: 30.h,
+              width: 30.w,
             ),
             label: 'Home',
           ),
           BottomNavigationBarItem(
             icon: SvgImageCard(
               imageUrl: AppImages().chitsIcon,
-              width: 30,
-              height: 30,
+                height: 30.h,
+                width: 30.w,
             ),
             activeIcon: SvgImageCard(
               imageUrl: AppImages().filledChitsIcon,
-              height: 30,
-              width: 30,
+              height: 30.h,
+              width: 30.w,
             ),
             label: 'My Chits',
           ),
@@ -231,26 +262,26 @@ class _Bottom_NavigationState extends State<Bottom_Navigation> {
             tooltip: 'Home Icon',
             icon: SvgImageCard(
               imageUrl: AppImages().autionIcon,
-              height: 30,
-              width: 30,
+              height: 30.h,
+              width: 30.w,
             ),
             activeIcon: SvgImageCard(
               imageUrl: AppImages().filledAutionIcon,
-              height: 30,
-              width: 30,
+              height: 30.h,
+              width: 30.w,
             ),
             label: 'Live Auction',
           ),
           BottomNavigationBarItem(
             icon: SvgImageCard(
               imageUrl: AppImages().historyIcon,
-              height: 30,
-              width: 30,
+              height: 30.h,
+              width: 30.w,
             ),
             activeIcon: SvgImageCard(
               imageUrl: AppImages().filledHistoryIcon,
-              height: 30,
-              width: 30,
+              height: 30.h,
+              width: 30.w,
             ),
             label: 'History',
           ),

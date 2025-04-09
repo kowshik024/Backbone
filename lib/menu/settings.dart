@@ -2,22 +2,21 @@
 import 'package:backbone/menu/permission.dart';
 import 'package:backbone/menu/update.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../utils/gradient_icon.dart';
 import '../utils/gradient_text.dart';
 
-void main() {
-  runApp(SettingsPage());
-}
 
-class SettingsPage extends StatelessWidget {
+class Settings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
         backgroundColor: Colors.black,
         appBar: AppBar(
-          leading: Icon(Icons.arrow_back_ios),
+          leading: IconButton(onPressed: (){
+            Navigator.pop(context);
+          }, icon: Icon(Icons.arrow_back_ios)),
           backgroundColor: Color(0xff000000),
           title: Text('Settings', style: TextStyle(color:Color(0xffFFFFFF))),
           iconTheme: IconThemeData(color:Color(0xffFFFFFF)),
@@ -27,7 +26,7 @@ class SettingsPage extends StatelessWidget {
           children: [
             ListTile(
               leading: GradientIcon(child: Icon(Icons.system_update)),
-              title:GradientText(text: "Update",fontSize: 14,),
+              title:GradientText(text: "Update",fontSize: 14.sp,),
               trailing: GradientIcon(child: Icon(Icons.arrow_forward_ios_rounded))
               ,             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) => update()));
@@ -40,7 +39,7 @@ class SettingsPage extends StatelessWidget {
             ),
             ListTile(
               leading:GradientIcon(child: Icon(Icons.settings_suggest_rounded)),
-              title: GradientText(text: "Permission",fontSize: 14,),
+              title: GradientText(text: "Permission",fontSize: 14.sp,),
               trailing: GradientIcon(child: Icon(Icons.arrow_forward_ios_rounded)),
               onTap: () { Navigator.push(context, MaterialPageRoute(builder: (context) => PermissionsScreen()));
               },
@@ -52,7 +51,7 @@ class SettingsPage extends StatelessWidget {
             ),
             ListTile(
               leading: GradientIcon(child: Icon(Icons.credit_card_off_outlined)),
-              title: GradientText(text: "Delete User Data",fontSize: 14,),
+              title: GradientText(text: "Delete User Data",fontSize: 14.sp,),
               trailing: GradientIcon(child: Icon(Icons.arrow_forward_ios_rounded)),
               onTap: () {
                 // Delete user data logic
@@ -65,7 +64,6 @@ class SettingsPage extends StatelessWidget {
             ),
           ],
         ),
-      ),
     );
   }
 }

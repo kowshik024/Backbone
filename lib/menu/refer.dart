@@ -12,17 +12,6 @@ import '../utils/flutter_custom_text.dart';
 import '../utils/flutter_input_field.dart';
 import '../utils/gradient_coloured_button.dart';
 
-void main() => runApp(refer());
-
-class refer extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: ReferAndEarnScreen(),
-    );
-  }
-}
 
 class ReferAndEarnScreen extends StatelessWidget {
   @override
@@ -32,7 +21,9 @@ class ReferAndEarnScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.black,
         elevation: 0,
-        leading: Icon(Icons.arrow_back_ios, color: Colors.white),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: Icon(Icons.arrow_back_ios, color: Colors.white)),
         title: Text("Refer & Earn", style: TextStyle(color: Colors.white)),
         actions: [Icon(Icons.notifications_none, color: Colors.white)],
       ),
@@ -107,7 +98,7 @@ class ReferAndEarnScreen extends StatelessWidget {
                         alignment: Alignment.centerRight,
                         child: GestureDetector(
                           onTap: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>alreadyagent()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>Already_Agent()));
                           },
                           child: Text(
                             "Already Agent?",
@@ -127,7 +118,7 @@ class ReferAndEarnScreen extends StatelessWidget {
                             width: 300.w,
                             height: 35.h,
                             onTap: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>register()));
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>Register_Ref()));
                             },
                             borderRadius: BorderRadius.circular(15.r),
                             child: FlutterCustomText(
