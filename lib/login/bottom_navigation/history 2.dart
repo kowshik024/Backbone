@@ -1,5 +1,6 @@
 import 'package:backbone/constant/app_colors.dart';
 import 'package:backbone/utils/gradient_container.dart';
+import 'package:backbone/utils/gradient_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -64,8 +65,8 @@ class _ChitHistoryScreenState extends State<ChitHistoryScreen> with SingleTicker
                     ),
                     tabAlignment: TabAlignment.fill,
                     tabs: [
-                      Tab(text: 'Official notification'),
-                      Tab(text: 'Payment Notification'),
+                      Tab(text: 'Chit History'),
+                      Tab(text: 'Payment History'),
                     ],
                   ),
                 ),
@@ -89,44 +90,165 @@ class _ChitHistoryScreenState extends State<ChitHistoryScreen> with SingleTicker
 }
 
 
-class ChitHistoryTab extends StatelessWidget {
-  Widget chitCard(String month, String chitValue, String totalInst, String status, String date) {
-    return ListView.builder(itemBuilder: (context , index){});
-  }
+class ChitHistoryTab extends StatefulWidget {
+  const ChitHistoryTab({super.key});
+
+  @override
+  State<ChitHistoryTab> createState() => _ChitHistoryTabState();
+}
+
+class _ChitHistoryTabState extends State<ChitHistoryTab> {
+
+
+
+  List<Color> gradients = [
+    Color(0xFFBF9347),
+    Color(0xFFFBF398),
+    Color(0xFFF0D571),
+    Color(0xFFF9F194),
+    Color(0xFFDEAB3D),
+  ];
+
+  List<String> chitDates =[
+    'May -2023',
+    'june -2023',
+
+  ];
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        chitCard("May -2023", "₹100,000", "25/25", "completed", "12/06/2023"),
-        chitCard("June -2023", "₹100,000", "20/20", "completed", "10/03/2022"),
-      ],
-    );
+    return
+      SizedBox(
+
+        child: ListView.builder(
+          itemCount: chitDates.length,
+          itemBuilder: (context, index) {
+            return  Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                child: Column(children: [
+                  Container(
+                    height: 50.w,
+                    width:320.w ,
+
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(chitDates[index],style: TextStyle(fontSize: 20,fontWeight: FontWeight.w400),),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Icon(Icons.print),
+                        )
+                      ],),
+
+
+
+
+
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: gradients,
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(20)
+                      ),
+
+                    ),
+                  ),
+                  Container(
+                    height: 160.h,
+                    width: 320.w,
+                    child: Row(
+
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Text('Chit Value',style: TextStyle(color: Colors.white),),
+                              GradientText(text: "₹ 1,00,000"),
+                              Text('Total Inst',style: TextStyle(color: Colors.white),),
+                              GradientText(text: "25"),
+                              Text('Auction Details',style: TextStyle(color: Colors.white),),
+                              GradientText(text: "12/06/2023"),
+                            ],),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('Paid',style: TextStyle(color: Colors.white),),
+                              GradientText(text: '25/25'),
+                              Text('Status',style: TextStyle(color: Colors.white),),
+                              Text('completed',style: TextStyle(color: Colors.green),)
+                            ],),
+                        )
+                      ],),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                            bottomRight: Radius.circular(20),
+                            bottomLeft: Radius.circular(20)
+                        ),
+                        border: Border.all(
+                            color: Colors.white
+                        )
+                    ),
+                  )
+                ],),
+              ),
+            );
+
+          },
+        ),
+      );
   }
 }
 
 
+
 class PaymentHistoryTab extends StatelessWidget {
   Widget paymentTile(String title, String transactionId, String time, String date, String status) {
-    return ListTile(
-      leading: Icon(Icons.receipt, color: Colors.grey),
-      title: Text(title, style: TextStyle(color: Colors.white)),
-      subtitle: Text("Transaction ID: $transactionId\n$date", style: TextStyle(color: Colors.white70)),
-      trailing: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          Text(time, style: TextStyle(color: Colors.white)),
-          SizedBox(height: 5),
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-            decoration: BoxDecoration(
-              color: status == "Paid" ? Colors.green : Colors.red,
-              borderRadius: BorderRadius.circular(5),
-            ),
-            child: Text(status, style: TextStyle(color: Colors.white, fontSize: 12)),
+    return Column(
+      children: [
+        ListTile(
+          leading: Icon(Icons.receipt, color: Colors.grey),
+          title: GradientText(text: title,),
+          subtitle: Text("Transaction ID: $transactionId\n$date", style: TextStyle(color: Colors.white70)),
+          trailing: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Text(time, style: TextStyle(color: Colors.white)),
+              SizedBox(height: 5),
+              Container(
+                height: 20,
+                width: 60,
+                child: Center(
+                  child: Text(status == "Paid" ? 'Paid':'Failed',style: TextStyle(
+                    color: status == 'Paid'? Colors.green : Colors.red
+                  ),),
+                ),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  border: Border.all(
+                    color: status == 'Paid'? Colors.green : Colors.red
+                  )
+                ),
+              )
+            ],
           ),
-        ],
-      ),
+        ),
+        GradientDivider(),
+      ],
     );
   }
 
@@ -139,6 +261,36 @@ class PaymentHistoryTab extends StatelessWidget {
         paymentTile("October Month Chit Amount", "2589652130", "01:10 PM", "06/10/2024", "Failed"),
         paymentTile("September Month Chit Amount", "2589652132", "02:56 PM", "03/09/2024", "Paid"),
       ],
+    );
+  }
+}
+
+
+class GradientDivider extends StatelessWidget {
+  final List<Color> gradients = [
+    Color(0xFFBF9347),
+    Color(0xFFFBF398),
+    Color(0xFFF0D571),
+    Color(0xFFF9F194),
+    Color(0xFFDEAB3D),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return ShaderMask(
+      shaderCallback: (bounds) => LinearGradient(
+        colors: gradients,
+        begin: Alignment.centerLeft,
+        end: Alignment.centerRight,
+      ).createShader(bounds),
+      child: Padding(
+        padding: const EdgeInsets.only(left: 30,right: 30),
+        child: Container(
+          height: 0.50,
+          width: double.infinity,
+          color: Colors.white,
+        ),
+      ),
     );
   }
 }
