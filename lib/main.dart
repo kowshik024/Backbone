@@ -8,6 +8,9 @@ import 'package:backbone/menu/profile.dart';
 import 'package:backbone/menu/register.dart';
 import 'package:backbone/menu/terms%20and%20condition.dart';
 import 'package:backbone/utils/bottom_navigation_screen.dart';
+import 'package:backbone/walk%20through/page1.dart';
+import 'package:backbone/walk%20through/walkthrough.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -32,10 +35,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
-        home: refer(),
+        home: Walkthrough(),
       ),
     );
   }

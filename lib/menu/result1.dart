@@ -1,4 +1,5 @@
 import 'package:backbone/menu/settings.dart';
+import 'package:backbone/utils/gradient_icon.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/gradient_text.dart';
@@ -86,11 +87,7 @@ class _RegistrationSuccessPageState extends State<RegistrationSuccessPage>
             children: [
               ScaleTransition(
                 scale: _iconScaleAnimation,
-                child: Icon(
-                  Icons.file_copy_sharp,
-                  color: Colors.yellow.shade700,
-                  size: 120,
-                ),
+                child: GradientIcon(child: Icon(Icons.file_copy_sharp,color: Colors.white,size: 200,))
               ),
               SizedBox(height: 20),
               SlideTransition(
