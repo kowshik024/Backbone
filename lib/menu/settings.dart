@@ -6,18 +6,16 @@ import 'package:flutter/material.dart';
 import '../utils/gradient_icon.dart';
 import '../utils/gradient_text.dart';
 
-void main() {
-  runApp(SettingsPage());
-}
 
 class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
         backgroundColor: Colors.black,
         appBar: AppBar(
-          leading: Icon(Icons.arrow_back_ios),
+          leading: IconButton(onPressed: (){
+            Navigator.pop(context);
+          }, icon: Icon(Icons.arrow_back_ios)),
           backgroundColor: Color(0xff000000),
           title: Text('Settings', style: TextStyle(color:Color(0xffFFFFFF))),
           iconTheme: IconThemeData(color:Color(0xffFFFFFF)),
@@ -30,7 +28,7 @@ class SettingsPage extends StatelessWidget {
               title:GradientText(text: "Update",fontSize: 14,),
               trailing: GradientIcon(child: Icon(Icons.arrow_forward_ios_rounded))
               ,             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => update()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => UpdateScreen()));
             },
             ),
             Divider(
@@ -65,7 +63,7 @@ class SettingsPage extends StatelessWidget {
             ),
           ],
         ),
-      ),
+
     );
   }
 }

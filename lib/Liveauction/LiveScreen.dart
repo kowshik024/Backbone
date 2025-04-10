@@ -155,7 +155,9 @@ class _LivescreenState extends State<Livescreen> {
       appBar: AppBar(
         backgroundColor: Colors.black,
         title: Text('Live Auction',style: TextStyle(color: Colors.white),),
-        leading: Icon(Icons.arrow_back_ios,color: Colors.white,),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: Icon(Icons.arrow_back_ios,color: Colors.white,)),
         actions: [Image(image: AssetImage("assets/whatsapp.png")),
           Icon(Icons.notification_add,color: Colors.white,)
         ],

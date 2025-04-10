@@ -1,18 +1,15 @@
 import 'package:backbone/menu/update.dart';
 import 'package:backbone/utils/gradient_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
-
 import '../constant/app_colors.dart';
 import '../utils/flutter_custom_text.dart';
 import '../utils/flutter_input_field.dart';
 import '../utils/gradient_coloured_button.dart';
 
 
-void main() {
-  runApp(MaterialApp(home: profile()));
-}
 
 class profile extends StatefulWidget {
   @override
@@ -49,151 +46,155 @@ class _PersonalDetailScreenState extends State<profile> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          
-          Padding(
-            padding: const EdgeInsets.only(left: 40,top: 30),
+          Center(
             child: SizedBox(
               child: GestureDetector(
                 onTap: _pickImage,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 80),
+                child: Container(
+                  height: 150.h,
+                  padding: EdgeInsets.all(10.r),
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(colors: AppColors().gradients),
+                    shape: BoxShape.circle,
+                    border: Border.all(color: Colors.grey),
+                  ),
                   child: Container(
-                    height: 150,
-                    padding: EdgeInsets.all(10),
+                    padding: EdgeInsets.all(10.r),
                     decoration: BoxDecoration(
-                      gradient: LinearGradient(colors: AppColors().gradients),
+                      color: Colors.black,
                       shape: BoxShape.circle,
-                      border: Border.all(color: Colors.grey),
-
                     ),
-                    child: Container(
-                      padding: EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        color: Colors.black,
-                        shape: BoxShape.circle,
-                      ),
-                      child: _image == null
-                          ? Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.image, size: 40, color: Colors.grey),
-                          SizedBox(height: 8),
-                          Text("Drag and Drop your image here",style: TextStyle(fontSize: 9,color: Colors.white),),
-                          Text("Maximum 5 MB file size",style: TextStyle(fontSize: 10,color: Colors.white),),
-                          SizedBox(height: 8,),
-                          SizedBox(
-                            width: 70,
-                            height: 20,
-                            child: ElevatedButton(
-
-                              onPressed: _pickImage,
-                              child: Text("Upload Image",style: TextStyle(fontSize:6),),
-                            ),
+                    child: _image == null
+                        ? Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.image, size: 40.sp, color: Colors.grey),
+                        SizedBox(height: 8.h),
+                        Text("Drag and Drop your image here",style: TextStyle(fontSize: 9,color: Colors.white),),
+                        Text("Maximum 5 MB file size",style: TextStyle(fontSize: 10,color: Colors.white),),
+                        SizedBox(height: 8.h,),
+                        SizedBox(
+                          width: 70.w,
+                          height: 20.h,
+                          child: ElevatedButton(
+                            onPressed: _pickImage,
+                            child: Text("Upload Image",style: TextStyle(fontSize:6),),
                           ),
-                        ],
-                      )
-                          : Image.file(_image!, fit: BoxFit.cover),
-                    ),
+                        ),
+                      ],
+                    )
+                        : Image.file(_image!, fit: BoxFit.cover),
                   ),
                 ),
               ),
             ),
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 5.h),
           Padding(
-            padding: const EdgeInsets.only(left: 30),
-            child: GradientText(text: "Name:",fontSize: 18
+            padding:  EdgeInsets.only(left: 30.w),
+            child: GradientText(text: "Name:",fontSize: 14.sp
               ,)
           ),
-          SizedBox(height: 4),
+          SizedBox(height:4.h),
           Padding(
-        padding: const EdgeInsets.only(right: 20,left: 20),
-        child:  FlutterInputField(
-          inputType: TextInputType.text,
-          filled: true,
-          fillColor: AppColors().blackColor,
-          enableBorder: false,
-          verticalContentPadding: 8,
-          hintText: 'Enter Your name',
+        padding:  EdgeInsets.only(right: 20.w,left: 20.w),
+        child:  SizedBox(height: 40.h,width: 320.w,
+          child: FlutterInputField(
+            inputType: TextInputType.text,
+            filled: true,
+            fillColor: AppColors().blackColor,
+            enableBorder: false,
+            verticalContentPadding:8.h,
+            hintText: 'Enter Your name',
+          ),
         ),
       ),
-          SizedBox(height: 20),
+          SizedBox(height: 10.h),
           Padding(
-              padding: const EdgeInsets.only(left: 30),
-              child: GradientText(text: "User ID:",fontSize: 18
+              padding:  EdgeInsets.only(left: 30.w),
+              child: GradientText(text: "User ID:",fontSize: 14.sp
                 ,)
           ),
-          SizedBox(height: 4),
+          SizedBox(height: 4.h),
           Padding(
-            padding: const EdgeInsets.only(right: 20,left: 20),
-            child:  FlutterInputField(
-              inputType: TextInputType.text,
-              filled: true,
-              fillColor: AppColors().blackColor,
-              enableBorder: false,
-              verticalContentPadding: 8,
-              hintText: 'Enter Your user IDe',
+            padding:  EdgeInsets.only(right: 20.w,left: 20.w),
+            child:  SizedBox(height: 40.h,width: 320.w,
+              child: FlutterInputField(
+                inputType: TextInputType.text,
+                filled: true,
+                fillColor: AppColors().blackColor,
+                enableBorder: false,
+                verticalContentPadding: 8.h,
+                hintText: 'Enter Your user IDe',
+              ),
             ),
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 10.h),
           Padding(
-              padding: const EdgeInsets.only(left: 30),
-              child: GradientText(text: "Mobile NO:",fontSize: 18
+              padding:  EdgeInsets.only(left: 30.w),
+              child: GradientText(text: "Mobile NO:",fontSize: 14.sp
                 ,)
           ),
-          SizedBox(height: 4),
+          SizedBox(height: 4.h),
           Padding(
-            padding: const EdgeInsets.only(right: 20,left: 20),
-            child:  FlutterInputField(
-              inputType: TextInputType.text,
-              filled: true,
-              fillColor: AppColors().blackColor,
-              enableBorder: false,
-              verticalContentPadding: 8,
-              hintText: 'Enter Your Mobile No',
+            padding:  EdgeInsets.only(right: 20.w,left: 20.w),
+            child:  SizedBox(height: 40.h,width: 320.w,
+              child: FlutterInputField(
+                inputType: TextInputType.text,
+                filled: true,
+                fillColor: AppColors().blackColor,
+                enableBorder: false,
+                verticalContentPadding: 8.h,
+                hintText: 'Enter Your Mobile No',
+              ),
             ),
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 10.h),
           Padding(
-              padding: const EdgeInsets.only(left: 30),
-              child: GradientText(text: "Mail ID:",fontSize: 18
+              padding:  EdgeInsets.only(left: 30.w),
+              child: GradientText(text: "Mail ID:",fontSize: 14.sp
                 ,)
           ),
-          SizedBox(height: 4),
+          SizedBox(height: 4.h),
           Padding(
-            padding: const EdgeInsets.only(right: 20,left: 20),
-            child:  FlutterInputField(
-              inputType: TextInputType.text,
-              filled: true,
-              fillColor: AppColors().blackColor,
-              enableBorder: false,
-              verticalContentPadding: 8,
-              hintText: 'Enter Your Email ID',
-              suffixIcon: Icon(Icons.edit_calendar),
+            padding:  EdgeInsets.only(right: 20.w,left: 20.w),
+            child:  SizedBox(height: 40.h,width: 320.w,
+              child: FlutterInputField(
+                inputType: TextInputType.text,
+                filled: true,
+                fillColor: AppColors().blackColor,
+                enableBorder: false,
+                verticalContentPadding: 8.h,
+                hintText: 'Enter Your Email ID',
+                suffixIcon: Icon(Icons.edit_calendar),
+              ),
             ),
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 10.h),
           Padding(
-              padding: const EdgeInsets.only(left: 30),
-              child: GradientText(text: "Address:",fontSize: 18
+              padding:  EdgeInsets.only(left: 30.w),
+              child: GradientText(text: "Address:",fontSize: 14.sp
                 ,)
           ),
-          SizedBox(height: 4),
+          SizedBox(height: 4.h),
           Padding(
-            padding: const EdgeInsets.only(right: 20,left: 20),
-            child:  FlutterInputField(
-              inputType: TextInputType.text,
-              filled: true,
-              fillColor: AppColors().blackColor,
-              enableBorder: false,
-              verticalContentPadding: 8,
-              hintText: 'Enter Your Address',
-              suffixIcon: Icon(Icons.edit_calendar),
+            padding:  EdgeInsets.only(right: 20.w,left: 20.w),
+            child:  SizedBox(height: 70.h,width: 320.w,
+              child: FlutterInputField(
+                inputType: TextInputType.text,
+                filled: true,
+                fillColor: AppColors().blackColor,
+                enableBorder: false,
+                verticalContentPadding: 8.h,
+                hintText: 'Enter Your Address',
+                suffixIcon: Icon(Icons.edit_calendar),
+              ),
             ),
           ),
+          SizedBox(height: 20.h),
           Padding(
-            padding: EdgeInsets.only(left: 50, right: 50,top: 30),
-            child: SizedBox(height: 44,width: 300,
+            padding: EdgeInsets.only(left: 50.w, right: 50.w),
+            child: SizedBox(height: 40.h,width: 320.w,
               child: GradientColoredButton(
                 onTap: () {},
                 child: FlutterCustomText(
@@ -222,11 +223,11 @@ class ProfileField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 15),
-      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 12),
+      margin: EdgeInsets.only(bottom: 15.h),
+      padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 12.h),
       decoration: BoxDecoration(
         border: Border.all(color: Colors.yellow),
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(10.r),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -237,18 +238,18 @@ class ProfileField extends StatelessWidget {
               children: [
                 Text(
                   "$label :",
-                  style: TextStyle(color: Colors.grey, fontSize: 13),
+                  style: TextStyle(color: Colors.grey, fontSize: 13.sp),
                 ),
-                SizedBox(height: 3),
+                SizedBox(height: 3.h),
                 Text(
                   value,
-                  style: TextStyle(color: Colors.white, fontSize: 15),
+                  style: TextStyle(color: Colors.white, fontSize: 15.sp),
                 ),
               ],
             ),
           ),
           if (showEdit)
-            Icon(Icons.edit, color: Colors.yellowAccent, size: 18),
+            Icon(Icons.edit, color: Colors.yellowAccent, size: 18.sp),
         ],
       ),
     );

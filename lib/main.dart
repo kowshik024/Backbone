@@ -1,5 +1,7 @@
 import 'package:backbone/Liveauction/LiveScreen.dart';
 import 'package:backbone/Liveauction/Liveauction.dart';
+import 'package:backbone/Liveauction/SealingAuction.dart';
+import 'package:backbone/MyChit/PaymentPage.dart';
 import 'package:backbone/MyChit/myChit.dart';
 import 'package:backbone/login/bottom_navigation/chit_plans.dart';
 import 'package:backbone/login/bottom_navigation/history%202.dart';
@@ -10,10 +12,12 @@ import 'package:backbone/login/login_screen.dart';
 import 'package:backbone/login/otp_screen.dart';
 import 'package:backbone/login/splash_screen.dart';
 import 'package:backbone/login/welcome_screen.dart';
+import 'package:backbone/menu/permission.dart';
 import 'package:backbone/menu/profile.dart';
 import 'package:backbone/menu/refer.dart';
 import 'package:backbone/menu/register.dart';
 import 'package:backbone/menu/settings.dart';
+import 'package:backbone/menu/update.dart';
 import 'package:backbone/menu/verification.dart';
 import 'package:backbone/login/bottom_navigation/bottom_navigation_screen.dart';
 import 'package:flutter/material.dart';
@@ -33,13 +37,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
+      minTextAdapt: true,
+      designSize: const Size(360,690),
       child: MaterialApp(
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
-        home:SplashScreen(),
+        home:Sealingauction(),
       ),
     );
   }

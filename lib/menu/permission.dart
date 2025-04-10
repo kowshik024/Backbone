@@ -3,17 +3,6 @@ import 'package:backbone/utils/gradient_icon.dart';
 import 'package:backbone/utils/gradient_text.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: PermissionsScreen(),
-      debugShowCheckedModeBanner: false,
-    );
-  }
-}
 
 class PermissionsScreen extends StatefulWidget {
   @override
@@ -34,7 +23,7 @@ class _PermissionsScreenState extends State<PermissionsScreen> {
         backgroundColor: Colors.black,
         elevation: 0,
         leading: IconButton(onPressed: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsPage()));
+          Navigator.pop(context);
         }, icon: Icon(Icons.arrow_back_ios,color: Colors.white,)),
         title: Text('Permissions', style: TextStyle(color: Colors.white)),
         actions: [Image(image: AssetImage("assets/whatsapp.png"))],

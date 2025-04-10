@@ -1,6 +1,10 @@
+import 'package:backbone/Liveauction/LiveScreen.dart';
+import 'package:backbone/Liveauction/Liveauction.dart';
+import 'package:backbone/utils/gradient_container.dart';
 import 'package:backbone/utils/gradient_icon.dart';
 import 'package:backbone/utils/gradient_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../constant/app_colors.dart';
 import '../utils/flutter_custom_text.dart';
@@ -39,28 +43,27 @@ class _SealingauctionState extends State<Sealingauction> {
         ],
       ),
       body:Padding(
-        padding: const EdgeInsets.only(left: 20,right: 20),
+        padding:  EdgeInsets.only(left: 16.w,right: 16.w),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-          SizedBox(height: 20,),
+          SizedBox(height:10.h),
           GradientText(text: "Upcoming Auctions"),
           Text("19/12/2024",style: TextStyle(color: Colors.white),),
-            SizedBox(height: 20,),
-
+            SizedBox(height: 10.h),
             Expanded(
               child: ListView.builder(
                 itemCount: 2,
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: const EdgeInsets.only(bottom: 20),
-                    child: Container(
-                      height: 150,
-                      width: double.infinity,
+                    padding:  EdgeInsets.only(bottom: 20.h),
+                    child: GradientContainer(
+                      height: 150.h,
+                      width: 325.w,
                       child: Row(
                         children: [
                           Padding(
-                            padding: const EdgeInsets.all(10.0),
+                            padding:  EdgeInsets.all(10.r),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -69,37 +72,26 @@ class _SealingauctionState extends State<Sealingauction> {
                                 GradientText(text: '02:30 PM'),
                                 Text("January Month Chit",style: TextStyle(color: Colors.white),),
                                 GradientText(text: '₹ 10,00,000'),
-
                               ],),
                           ),
-                          Spacer(),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: SizedBox(height: 34,width: 100,
-                                  child: GradientColoredButton(
-                                    borderRadius: BorderRadius.circular(30),
-                                    onTap: () {},
-                                    child: FlutterCustomText(
-                                      text: 'Join',
-                                      color: AppColors().blackColor,
-                                    ),
-                                  ),
+                          GestureDetector(
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>Livescreen()));
+                            },
+                            child: Padding(
+                              padding:  EdgeInsets.only(top:100.h),
+                              child: Container(
+                                height: 30.h,
+                                width: 94.w,
+                                decoration: BoxDecoration(
+                                  gradient: LinearGradient(colors: AppColors().gradients),
+                                  borderRadius: BorderRadius.circular(20.r)
                                 ),
+                                child: Center(child: FlutterCustomText(text: "Join",fontSize: 14.sp,color: AppColors().blackColor,)),
                               ),
-                            ],)
+                            ),
+                          ),
                         ],
-                      ),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          border: Border.all(
-                              color: Colors.white
-
-                          )
-
                       ),
                     ),
                   );

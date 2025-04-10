@@ -9,10 +9,6 @@ import '../constant/app_colors.dart';
 import '../utils/flutter_custom_text.dart';
 import '../utils/gradient_coloured_button.dart';
 
-void main() {
-  runApp(MaterialApp(home: VerificationScreen()));
-}
-
 class VerificationScreen extends StatefulWidget {
   @override
   _VerificationScreenState createState() => _VerificationScreenState();
@@ -45,8 +41,8 @@ class _VerificationScreenState extends State<VerificationScreen> {
         GestureDetector(
           onTap: () => _pickImage(key),
           child: Container(
-            width: 80.w,
-            height: 80.h,
+            width: 70.w,
+            height: 70.h,
             margin: EdgeInsets.all(8.r),
             decoration: BoxDecoration(
               shape: BoxShape.circle,
@@ -76,13 +72,11 @@ class _VerificationScreenState extends State<VerificationScreen> {
         actions: [Image(image: AssetImage("assets/whatsapp.png"))],
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(16),
+        padding: EdgeInsets.only(left: 16.sp),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            
             Text("KYC Documents", style: TextStyle(color: Colors.white, fontSize: 18)),
-            
             SizedBox(height: 10.h),
            Row(
              children: [
@@ -93,28 +87,26 @@ class _VerificationScreenState extends State<VerificationScreen> {
            ),
             Row(
               children: [
-                _uploadTile("Front", "aadharFront"),
-                _uploadTile("Back", "aadharBack"),
+                _uploadTile("", "aadharFront"),
+                _uploadTile("", "aadharBack"),
                 _uploadTile("", "aadharBack"),
               ],
             ),
-            SizedBox(height: 10),
             Row(
               children: [
-                GradientText(text: "Aadhar Card"),
-                SizedBox(width: 20,),
+                GradientText(text: "Pan Card"),
+                SizedBox(width: 20.sp),
                 Icon(Icons.check_circle,color: Colors.green,)
               ],
             ),
             Row(
               children: [
-                _uploadTile("PAN", "panCard"),
+                _uploadTile("", "panCard"),
                 _uploadTile("", "panCard"),
               ],
             ),
-            SizedBox(height: 20),
-            Text("Other Documents", style: TextStyle(color: Colors.white, fontSize: 18)),
-            SizedBox(height: 10,),
+            Text("Other Documents", style: TextStyle(color: Colors.white, fontSize: 18.sp)),
+            SizedBox(height: 10.sp),
             GradientText(text: "Salary Slip"),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -123,21 +115,23 @@ class _VerificationScreenState extends State<VerificationScreen> {
 
               ],
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: GradientText(text: "Vote ID"),
+            Row(
+              children: [
+                GradientText(text: "Vote ID"),
+                SizedBox(width: 96.w),
+                GradientText(text: "Live Image")
+              ],
             ),
             Row(
               children: [
                 _uploadTile("", "voterID"),
-                SizedBox(width: 70,),
+                SizedBox(width: 70.w),
                 _uploadTile("", "liveImage"),
               ],
             ),
-
             Padding(
-              padding: EdgeInsets.only(left: 50, right: 50,top: 100),
-              child: SizedBox(height: 44,width: 300,
+              padding: EdgeInsets.only(left: 36.w, right:36.w),
+              child: SizedBox(height: 44.h,width: 300.w,
                 child: GradientColoredButton(
                   onTap: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>RegistrationSuccessPage()));

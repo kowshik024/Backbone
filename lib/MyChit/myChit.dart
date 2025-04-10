@@ -57,145 +57,150 @@ class _MychitState extends State<Mychit> {
     return Scaffold(
       backgroundColor: Colors.black,
       body: SafeArea(
-        child: Column(children: [
-          Text("2 Chit selected",style: TextStyle(color: Colors.white),),
-        
+        child: SingleChildScrollView(
+          child: Column(children: [
+            Text("2 Chit selected",style: TextStyle(color: Colors.white),),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-            Text("Total Chit Overview:",style: TextStyle(color: Colors.white,fontSize: 16.sp),),
-            Padding(
-              padding:  EdgeInsets.only(right: 50.w),
-              child: GradientText(text: '₹ 3540'),
-            ),
-            SizedBox(height: 34.h,width: 100.w,
-              child: GradientColoredButton(
-                borderRadius: BorderRadius.circular(30),
-                onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>PaymentPage()));
-                },
-                child: FlutterCustomText(
-                  text: 'Pay',
-                  color: AppColors().blackColor,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+              Text("Total Chit Overview:",style: TextStyle(color: Colors.white,fontSize: 16.sp),),
+              Padding(
+                padding:  EdgeInsets.only(right: 50.w),
+                child: GradientText(text: '₹ 3540'),
+              ),
+              SizedBox(height: 34.h,width: 100.w,
+                child: GradientColoredButton(
+                  borderRadius: BorderRadius.circular(30),
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>PaymentPage()));
+                  },
+                  child: FlutterCustomText(
+                    text: 'Pay',
+                    color: AppColors().blackColor,
+                  ),
                 ),
               ),
-            ),
-            ],),
-          SizedBox(height: 20.h),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.h),
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20.r),
-              ),
-              child: ExpansionTile(
-                title: GradientText(text: "Current Chit Overview"),
-                children: [
-                  Container(
-                    padding: EdgeInsets.all(2),
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(
-                        color: Colors.white,
-                        width: 4,
-                      ),
-                    ),
-                    child: CircleAvatar(
-                      radius: 50,
-                      backgroundImage: AssetImage('assets/person.png'),
-                    ),
-                  ),
-          
-                  Padding(
-                    padding:  EdgeInsets.all(8),
-                    child: Row(
-                      children: [
-                        Text("Name:", style: TextStyle(color: Colors.white)),
-                        GradientText(text: "Nandha Kumar"),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding:  EdgeInsets.all(8),
-                    child: Row(
-                      children: [
-                        Text("User ID:", style: TextStyle(color: Colors.white)),
-                        GradientText(text: "SSC123"),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding:   EdgeInsets.all(8),
-                    child: Column(
+              ],),
+            SizedBox(height: 20.h),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20.h),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20.r),
+                ),
+                child: ExpansionTile(
+                  title: GradientText(text: "Current Chit Overview"),
+                  children: [
+                    Column(
                       children: [
                         Container(
-                          height: 50,
-                          width: 320,
-                          padding: EdgeInsets.all(8),
+                          padding: EdgeInsets.all(2.r),
                           decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: gradients,
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight,
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              color: Colors.white,
+                              width: 4.w,
                             ),
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(20),
-                              topRight: Radius.circular(20),
-                            ),
-                            color: Colors.white,
                           ),
-                          child: Padding(
-                            padding:   EdgeInsets.all(8),
-                            child: Text("Chit Overview"),
+                          child: CircleAvatar(
+                            radius: 50.r,
+                            backgroundImage: AssetImage('assets/person.png'),
                           ),
                         ),
-                        Container(
-                          width: 320, // Responsive width
-                          height: 230,
-                          padding: EdgeInsets.all(8),
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Colors.white
-                            ),
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(20),
-                              bottomRight: Radius.circular(20),
-                            ),
-                          ),
+                        Padding(
+                          padding:  EdgeInsets.all(8.r),
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text("Total Chit Value", style: TextStyle(color: Colors.white)),
-                                  GradientText(text: "₹ 10,00,000"),
-                                  Text("Priced Chit Value", style: TextStyle(color: Colors.white)),
-                                  GradientText(text: "₹ 12,00,000"),
-                                  GradientText(text: "Loans"),
-                                  Text("₹ 1,00,000", style: TextStyle(color: Colors.white)),
-                                ],
+                              Text("Name:", style: TextStyle(color: Colors.white)),
+                              GradientText(text: "Nandha Kumar"),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding:  EdgeInsets.all(8.r),
+                          child: Row(
+                            children: [
+                              Text("User ID:", style: TextStyle(color: Colors.white)),
+                              GradientText(text: "SSC123"),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding:  EdgeInsets.all(8.r),
+                          child: Column(
+                            children: [
+                              Container(
+                                height: 50.h,
+                                width: 320.w,
+                                padding: EdgeInsets.all(8.r),
+                                decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    colors: gradients,
+                                    begin: Alignment.topLeft,
+                                    end: Alignment.bottomRight,
+                                  ),
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(20.r),
+                                    topRight: Radius.circular(20.r),
+                                  ),
+                                  color: Colors.white,
+                                ),
+                                child: Padding(
+                                  padding:   EdgeInsets.all(8.r),
+                                  child: Text("Chit Overview"),
+                                ),
                               ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text("UnPriced Chit Value", style: TextStyle(color: Colors.white)),
-                                  GradientText(text: "₹ 12,00,000"),
-                                ],
+                              Container(
+                                width: 320.w, // Responsive width
+                                height: 210.w,
+                                padding: EdgeInsets.all(8.w),
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                      color: Colors.white
+                                  ),
+                                  borderRadius: BorderRadius.only(
+                                    bottomLeft: Radius.circular(20.r),
+                                    bottomRight: Radius.circular(20.r),
+                                  ),
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text("Total Chit Value", style: TextStyle(color: Colors.white)),
+                                        GradientText(text: "₹ 10,00,000"),
+                                        Text("Priced Chit Value", style: TextStyle(color: Colors.white)),
+                                        GradientText(text: "₹ 12,00,000"),
+                                        GradientText(text: "Loans"),
+                                        Text("₹ 1,00,000", style: TextStyle(color: Colors.white)),
+                                      ],
+                                    ),
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text("UnPriced Chit Value", style: TextStyle(color: Colors.white)),
+                                        GradientText(text: "₹ 12,00,000"),
+                                      ],
+                                    ),
+                                  ],
+                                ),
                               ),
                             ],
                           ),
                         ),
                       ],
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
-          SizedBox(height: 30.h),
-          Expanded(
-            child: ListView.builder(
+          
+            SizedBox(height: 30.h),
+            ListView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
               itemCount: chitNames.length,
               itemBuilder: (context, index) {
                 return
@@ -226,10 +231,8 @@ class _MychitState extends State<Mychit> {
                                 },
                                 child: Icon(
                                   _isDownloading ? Icons.download_done : Icons.download,
-        
                                 ),
                               ),
-        
                             ],),
                         ),
                         decoration: BoxDecoration(
@@ -262,7 +265,7 @@ class _MychitState extends State<Mychit> {
                                 Text("Auction Details",style: TextStyle(color: Colors.white),),
                                 GradientText(text: "12/06/2025"),
                                 Text("₹ 1,00,000",style: TextStyle(color: Colors.white),),
-        
+
                               ],),
                             Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -304,8 +307,8 @@ class _MychitState extends State<Mychit> {
                   );
                 },
             ),
+          ],
           ),
-        ],
         ),
       ),
     );
