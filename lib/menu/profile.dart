@@ -125,7 +125,7 @@ class _PersonalDetailScreenState extends State<profile> {
                 fillColor: AppColors().blackColor,
                 enableBorder: false,
                 verticalContentPadding: 8.h,
-                hintText: 'Enter Your user IDe',
+                hintText: 'Enter Your user ID',
               ),
             ),
           ),
