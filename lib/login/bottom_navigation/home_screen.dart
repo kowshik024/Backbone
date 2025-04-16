@@ -1,7 +1,6 @@
 import 'package:backbone/constant/app_colors.dart';
 import 'package:backbone/constant/app_images.dart';
 import 'package:backbone/login/bottom_navigation/chit_plans.dart';
-import 'package:backbone/login/bottom_navigation/my_chits_screen.dart';
 import 'package:backbone/login/bottom_navigation/new_chit.dart';
 import 'package:backbone/login/bottom_navigation/notification_screen.dart';
 import 'package:backbone/login/login_screen.dart';
@@ -17,6 +16,7 @@ import 'package:backbone/utils/gradient_text.dart';
 import 'package:backbone/utils/image_card.dart';
 import 'package:backbone/utils/svg_image.dart';
 import 'package:flutter/material.dart';
+import 'package:gif_view/gif_view.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Home_Screen extends StatefulWidget {
@@ -199,17 +199,16 @@ class _Home_ScreenState extends State<Home_Screen> {
                               ),
                             ),
                             context.horizontalSpacing(16.w),
-                            ImageCard(
-                              imageUrl: AppImages().chitFileIcon,
+                            GifView.asset(
+                              'assets/homescreen.gif',
+                              height: 80.h,
                               width: 80.w,
-          
-                              fit: BoxFit.fitWidth,
-                            ),
+                              frameRate: 30,
+                            )
                           ],
                         ),
                       ),
                       context.verticalSpacing(10.h),
-          
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -221,9 +220,11 @@ class _Home_ScreenState extends State<Home_Screen> {
                               fontWeight: FontWeight.w300,
                             ),
                           ),
+                          SizedBox(width: 10.w),
                           Material(
                             borderRadius: BorderRadius.circular(50.r),
                             child: GradientColoredButton(
+                              height: 40.h,
                               width: 130.w,
                               onTap: () {},
                               borderRadius: BorderRadius.circular(50.r),

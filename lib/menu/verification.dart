@@ -105,7 +105,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
                 _uploadTile("", "panCard"),
               ],
             ),
-            Text("Other Documents", style: TextStyle(color: Colors.white, fontSize: 18.sp)),
+            FlutterCustomText(text: "Other Documents",fontSize: 18.sp,color: Colors.white,),
             SizedBox(height: 10.sp),
             GradientText(text: "Salary Slip"),
             Row(

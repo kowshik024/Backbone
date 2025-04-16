@@ -20,6 +20,7 @@ import 'package:backbone/menu/profile.dart';
 import 'package:backbone/menu/refer.dart';
 import 'package:backbone/menu/register.dart';
 import 'package:backbone/menu/settings.dart';
+import 'package:backbone/menu/terms%20and%20condition.dart';
 import 'package:backbone/menu/update.dart';
 import 'package:backbone/menu/verification.dart';
 import 'package:backbone/login/bottom_navigation/bottom_navigation_screen.dart';
@@ -48,7 +49,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
-        home:Mychit(),
+        home:Bottom_Navigation(),
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:backbone/constant/app_colors.dart';
 import 'package:backbone/constant/app_images.dart';
+import 'package:backbone/login/forgot_password.dart';
 import 'package:backbone/login/otp_screen.dart';
 import 'package:backbone/utils/action_button.dart';
 import 'package:backbone/login/bottom_navigation/bottom_navigation_screen.dart';
@@ -126,7 +127,9 @@ class _Login_ScreenState extends State<Login_Screen> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       FlutterTextButton(
-                        onPresssed: () {},
+                        onPresssed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> Forget_password()));
+                        },
                         child: GradientText(
                           text: 'ForgotPassword?',
                           fontSize: 15.sp,

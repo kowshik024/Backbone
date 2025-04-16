@@ -65,7 +65,7 @@ class _ChitHistoryScreenState extends State<ChitHistoryScreen> with SingleTicker
                     ),
                     tabAlignment: TabAlignment.fill,
                     tabs: [
-                      Tab(text: 'Chit History'),
+                      Tab(text: 'Chit History',),
                       Tab(text: 'Payment History'),
                     ],
                   ),
@@ -130,7 +130,6 @@ class _ChitHistoryTabState extends State<ChitHistoryTab> {
                   Container(
                     height: 50.w,
                     width:320.w ,
-
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -143,11 +142,6 @@ class _ChitHistoryTabState extends State<ChitHistoryTab> {
                           child: Icon(Icons.print),
                         )
                       ],),
-
-
-
-
-
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: gradients,
@@ -158,14 +152,12 @@ class _ChitHistoryTabState extends State<ChitHistoryTab> {
                           topLeft: Radius.circular(20),
                           topRight: Radius.circular(20)
                       ),
-
                     ),
                   ),
                   Container(
                     height: 160.h,
                     width: 320.w,
                     child: Row(
-
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Padding(
@@ -174,7 +166,7 @@ class _ChitHistoryTabState extends State<ChitHistoryTab> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Text('Chit Value',style: TextStyle(color: Colors.white),),
+                              Text('Chit Value',style:GoogleFonts.inriaSans(color: Colors.white),),
                               GradientText(text: "₹ 1,00,000"),
                               Text('Total Inst',style: TextStyle(color: Colors.white),),
                               GradientText(text: "25"),

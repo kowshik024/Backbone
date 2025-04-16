@@ -5,8 +5,6 @@ import 'package:backbone/constant/app_colors.dart';
 import 'package:backbone/constant/app_images.dart';
 import 'package:backbone/login/bottom_navigation/history%202.dart';
 import 'package:backbone/login/bottom_navigation/home_screen.dart';
-import 'package:backbone/login/bottom_navigation/live_auction_screen.dart';
-import 'package:backbone/login/bottom_navigation/my_chits_screen.dart';
 import 'package:backbone/login/bottom_navigation/notification_screen.dart';
 import 'package:backbone/login/login_screen.dart';
 import 'package:backbone/menu/profile.dart';
@@ -133,7 +131,7 @@ class _Bottom_NavigationState extends State<Bottom_Navigation> {
         drawer: Drawer(
           backgroundColor: AppColors().blackColor,
           child: Padding(
-            padding:  EdgeInsets.only(left:20.sp,top: 20.sp),
+            padding:  EdgeInsets.only(left:16.w,top:50.h),
             child: Column(
               children: [
                 Row(children: [
@@ -187,13 +185,13 @@ class _Bottom_NavigationState extends State<Bottom_Navigation> {
                           },
                           child: Padding(
                             padding:  EdgeInsets.only(right:30.w),
-                            child: Container(height: 45.h,width: 251.w,
+                            child: Container(height: 40.h,width: 251.w,
                               decoration: BoxDecoration(
                                 border: Border(bottom: BorderSide(color: Color(0xffDEAB3D)))
                               ),
                               child: ListTile(
                                 leading: GradientIcon(child: Icon(chitPlans[index]["icon"],color: Colors.white,size: 24.sp,)),
-                                title: GradientText(text: chitPlans[index]["title"],fontSize: 14.sp,),
+                                title: GradientText(text: chitPlans[index]["title"],fontSize: 16.sp,),
                                 trailing: GradientIcon(child: Icon(Icons.arrow_forward_ios,size: 18.sp,color: Colors.white,))
                               ),
                             ),

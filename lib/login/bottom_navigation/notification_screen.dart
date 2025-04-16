@@ -4,6 +4,7 @@ import 'package:backbone/utils/gradient_icon.dart';
 import 'package:backbone/utils/gradient_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gif_view/gif_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Notification_Screen extends StatefulWidget {
@@ -145,7 +146,12 @@ class NotificationList extends StatelessWidget {
               border: Border(bottom: BorderSide(color: Color(0xffDEAB3D))),
             ),
             child: ListTile(
-              leading: GradientIcon(child: Icon(Icons.notifications, color: Colors.white)),
+              leading: GifView.asset(
+                'assets/bell.gif',
+                height: 50.h,
+                width: 50.h,
+                frameRate: 30,
+              ),
               title:GradientText(text: notification['title']??'',fontSize: 14.sp,),
               subtitle: Text(
                 notification['description'] ?? '',

@@ -1,5 +1,6 @@
 import 'package:backbone/menu/settings.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../constant/app_colors.dart';
 import '../utils/flutter_custom_text.dart';
@@ -33,15 +34,8 @@ class Terms extends StatelessWidget {
       body:   Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 30,right: 120),
-            child: Text(
-              '* Data safety',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 16,
-              ),
-              textAlign: TextAlign.center,
-            ),
+            padding:  EdgeInsets.only(top: 30,left: 18),
+            child: FlutterCustomText(text: "Data Safety",fontSize: 18.sp,color: Colors.white,)
           ),
           SizedBox(height: 10,),
           Padding(
