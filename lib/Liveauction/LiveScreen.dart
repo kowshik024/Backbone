@@ -91,11 +91,9 @@ class _LivescreenState extends State<Livescreen> {
         builder: (BuildContext context) {
           return StatefulBuilder(
             builder: (context, setModalState) {
-
               modalTimer ??= Timer.periodic(Duration(seconds: 1), (timer) {
                 setModalState(() {});
               });
-
               return Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Column(
