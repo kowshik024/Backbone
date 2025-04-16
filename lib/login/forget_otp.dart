@@ -1,5 +1,6 @@
 import 'package:backbone/constant/app_colors.dart';
 import 'package:backbone/constant/app_images.dart';
+import 'package:backbone/login/reset_pasword.dart';
 import 'package:backbone/utils/action_button.dart';
 import 'package:backbone/login/bottom_navigation/bottom_navigation_screen.dart';
 import 'package:backbone/utils/flutter_custom_text.dart';
@@ -14,14 +15,14 @@ import 'package:pinput/pinput.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'dart:async';
 
-class Otp_Screen extends StatefulWidget {
-  Otp_Screen({super.key});
+class Forgot_otp extends StatefulWidget {
+  Forgot_otp({super.key});
 
   @override
-  State<Otp_Screen> createState() => _Otp_ScreenState();
+  State<Forgot_otp> createState() => _Forgot_otpState();
 }
 
-class _Otp_ScreenState extends State<Otp_Screen> {
+class _Forgot_otpState extends State<Forgot_otp> {
   TextEditingController otpController = TextEditingController();
 
   int countdown = 30;
@@ -90,7 +91,6 @@ class _Otp_ScreenState extends State<Otp_Screen> {
                       fontSize: 35.sp,
                       fontWeight: FontWeight.w300,
                     ),
-
                     GradientText(
                       text: 'Backbone Chit Funds',
                       fontSize: 30.sp,
@@ -177,26 +177,26 @@ class _Otp_ScreenState extends State<Otp_Screen> {
                     ),
                     SizedBox(height: 20.h),
                     Padding(
-                      padding:  EdgeInsets.only(left: 40.w),
-                      child: Row(
-                        children: [
-                          Container(
-                            child: Text("${countdown}s",
-                                style: TextStyle(color: Colors.white,fontSize: 15)),
-                          ),
-                          Padding(
-                            padding:  EdgeInsets.only(left:180.w),
-                            child: Container(
-                              child: TextButton(onPressed: (){
-                                setState(() {
-                                  countdown = 30;
-                                  startCountdown();
-                                });
-                              }, child: GradientText(text: "Resend OTP?",decoration: TextDecoration.underline,)),
+                        padding:  EdgeInsets.only(left: 40.w),
+                        child: Row(
+                          children: [
+                            Container(
+                              child: Text("${countdown}s",
+                                  style: TextStyle(color: Colors.white,fontSize: 15)),
                             ),
-                          )
-                        ],
-                      )
+                            Padding(
+                              padding:  EdgeInsets.only(left:180.w),
+                              child: Container(
+                                child: TextButton(onPressed: (){
+                                  setState(() {
+                                    countdown = 30;
+                                    startCountdown();
+                                  });
+                                }, child: GradientText(text: "Resend OTP?",decoration: TextDecoration.underline,)),
+                              ),
+                            )
+                          ],
+                        )
                     ),
                   ],
                 ),
@@ -207,7 +207,7 @@ class _Otp_ScreenState extends State<Otp_Screen> {
                 child: SizedBox(height: 44.h,width: 320.w,
                   child: GradientColoredButton(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Bottom_Navigation()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>ResetPasword()));
                     },
                     child: FlutterCustomText(
                       text: 'VERIFY',

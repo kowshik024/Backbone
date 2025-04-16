@@ -128,7 +128,7 @@ class _Login_ScreenState extends State<Login_Screen> {
                       FlutterTextButton(
                         onPresssed: () {},
                         child: GradientText(
-                          text: 'ForgetPassword?',
+                          text: 'ForgotPassword?',
                           fontSize: 15.sp,
                           fontWeight: FontWeight.w400,
                           decoration: TextDecoration.underline,

@@ -147,7 +147,7 @@ class _Home_ScreenState extends State<Home_Screen> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   GradientText(
-                                    text: 'Mobile',
+                                    text: 'Month',
                                     fontSize: 14.sp,
                                     fontWeight: FontWeight.w400,
                                   ),
@@ -228,7 +228,7 @@ class _Home_ScreenState extends State<Home_Screen> {
                               onTap: () {},
                               borderRadius: BorderRadius.circular(50.r),
                               child: FlutterCustomText(
-                                text: 'Login',
+                                text: 'Enter',
                                 color: AppColors().blackColor,
                               ),
                             ),

@@ -8,8 +8,11 @@ import 'package:backbone/login/bottom_navigation/history%202.dart';
 import 'package:backbone/login/bottom_navigation/home_screen.dart';
 import 'package:backbone/login/bottom_navigation/new_chit.dart';
 import 'package:backbone/login/bottom_navigation/notification_screen.dart';
+import 'package:backbone/login/forgot_password.dart';
 import 'package:backbone/login/login_screen.dart';
+import 'package:backbone/login/otp.dart';
 import 'package:backbone/login/otp_screen.dart';
+import 'package:backbone/login/reset_pasword.dart';
 import 'package:backbone/login/splash_screen.dart';
 import 'package:backbone/login/welcome_screen.dart';
 import 'package:backbone/menu/permission.dart';
@@ -45,7 +48,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
-        home:Sealingauction(),
+        home:ResetPasword(),
       ),
     );
   }
