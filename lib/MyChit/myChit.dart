@@ -167,6 +167,7 @@ class _MychitState extends State<Mychit> {
                                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                                   children: [
                                     Column(
+                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
                                         Text("Total Chit Value", style: TextStyle(color: Colors.white)),
