@@ -160,11 +160,11 @@ class NotificationList extends StatelessWidget {
                 width: 60.h,
                 frameRate: 30,
               ),
-              title:GradientText(text: notification['title']??'',fontSize: 14.sp,),
-              subtitle: FlutterCustomText(text:  notification['description'] ?? '',color: Colors.white,fontSize: 12.sp,),
+              title:GradientText(text: notification['title']??'',fontSize: 14.sp,fontWeight: FontWeight.w700,),
+              subtitle: FlutterCustomText(text:  notification['description'] ?? '',color: Colors.white,fontSize: 12.sp,fontWeight: FontWeight.w400,),
               trailing: Text(
                 notification['time'] ?? '',
-                style: TextStyle(color: Colors.white, fontSize: 12.sp),
+                style: TextStyle(color: Colors.white, fontSize: 12.sp,fontWeight: FontWeight.w400,),
               ),
             ),
 

@@ -2,6 +2,7 @@ import 'package:backbone/menu/result1.dart';
 import 'package:backbone/utils/gradient_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gif_view/gif_view.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
@@ -69,7 +70,12 @@ class _VerificationScreenState extends State<VerificationScreen> {
         leading: IconButton(onPressed: (){
           Navigator.pop(context);
         }, icon: Icon(Icons.arrow_back_ios,color: Colors.white,)),
-        actions: [Image(image: AssetImage("assets/whatsapp.png"))],
+        actions: [GifView.asset(
+          'assets/whatsapp.gif',
+          height: 46.h,
+          width: 46.h,
+          frameRate: 30,
+        ),],
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.only(left: 16.sp),

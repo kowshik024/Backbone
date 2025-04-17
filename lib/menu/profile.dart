@@ -2,6 +2,7 @@ import 'package:backbone/menu/update.dart';
 import 'package:backbone/utils/gradient_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gif_view/gif_view.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import '../constant/app_colors.dart';
@@ -41,7 +42,12 @@ class _PersonalDetailScreenState extends State<profile> {
         leading: IconButton(onPressed: (){
           Navigator.pop(context);
         }, icon: Icon(Icons.arrow_back_ios,color: Colors.white,)),
-        actions: [Image(image: AssetImage("assets/whatsapp.png"))],
+        actions: [GifView.asset(
+          'assets/whatsapp.gif',
+          height: 46.h,
+          width: 46.h,
+          frameRate: 30,
+        ),],
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

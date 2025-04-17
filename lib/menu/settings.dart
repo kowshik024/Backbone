@@ -2,6 +2,8 @@
 import 'package:backbone/menu/permission.dart';
 import 'package:backbone/menu/update.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gif_view/gif_view.dart';
 
 import '../utils/gradient_icon.dart';
 import '../utils/gradient_text.dart';
@@ -19,7 +21,12 @@ class SettingsPage extends StatelessWidget {
           backgroundColor: Color(0xff000000),
           title: Text('Settings', style: TextStyle(color:Color(0xffFFFFFF))),
           iconTheme: IconThemeData(color:Color(0xffFFFFFF)),
-          actions: [Image(image: AssetImage("assets/whatsapp.png"))],
+          actions: [GifView.asset(
+            'assets/whatsapp.gif',
+            height: 46.h,
+            width: 46.h,
+            frameRate: 30,
+          ),],
         ),
         body: ListView(
           children: [

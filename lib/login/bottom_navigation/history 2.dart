@@ -169,9 +169,9 @@ class _ChitHistoryTabState extends State<ChitHistoryTab> {
                             children: [
                               Text('Chit Value',style:GoogleFonts.inriaSans(color: Colors.white),),
                               GradientText(text: "₹ 1,00,000",),
-                              Text('Total Inst',style: TextStyle(color: Colors.white),),
+                              Text('Total Inst',style: GoogleFonts.inriaSans(color: Colors.white)),
                               GradientText(text: "25"),
-                              Text('Auction Details',style: TextStyle(color: Colors.white),),
+                              Text('Auction Details',style: GoogleFonts.inriaSans(color: Colors.white),),
                               GradientText(text: "12/06/2023"),
                             ],),
                         ),
@@ -180,10 +180,10 @@ class _ChitHistoryTabState extends State<ChitHistoryTab> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text('Paid',style: TextStyle(color: Colors.white),),
+                              Text('Paid',style: GoogleFonts.inriaSans(color: Colors.white),),
                               GradientText(text: '25/25'),
-                              Text('Status',style: TextStyle(color: Colors.white),),
-                              Text('completed',style: TextStyle(color: Colors.green),)
+                              Text('Status',style: GoogleFonts.inriaSans(color: Colors.white)),
+                              Text('completed',style: GoogleFonts.inriaSans(color: Colors.green))
                             ],),
                         )
                       ],),
@@ -220,8 +220,8 @@ class PaymentHistoryTab extends StatelessWidget {
             width: 47.h,
             frameRate: 30,
           ),
-          title: GradientText(text: title,),
-          subtitle: Text("Transaction ID: $transactionId\n$date", style: TextStyle(color: Colors.white70)),
+          title: GradientText(text: title,fontWeight: FontWeight.w700,fontSize:14.sp),
+          subtitle: Text("Transaction ID: $transactionId\n$date", style: GoogleFonts.inriaSans(color: Colors.white,fontWeight: FontWeight.w400)),
           trailing: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
