@@ -111,7 +111,7 @@ class _Walkthrough_ScreenState extends State<Walkthrough_Screen> {
                 child: GradientColoredButton(
                   borderRadius: BorderRadius.circular(20.r),
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> Login_Screen()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> Welcome_Screen()));
                   },
                   child: FlutterCustomText(
                     text: 'Skip >',

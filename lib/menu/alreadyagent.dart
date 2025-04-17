@@ -72,10 +72,11 @@ class Already_Agent extends StatelessWidget {
                         alignment: Alignment.centerRight,
                         child: GestureDetector(
                           onTap: () {
+                            Navigator.pop(context);
                           },
                           child: Text(
                             "Register",
-                            style: GoogleFonts.inriaSans(fontSize: 13,decoration: TextDecoration.underline),
+                            style: GoogleFonts.inriaSans(fontSize: 13,decoration: TextDecoration.underline,color: Colors.white),
                           ),
                         ),
                       ),
