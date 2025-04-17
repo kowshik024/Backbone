@@ -1,5 +1,6 @@
 import 'package:backbone/constant/app_colors.dart';
 import 'package:backbone/login/login_screen.dart';
+import 'package:backbone/login/welcome_screen.dart';
 import 'package:backbone/utils/flutter_custom_text.dart';
 import 'package:backbone/utils/gradient_coloured_button.dart';
 import 'package:backbone/utils/gradient_text.dart';
@@ -84,7 +85,7 @@ class _Walkthrough_ScreenState extends State<Walkthrough_Screen> {
                         child: GradientColoredButton(
                           onTap: () {
                             if (isLastPage) {
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=> Login_Screen()));
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=> Welcome_Screen()));
                             } else {
                               _controller.nextPage(
                                   duration: Duration(milliseconds: 500),
