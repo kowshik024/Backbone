@@ -166,7 +166,12 @@ class _LivescreenState extends State<Livescreen> {
         actions: [
           GestureDetector(
             onTap: () {},
-            child: ImageCard(imageUrl: AppImages().whatsAppIcon),
+            child:GifView.asset(
+              'assets/whatsapp.gif',
+              height: 46.h,
+              width: 46.h,
+              frameRate: 30,
+            ),
           ),
           ActionButton(url: AppImages().bellIcon, onTap: () {
             Navigator.push(context, MaterialPageRoute(builder: (context)=>Notification_Screen()));

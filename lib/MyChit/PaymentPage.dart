@@ -5,6 +5,7 @@ import 'package:backbone/utils/image_card.dart';
 import 'package:flutter/material.dart';
 import 'package:backbone/constant/app_images.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gif_view/gif_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../utils/gradient_text.dart';
 
@@ -52,7 +53,12 @@ class _PaymentPageState extends State<PaymentPage> {
         actions: [
           GestureDetector(
             onTap: () {},
-            child: ImageCard(imageUrl: AppImages().whatsAppIcon),
+            child: GifView.asset(
+              'assets/whatsapp.gif',
+              height: 46.h,
+              width: 46.h,
+              frameRate: 30,
+            ),
           ),
         ],
       ),

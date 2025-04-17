@@ -66,7 +66,7 @@ class _Walkthrough_ScreenState extends State<Walkthrough_Screen> {
                       SizedBox(height: 16),
                       Padding(
                         padding:  EdgeInsets.only(left:16.w),
-                        child: GradientText(text: pages[index]['description']!,textAlign: TextAlign.center,),
+                        child: GradientText(text: pages[index]['description']!,textAlign: TextAlign.center,fontSize: 14.sp,),
                       ),
                       SizedBox(height: 40),
                       SmoothPageIndicator(

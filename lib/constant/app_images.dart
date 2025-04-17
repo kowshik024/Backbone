@@ -23,7 +23,6 @@ class AppImages {
 
   String  bellIcon = 'assets/bell_icon.svg';
 
-  String  whatsAppIcon = 'assets/whatsapp.png';
 
   // bottom navigation bar items .......................
 

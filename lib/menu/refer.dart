@@ -10,6 +10,7 @@ import 'package:backbone/utils/image_card.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gif_view/gif_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../constant/app_colors.dart';
@@ -33,7 +34,12 @@ class ReferAndEarnScreen extends StatelessWidget {
         actions:[
           GestureDetector(
             onTap: () {},
-            child: ImageCard(imageUrl: AppImages().whatsAppIcon),
+            child: GifView.asset(
+              'assets/whatsapp.gif',
+              height: 46.h,
+              width: 46.h,
+              frameRate: 30,
+            ),
           ),
           ActionButton(url: AppImages().bellIcon, onTap: () {
             Navigator.push(context, MaterialPageRoute(builder: (context)=>Notification_Screen()));
