@@ -76,7 +76,7 @@ class Already_Agent extends StatelessWidget {
                           },
                           child: Text(
                             "Register",
-                            style: GoogleFonts.inriaSans(fontSize: 13,decoration: TextDecoration.underline,color: Colors.white),
+                            style: GoogleFonts.inriaSans(fontSize: 13,decoration: TextDecoration.underline,decorationColor: Colors.white,color: Colors.white),
                           ),
                         ),
                       ),
