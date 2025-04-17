@@ -99,8 +99,6 @@ class _MychitState extends State<Mychit> {
                 ),
                 ],),
           ),
-
-
             // Padding(
             //   padding: EdgeInsets.symmetric(horizontal: 20.h),
             //   child: Container(

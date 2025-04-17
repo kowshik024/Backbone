@@ -8,6 +8,7 @@ import 'package:backbone/login/bottom_navigation/history%202.dart';
 import 'package:backbone/login/bottom_navigation/home_screen.dart';
 import 'package:backbone/login/bottom_navigation/new_chit.dart';
 import 'package:backbone/login/bottom_navigation/notification_screen.dart';
+import 'package:backbone/login/walkthrough_screen.dart';
 import 'package:backbone/login/forgot_password.dart';
 import 'package:backbone/login/login_screen.dart';
 import 'package:backbone/login/otp.dart';

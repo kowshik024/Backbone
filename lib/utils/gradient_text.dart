@@ -11,6 +11,7 @@ class GradientText extends StatelessWidget {
     this.fontWeight,
     this.decoration,
     this.fontStyle,
+    this.textAlign,
   });
 
   final String text;
@@ -18,6 +19,7 @@ class GradientText extends StatelessWidget {
   final FontWeight? fontWeight;
   final TextDecoration? decoration;
   final FontStyle? fontStyle;
+  final dynamic textAlign;
 
   @override
   Widget build(BuildContext context) {

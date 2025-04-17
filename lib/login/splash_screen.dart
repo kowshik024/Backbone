@@ -1,3 +1,4 @@
+import 'package:backbone/login/walkthrough_screen.dart';
 import 'package:backbone/login/welcome_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
     await Future.delayed(const Duration(seconds:2));
     if (mounted) {
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const Welcome_Screen()),);
+        MaterialPageRoute(builder: (context) => Walkthrough_Screen()),);
     }
   }
 

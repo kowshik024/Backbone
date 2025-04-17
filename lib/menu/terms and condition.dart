@@ -19,10 +19,7 @@ class Terms extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.black,
         elevation: 0,
-        title:  Text(
-          'Terms & Conditions',
-          style: TextStyle(color: Colors.white),
-        ),
+        title:  FlutterCustomText(text: "Terms & Conditions",color: Colors.white,fontSize:20.sp),
         leading: IconButton(
           icon:  Icon(Icons.arrow_back_ios, color: Colors.white),
           onPressed: () {
@@ -34,57 +31,41 @@ class Terms extends StatelessWidget {
       body:   Column(
         children: [
           Padding(
-            padding:  EdgeInsets.only(top: 30,left: 18),
-            child: FlutterCustomText(text: "Data Safety",fontSize: 18.sp,color: Colors.white,)
+            padding:  EdgeInsets.only(right: 150.w),
+            child: FlutterCustomText(text: "* Data Safety",fontSize: 18.sp,color: Colors.white,),
           ),
-          SizedBox(height: 10,),
+          SizedBox(height: 10.h),
           Padding(
-            padding: const EdgeInsets.only(left: 45),
-            child: GradientText(text: "The developer of ChitSoft provides\ninformation on how they collect and share\ndata. Data privacy and security practices\nmay vary based on age,region and use.",fontSize: 14,),
+            padding: EdgeInsets.only(left: 30.w,right: 30.w),
+            child: GradientText(text: "The developer of ChitSoft provides\ninformation on how they collect and share\ndata. Data privacy and security practices\nmay vary based on age,region and use.",fontSize: 15.sp,),
           ),
+          SizedBox(height: 10.h),
           Padding(
-            padding: const EdgeInsets.only(top: 30,right: 70),
-            child: Text(
-              '* Terms of Service',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 16,
-              ),
-              textAlign: TextAlign.center,
-            ),
+            padding: EdgeInsets.only(right: 110.w),
+            child: FlutterCustomText(text: "* Terms of Service",fontSize: 18.sp,color: Colors.white,)
           ),
-          SizedBox(height: 10,),
+          SizedBox(height: 10.h),
           Padding(
-            padding: const EdgeInsets.only(left: 70),
-            child: GradientText(text: "The terms of service for a service may be\nfound on the service's Application.The\nterms of service may be updated,changed\n or replaced at the discretion of the service\nprovider",fontSize: 14,),
+            padding: EdgeInsets.only(left: 30.w,right: 30.w),
+            child: GradientText(text: "The terms of service for a service may be\nfound on the service's Application.The\nterms of service may be updated,changed\n or replaced at the discretion of the service\nprovider",fontSize: 15.sp,),
           ),
+          SizedBox(height: 10.h),
           Padding(
-            padding: const EdgeInsets.only(top: 30,right: 30),
-            child: Text(
-              '*Acceptance of terms',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 16,
-              ),
-              textAlign: TextAlign.center,
-            ),
+            padding: EdgeInsets.only(right: 70.w),
+            child: FlutterCustomText(text: "* Acceptance of terms",fontSize: 18.sp,color: Colors.white,)
           ),
-          SizedBox(height: 10,),
+          SizedBox(height: 10.h),
           Padding(
-            padding: const EdgeInsets.only(left: 70),
-            child: GradientText(text: "User must read and agree to the term\nand conditions to access the service or\nApplication.Users who do not agree to the\nterms and conditions should not access\nthe Application or register for\nmembership.",fontSize: 14,),
+            padding: EdgeInsets.only(left: 30.w,right: 30.w),
+            child: GradientText(text: "User must read and agree to the term\nand conditions to access the service or\nApplication.Users who do not agree to the\nterms and conditions should not access\nthe Application or register for\nmembership.",fontSize: 15.sp,),
           ),
-          SizedBox(height: 10,),
+          SizedBox(height: 10.h),
           Padding(
-            padding: const EdgeInsets.only(left: 60),
-            child: GradientText(text: "Chit Fubds are legal in India and are\n regulated by the chit funds Act of 1262.\nThe act governs the registration and\nmanagement of chit funds",fontSize: 14,),
+            padding: EdgeInsets.only(left: 20.w,right: 30.w),
+            child: GradientText(text: "Chit Funds are legal in India and are\n regulated by the chit funds Act of 1262.\nThe act governs the registration and\nmanagement of chit funds",fontSize: 15.sp,),
           ),
-
         ],
       ),
-
-
-
     );
   }
 }

@@ -1,8 +1,12 @@
 import 'package:backbone/Liveauction/LiveScreen.dart';
 import 'package:backbone/Liveauction/Liveauction.dart';
+import 'package:backbone/constant/app_images.dart';
+import 'package:backbone/login/bottom_navigation/notification_screen.dart';
+import 'package:backbone/utils/action_button.dart';
 import 'package:backbone/utils/gradient_container.dart';
 import 'package:backbone/utils/gradient_icon.dart';
 import 'package:backbone/utils/gradient_text.dart';
+import 'package:backbone/utils/image_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -33,13 +37,18 @@ class _SealingauctionState extends State<Sealingauction> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Text('Sealing Auction',style: TextStyle(color: Colors.white),),
-        leading: IconButton(onPressed: (){
-          Navigator.pop(context);
-        }, icon: Icon(Icons.arrow_back_ios,color: Colors.white,)),
-        actions: [Image(image: AssetImage("assets/whatsapp.png")),
-          Icon(Icons.notification_add,color: Colors.white,)
+        title: FlutterCustomText(text: "Sealing Auction",fontSize: 20.sp,color: Colors.white,),
+        iconTheme: IconThemeData(color: Colors.white),
+        foregroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
+        actions: [
+          GestureDetector(
+            onTap: () {},
+            child: ImageCard(imageUrl: AppImages().whatsAppIcon),
+          ),
+          ActionButton(url: AppImages().bellIcon, onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>Notification_Screen()));
+          }),
         ],
       ),
       body:Padding(

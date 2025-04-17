@@ -1,8 +1,13 @@
 import 'package:backbone/MyChit/PaymentPage.dart';
+import 'package:backbone/constant/app_images.dart';
+import 'package:backbone/login/bottom_navigation/notification_screen.dart';
+import 'package:backbone/utils/action_button.dart';
 import 'package:backbone/utils/gradient_icon.dart';
 import 'package:backbone/utils/gradient_text.dart';
+import 'package:backbone/utils/image_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gif_view/gif_view.dart';
 import '../constant/app_colors.dart';
 import '../login/bottom_navigation/bottom_navigation_screen.dart';
 import '../utils/flutter_custom_text.dart';
@@ -151,19 +156,44 @@ class _LivescreenState extends State<Livescreen> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Text('Live Auction',style: TextStyle(color: Colors.white),),
         leading: IconButton(onPressed: (){
           Navigator.pop(context);
-        }, icon: Icon(Icons.arrow_back_ios,color: Colors.white,)),
-        actions: [Image(image: AssetImage("assets/whatsapp.png")),
-          Icon(Icons.notification_add,color: Colors.white,)
+        }, icon: Icon(Icons.arrow_back_ios)),
+        title: FlutterCustomText(text: "Live Auction",fontSize: 20.sp,color: Colors.white,),
+        iconTheme: IconThemeData(color: Colors.white),
+        foregroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
+        actions: [
+          GestureDetector(
+            onTap: () {},
+            child: ImageCard(imageUrl: AppImages().whatsAppIcon),
+          ),
+          ActionButton(url: AppImages().bellIcon, onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>Notification_Screen()));
+          }),
         ],
       ),
       body: Padding(
         padding: const EdgeInsets.only(left: 20,right: 20),
         child: Column(children: [
-          GradientText(text: '$_minutes:${_seconds.toString().padLeft(2, '0')} Min'),
+          Row(
+            children: [
+              GifView.asset(
+                'assets/live.gif',
+                height: 37.h,
+                width: 64.h,
+                frameRate: 30,
+              ),
+              SizedBox(width: 70.w),
+              GifView.asset(
+                'assets/time.gif',
+                height: 42.h,
+                width: 42.h,
+                frameRate: 30,
+              ),
+              GradientText(text: '$_minutes:${_seconds.toString().padLeft(2, '0')} Min'),
+            ],
+          ),
           SizedBox(height: 20.h,),
           Container(
             width: double.infinity.w,
@@ -397,11 +427,7 @@ class _TimeupScreenState extends State<TimeupScreen>
             children: [
               ScaleTransition(
                 scale: _iconScaleAnimation,
-                child: Icon(
-                  Icons.alarm,
-                  color: Colors.green,
-                  size: 120,
-                ),
+                child: GradientIcon(child: Icon(Icons.alarm,color: Colors.white,size: 120,))
               ),
               SizedBox(height: 20),
               SlideTransition(
@@ -412,8 +438,6 @@ class _TimeupScreenState extends State<TimeupScreen>
                   ],
                 ),
               ),
-
-
             ],
           ),
         ),

@@ -4,6 +4,7 @@ import 'package:backbone/utils/gradient_icon.dart';
 import 'package:backbone/utils/gradient_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Liveauction extends StatefulWidget {
   const Liveauction({super.key});
@@ -37,7 +38,7 @@ class _LiveauctionState extends State<Liveauction> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
           SizedBox(height: 20.h),
-          GradientText(text: "Auction You Wish To Join"),
+          GradientText(text: "Auction You Wish To Join",fontSize: 18.sp,),
         SizedBox(height: 30.h),
             SizedBox(
               height: 150.h,
@@ -92,11 +93,7 @@ class _LiveauctionState extends State<Liveauction> {
                                   padding:  EdgeInsets.all(8.r),
                                   child: Text(
                                     Options[index],
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 16.sp,
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                                    style: GoogleFonts.inriaSans(fontSize: 16.sp,fontWeight: FontWeight.bold,color: Colors.white)
                                   ),
                                 ),
                                 Padding(

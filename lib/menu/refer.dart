@@ -1,11 +1,16 @@
+import 'package:backbone/constant/app_images.dart';
+import 'package:backbone/login/bottom_navigation/notification_screen.dart';
 import 'package:backbone/menu/alreadyagent.dart';
 import 'package:backbone/menu/register.dart';
 import 'package:backbone/menu/settings.dart';
+import 'package:backbone/utils/action_button.dart';
 import 'package:backbone/utils/gradient_container.dart';
 import 'package:backbone/utils/gradient_text.dart';
+import 'package:backbone/utils/image_card.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../constant/app_colors.dart';
 import '../utils/flutter_custom_text.dart';
@@ -25,7 +30,15 @@ class ReferAndEarnScreen extends StatelessWidget {
           Navigator.pop(context);
         }, icon: Icon(Icons.arrow_back_ios, color: Colors.white)),
         title: Text("Refer & Earn", style: TextStyle(color: Colors.white)),
-        actions: [Icon(Icons.notifications_none, color: Colors.white)],
+        actions:[
+          GestureDetector(
+            onTap: () {},
+            child: ImageCard(imageUrl: AppImages().whatsAppIcon),
+          ),
+          ActionButton(url: AppImages().bellIcon, onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>Notification_Screen()));
+          }),
+        ]
       ),
       body: SafeArea(
         child: Padding(
@@ -40,10 +53,7 @@ class ReferAndEarnScreen extends StatelessWidget {
               Center(
                 child: Text(
                   "Refer any chit you get 0.5% income!\nEX: 100000 x 0.5% = 500 rupees",
-                  style: TextStyle(
-                    color: Colors.white70,
-                    fontSize: 14,
-                  ),
+                  style: GoogleFonts.inriaSans(fontSize: 14,color: Colors.white),
                   textAlign: TextAlign.center,
                 ),
               ),

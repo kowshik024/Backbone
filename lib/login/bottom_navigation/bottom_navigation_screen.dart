@@ -64,7 +64,7 @@ class _Bottom_NavigationState extends State<Bottom_Navigation> {
   }
 
   void _showLogoutDialog(BuildContext context) {
-    showDialog(
+    showAdaptiveDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
@@ -74,7 +74,7 @@ class _Bottom_NavigationState extends State<Bottom_Navigation> {
           ),
           content: GradientText(text:
               "Are you sure you want to log out?",
-              fontSize: 16.sp,
+              fontSize: 15.sp,
           ),
           actions: [
             Row(
@@ -183,17 +183,14 @@ class _Bottom_NavigationState extends State<Bottom_Navigation> {
                                     SnackBar(content: Text('Coming Soon...',style: TextStyle(color: Colors.white),)));
                             }
                           },
-                          child: Padding(
-                            padding:  EdgeInsets.only(right:30.w),
-                            child: Container(height: 40.h,width: 251.w,
-                              decoration: BoxDecoration(
-                                border: Border(bottom: BorderSide(color: Color(0xffDEAB3D)))
-                              ),
-                              child: ListTile(
-                                leading: GradientIcon(child: Icon(chitPlans[index]["icon"],color: Colors.white,size: 24.sp,)),
-                                title: GradientText(text: chitPlans[index]["title"],fontSize: 16.sp,),
-                                trailing: GradientIcon(child: Icon(Icons.arrow_forward_ios,size: 18.sp,color: Colors.white,))
-                              ),
+                          child: Container(height: 40.h,width: 251.w,
+                            decoration: BoxDecoration(
+                              border: Border(bottom: BorderSide(color: Color(0xffDEAB3D)))
+                            ),
+                            child: ListTile(
+                              leading: GradientIcon(child: Icon(chitPlans[index]["icon"],color: Colors.white,size: 24.sp,)),
+                              title: GradientText(text: chitPlans[index]["title"],fontSize:14.sp,),
+                              trailing: GradientIcon(child: Icon(Icons.arrow_forward_ios,size: 18.sp,color: Colors.white,))
                             ),
                           ),
                         );

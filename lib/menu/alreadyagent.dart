@@ -5,6 +5,7 @@ import 'package:backbone/utils/gradient_text.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../constant/app_colors.dart';
 import '../utils/flutter_custom_text.dart';
@@ -23,7 +24,7 @@ class Already_Agent extends StatelessWidget {
         leading: IconButton(onPressed: (){
           Navigator.pop(context);
         }, icon: Icon(Icons.arrow_back_ios, color: Colors.white)),
-        title: Text("Refer & Earn", style: TextStyle(color: Colors.white)),
+        title: Text("Refer & Earn", style: GoogleFonts.inriaSans(color: Colors.white)),
         actions: [Icon(Icons.notifications_none, color: Colors.white)],
       ),
       body: SafeArea(
@@ -39,10 +40,7 @@ class Already_Agent extends StatelessWidget {
               Center(
                 child: Text(
                   "Refer any chit you get 0.5% income!\nEX: 100000 x 0.5% = 500 rupees",
-                  style: TextStyle(
-                    color: Colors.white70,
-                    fontSize: 14,
-                  ),
+                  style: GoogleFonts.inriaSans(fontSize: 14,color: Colors.white),
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -56,10 +54,7 @@ class Already_Agent extends StatelessWidget {
                       SizedBox(height: 6),
                       Text(
                         "Join our team of professionals and\ngrow your career with Backbone Chitfunds.",
-                        style: TextStyle(
-                          color: Colors.white60,
-                          fontSize: 13,
-                        ),
+                        style: GoogleFonts.inriaSans(fontSize: 13,color: Colors.white),
                         textAlign: TextAlign.center,
                       ),
                       SizedBox(height: 16),
@@ -80,10 +75,7 @@ class Already_Agent extends StatelessWidget {
                           },
                           child: Text(
                             "Register",
-                            style: TextStyle(
-                              color: Colors.white,
-                              decoration: TextDecoration.underline,
-                            ),
+                            style: GoogleFonts.inriaSans(fontSize: 13,decoration: TextDecoration.underline),
                           ),
                         ),
                       ),

@@ -14,6 +14,7 @@ class GradientColoredButton extends StatelessWidget {
     this.horPadding,
     required this.child,
     this.borderRadius,
+
   });
 
   final Function() onTap;
@@ -23,6 +24,7 @@ class GradientColoredButton extends StatelessWidget {
   final double? vertPadding;
   final double? horPadding;
   final BorderRadius? borderRadius;
+
 
   @override
   Widget build(BuildContext context) {

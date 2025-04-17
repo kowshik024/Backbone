@@ -5,6 +5,7 @@ import 'package:backbone/utils/gradient_text.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../constant/app_colors.dart';
 import '../utils/flutter_custom_text.dart';
@@ -53,14 +54,11 @@ class Register_Ref extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
                     children: [
-                      GradientText(text: "who You Refer? ",fontSize: 20,),
+                      GradientText(text: "Who You Refer? ",fontSize: 20,),
                       SizedBox(height: 6),
                       Text(
                         "fill in the Details Below",
-                        style: TextStyle(
-                          color: Colors.white60,
-                          fontSize: 13,
-                        ),
+                        style: GoogleFonts.inriaSans(fontSize: 13,color: Colors.white),
                         textAlign: TextAlign.center,
                       ),
                       SizedBox(height: 16),
@@ -110,9 +108,7 @@ class Register_Ref extends StatelessWidget {
                           filled: true,
                           fillColor: AppColors().blackColor,
                           enableBorder: false,
-
                           hintText: 'Remarks\nEx,',
-
                         ),
                       ),
 

@@ -1,4 +1,5 @@
 import 'package:backbone/constant/app_colors.dart';
+import 'package:backbone/utils/flutter_custom_text.dart';
 import 'package:backbone/utils/gradient_container.dart';
 import 'package:backbone/utils/gradient_icon.dart';
 import 'package:backbone/utils/gradient_text.dart';
@@ -19,12 +20,14 @@ class _Notification_ScreenState extends State<Notification_Screen> with SingleTi
   final List<Map<String, String>> officialNotifications = [
     {
       'title': 'New Launch',
+      'gif': 'assets/bell.gif',
       'time': '03.43 PM',
       'description':
       'Your credit card **4325 bill is due on 15 October. To avoid extra charges, kindly pay the outstanding amount before the given date.'
     },
     {
       'title': 'Due Amount',
+      'gif': 'assets/bell.gif',
       'time': '01.13 PM',
       'description':
       'Your credit card **4325 bill is due on 15 October. To avoid extra charges, kindly pay the outstanding amount before the given date.'
@@ -34,18 +37,21 @@ class _Notification_ScreenState extends State<Notification_Screen> with SingleTi
   final List<Map<String, String>> paymentNotifications = [
     {
       'title': 'Payment Alert !',
+      'gif': 'assets/no1.gif',
       'time': '03.43 PM',
       'description':
       'Your credit card **4325 bill is due on 15 October. To avoid extra charges, kindly pay the outstanding amount before the given date.'
     },
     {
       'title': 'Payment successfully',
+      'gif': 'assets/no2.gif',
       'time': '01.13 PM',
       'description':
       'Your credit card **4325 bill is due on 15 October. To avoid extra charges, kindly pay the outstanding amount before the given date.'
     },
     {
       'title': 'Payment Failed',
+      'gif': 'assets/no3.gif',
       'time': '',
       'description':
       'Your credit card **4325 bill is due on 15 October. To avoid extra charges, kindly pay the outstanding amount before the given date.'
@@ -142,26 +148,26 @@ class NotificationList extends StatelessWidget {
         return Padding(
           padding:  EdgeInsets.all(8.0),
           child: Container(
+            height: 98.h,
             decoration: BoxDecoration(
               border: Border(bottom: BorderSide(color: Color(0xffDEAB3D))),
             ),
-            child: ListTile(
+            child:
+            ListTile(
               leading: GifView.asset(
-                'assets/bell.gif',
-                height: 50.h,
-                width: 50.h,
+                notification['gif'] ?? '',
+                height: 60.h,
+                width: 60.h,
                 frameRate: 30,
               ),
               title:GradientText(text: notification['title']??'',fontSize: 14.sp,),
-              subtitle: Text(
-                notification['description'] ?? '',
-                style: TextStyle(color: Colors.white70),
-              ),
+              subtitle: FlutterCustomText(text:  notification['description'] ?? '',color: Colors.white,fontSize: 12.sp,),
               trailing: Text(
                 notification['time'] ?? '',
-                style: TextStyle(color: Colors.white54, fontSize: 12.sp),
+                style: TextStyle(color: Colors.white, fontSize: 12.sp),
               ),
             ),
+
           ),
         );
       },
