@@ -3,6 +3,7 @@ import 'package:backbone/utils/gradient_container.dart';
 import 'package:backbone/utils/gradient_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gif_view/gif_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 
@@ -111,7 +112,7 @@ class _ChitHistoryTabState extends State<ChitHistoryTab> {
 
   List<String> chitDates =[
     'May -2023',
-    'june -2023',
+    'June -2023',
 
   ];
 
@@ -128,13 +129,13 @@ class _ChitHistoryTabState extends State<ChitHistoryTab> {
               child: Container(
                 child: Column(children: [
                   Container(
-                    height: 50.w,
+                    height: 41.w,
                     width:320.w ,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding:  EdgeInsets.only(left: 16),
                           child: Text(chitDates[index],style: TextStyle(fontSize: 20,fontWeight: FontWeight.w400),),
                         ),
                         Padding(
@@ -164,10 +165,10 @@ class _ChitHistoryTabState extends State<ChitHistoryTab> {
                           padding: const EdgeInsets.all(8.0),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               Text('Chit Value',style:GoogleFonts.inriaSans(color: Colors.white),),
-                              GradientText(text: "₹ 1,00,000"),
+                              GradientText(text: "₹ 1,00,000",),
                               Text('Total Inst',style: TextStyle(color: Colors.white),),
                               GradientText(text: "25"),
                               Text('Auction Details',style: TextStyle(color: Colors.white),),
@@ -213,7 +214,12 @@ class PaymentHistoryTab extends StatelessWidget {
     return Column(
       children: [
         ListTile(
-          leading: Icon(Icons.receipt, color: Colors.grey),
+          leading: GifView.asset(
+            'assets/history.gif',
+            height: 51.h,
+            width: 47.h,
+            frameRate: 30,
+          ),
           title: GradientText(text: title,),
           subtitle: Text("Transaction ID: $transactionId\n$date", style: TextStyle(color: Colors.white70)),
           trailing: Column(

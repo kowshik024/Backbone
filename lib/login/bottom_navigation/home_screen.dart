@@ -27,6 +27,18 @@ class Home_Screen extends StatefulWidget {
 }
 
 class _Home_ScreenState extends State<Home_Screen> {
+
+  var chosenvalue;
+  List<String> numberlist = [
+    "1,00,000","2,00,000","5,00,000","10,00,000",
+  ];
+
+  void _dropdownCallback(String? value){
+    setState(() {
+      chosenvalue = value;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -120,22 +132,44 @@ class _Home_ScreenState extends State<Home_Screen> {
                                       fontWeight: FontWeight.w400,
                                     ),
                                     context.verticalSpacing(2.h),
-                                    FlutterInputField(
-                                      inputType: TextInputType.text,
-                                      filled: true,
-                                      fillColor: AppColors().blackColor,
-                                      enableBorder: false,
-                                      verticalContentPadding: 10.h,
-                                      hintText: 'eg.,100000',
-                                      maxLength: 10,
-                                      suffixIcon: IconButton(
-                                        onPressed: () {},
-                                        icon: SvgImageCard(
-                                          imageUrl: AppImages().dropDownIcon,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ),
+                                       Container(
+                                         padding: EdgeInsets.all(1.r),
+                                         decoration:BoxDecoration(
+                                           borderRadius:BorderRadius.circular(10.r) ,
+                                           gradient: LinearGradient(colors: AppColors().gradients)
+                                         ),
+                                         child: Container(
+                                           decoration: BoxDecoration(
+                                             color: Colors.black,
+                                             borderRadius:BorderRadius.circular(10.r) ,
+                                           ),
+                                           padding: EdgeInsets.all(2.r),
+                                           child: DropdownButtonFormField<String>(
+                                             decoration: InputDecoration(
+                                               border: InputBorder.none,
+                                               filled: true,
+                                               fillColor: AppColors().blackColor,
+                                               hintText: "ex: 1,00,000",
+                                               hintStyle: TextStyle(color: Colors.white)
+                                             ),
+                                             style: TextStyle(color: Colors.white),
+                                            dropdownColor: Colors.black,
+                                            value: chosenvalue,
+                                            items: numberlist.map((String value) {
+                                              return DropdownMenuItem<String>(
+                                                value: value,
+                                                child: Text(value),
+                                              );
+                                            }).toList(),
+                                            onChanged: (String? newvalue) {
+                                              setState(() {
+                                                chosenvalue = newvalue;
+                                              });
+                                            },
+                                                                                 ),
+                                         ),
+                                       ),
+
                                   ],
                                 ),
                               ),

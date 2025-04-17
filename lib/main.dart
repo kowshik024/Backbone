@@ -1,7 +1,11 @@
 import 'package:backbone/login/bottom_navigation/bottom_navigation_screen.dart';
+import 'package:backbone/login/bottom_navigation/history%202.dart';
 import 'package:backbone/login/splash_screen.dart';
+import 'package:backbone/login/walkthrough_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'login/bottom_navigation/ff.dart';
 
 
 
@@ -24,7 +28,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
-        home:Bottom_Navigation(),
+        home:Walkthrough_Screen(),
       ),
     );
   }

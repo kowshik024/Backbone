@@ -52,6 +52,8 @@ class AppImages {
 
   String  chitFileIcon = 'assets/chit_file.png';
 
+  String  edit = 'assets/edit.svg';
+
   // Payment page
 
 

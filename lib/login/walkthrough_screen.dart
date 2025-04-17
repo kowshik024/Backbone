@@ -66,7 +66,7 @@ class _Walkthrough_ScreenState extends State<Walkthrough_Screen> {
                       SizedBox(height: 16),
                       Padding(
                         padding:  EdgeInsets.only(left:16.w),
-                        child: GradientText(text: pages[index]['description']!,textAlign: TextAlign.center,fontSize: 14.sp,),
+                        child: GradientText(text: pages[index]['description']!,textAlign: TextAlign.center,fontSize: 14.sp,fontWeight: FontWeight.w300,),
                       ),
                       SizedBox(height: 40),
                       SmoothPageIndicator(
@@ -118,16 +118,6 @@ class _Walkthrough_ScreenState extends State<Walkthrough_Screen> {
                     color: AppColors().blackColor,
                   ),
                 ),
-                // TextButton(
-                //   onPressed: () {
-                //     _controller.jumpToPage(pages.length - 1);
-                //   },
-                //   child: Text(
-                //     'SKIP',
-                //     style: TextStyle(color: Colors.amber, fontWeight: FontWeight.bold),
-                //   ),
-                // ),
-              //  
               ),
             )
           ],

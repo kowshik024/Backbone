@@ -148,7 +148,7 @@ class NotificationList extends StatelessWidget {
         return Padding(
           padding:  EdgeInsets.all(8.0),
           child: Container(
-            height: 98.h,
+            height: 110.h,
             decoration: BoxDecoration(
               border: Border(bottom: BorderSide(color: Color(0xffDEAB3D))),
             ),

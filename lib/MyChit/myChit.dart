@@ -1,5 +1,6 @@
 import 'package:backbone/MyChit/PaymentPage.dart';
 import 'package:backbone/constant/app_colors.dart';
+import 'package:backbone/utils/svg_image.dart';
 import 'package:flutter/material.dart';
 import 'package:backbone/constant/app_images.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -99,6 +100,10 @@ class _MychitState extends State<Mychit> {
                 ),
                 ],),
           ),
+
+
+            // before use ask to ui/ux team sheik
+
             // Padding(
             //   padding: EdgeInsets.symmetric(horizontal: 20.h),
             //   child: Container(
@@ -226,7 +231,7 @@ class _MychitState extends State<Mychit> {
                     padding:  EdgeInsets.all(8.r),
                     child: Column(children: [
                       Container(
-                        height: 50.h,
+                        height: 41.h,
                         width:320.w,
                         child: Padding(
                           padding: EdgeInsets.all(8.r),
@@ -240,8 +245,13 @@ class _MychitState extends State<Mychit> {
                                   _checkboxStates[index] ? Icons.check_box : Icons.check_box_outline_blank,                              ),
                               ),
                               Text(chitNames[index],style: GoogleFonts.inriaSans(fontSize: 16.sp),),
-                              IconButton(onPressed: (){},
-                                  icon: Icon(Icons.edit_calendar,size: 24.sp,color: Colors.black,)),
+                              IconButton(
+                                onPressed: () {},
+                                icon: SvgImageCard(
+                                  imageUrl: AppImages().edit,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
                               SizedBox(width: 70.w),
                               GestureDetector(
                                 onTap: () {
@@ -269,7 +279,7 @@ class _MychitState extends State<Mychit> {
                       ),
                       Container(
                         width: 320.w,
-                        height: 230.h,
+                        height: 206.h,
                         child:
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
