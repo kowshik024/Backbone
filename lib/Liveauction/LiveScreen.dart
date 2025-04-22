@@ -13,9 +13,7 @@ import '../login/bottom_navigation/bottom_navigation_screen.dart';
 import '../utils/flutter_custom_text.dart';
 import '../utils/gradient_coloured_button.dart';
 import 'dart:async';
-
-
-
+import 'package:google_fonts/google_fonts.dart';
 
 class Livescreen extends StatefulWidget {
   const Livescreen({super.key});
@@ -29,7 +27,6 @@ class _LivescreenState extends State<Livescreen> {
   bool _isColumnVisible = true;
   bool _dialogShown = false;
 
-
   late int _minutes;
   late int _seconds;
   late Timer _timer;
@@ -41,10 +38,8 @@ class _LivescreenState extends State<Livescreen> {
     _minutes = 1;
     _seconds = 36;
 
-
     _startTimer();
   }
-
 
   void _startTimer() {
     _timer = Timer.periodic(Duration(seconds: 1), (Timer timer) {
@@ -65,6 +60,7 @@ class _LivescreenState extends State<Livescreen> {
       });
     });
   }
+
   void _goToNextScreen() {
     Navigator.pushReplacement(
       context,
@@ -82,7 +78,6 @@ class _LivescreenState extends State<Livescreen> {
 
     _startTimer();
   }
-
 
   void _showAlertDialog() {
     if (!_dialogShown && _isColumnVisible) {
@@ -108,7 +103,7 @@ class _LivescreenState extends State<Livescreen> {
                     SizedBox(height: 10),
                     Text(
                       "Bidding Closes In: $_minutes:${_seconds.toString().padLeft(2, '0')} sec",
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      style: GoogleFonts.inriaSans(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 20),
                     Container(
@@ -140,16 +135,11 @@ class _LivescreenState extends State<Livescreen> {
     }
   }
 
-
-
-
-
   @override
   void dispose() {
     _timer.cancel();
     super.dispose();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -183,23 +173,32 @@ class _LivescreenState extends State<Livescreen> {
         child: Column(children: [
           Row(
             children: [
-              GifView.asset(
-                'assets/live.gif',
-                height: 37.h,
-                width: 64.h,
-                frameRate: 30,
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  GifView.asset(
+                    'assets/live.gif',
+                    height: 37.h,
+                    width: 64.h,
+                    frameRate: 30,
+                  ),
+                ],
               ),
-              SizedBox(width: 70.w),
-              GifView.asset(
-                'assets/time.gif',
-                height: 42.h,
-                width: 42.h,
-                frameRate: 30,
+              SizedBox(width: 25.w, ),
+              Row(
+                children: [
+                  GifView.asset(
+                    'assets/time.gif',
+                    height: 42.h,
+                    width: 42.h,
+                    frameRate: 30,
+                  ),
+                  GradientText(text: '$_minutes:${_seconds.toString().padLeft(2, '0')} Min'),
+                ],
               ),
-              GradientText(text: '$_minutes:${_seconds.toString().padLeft(2, '0')} Min'),
             ],
           ),
-          SizedBox(height: 20.h,),
+          SizedBox(height: 20.h),
           Container(
             width: double.infinity.w,
             child: Padding(
@@ -207,14 +206,14 @@ class _LivescreenState extends State<Livescreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text("January Month Chit",style: TextStyle(color: Colors.white),),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: GradientText(text: '₹ 10,00,000'),
-                ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text("January Month Chit",style: TextStyle(color: Colors.white),),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GradientText(text: '₹ 10,00,000'),
+                  ),
                   SizedBox(height: 10,),
                   SizedBox(
                     height: 200.h,
@@ -245,101 +244,102 @@ class _LivescreenState extends State<Livescreen> {
                             ],
                           ),
                         );
-
                       },
                     ),
                   ),
                   if (_isColumnVisible)
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                    Text("Ongoing Bidding Value",style: TextStyle(color: Colors.white),),
-                    SizedBox(height: 10,),
-                    SizedBox(height: 34,width: 150,
-                      child: GradientColoredButton(
-                        borderRadius: BorderRadius.circular(5),
-                        onTap: () {},
-                        child: FlutterCustomText(
-                          text: '₹ 5,00,000',
-                          color: AppColors().blackColor,
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 10,),
-                    Text("Enter Your Bid",style: TextStyle(color: Colors.white),),
-                    SizedBox(height: 10,),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(
-                          height: 40.h,
-                          width: 150.w,
-                          child: TextFormField(
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(),
-                              prefixIcon: GradientIcon(child: Icon(Icons.currency_rupee,color: Colors.white,size: 15,))
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: 40.h,width: 100.w,
+                        Text("Ongoing Bidding Value",style: GoogleFonts.inriaSans(color: Colors.white),),
+                        SizedBox(height: 10,),
+                        SizedBox(height: 34,width: 150,
                           child: GradientColoredButton(
                             borderRadius: BorderRadius.circular(5),
-                            onTap: () {
-                              _resetTimer();
-                            },
+                            onTap: () {},
                             child: FlutterCustomText(
-                              text: 'Bid',
+                              text: '₹ 5,00,000',
                               color: AppColors().blackColor,
                             ),
                           ),
                         ),
-
-                      ],
-                    ),
-                      SizedBox(height: 10,),
-
-                    Center(
-                      child: SizedBox(height: 34.h,width: 200.w,
-                        child: GradientColoredButton(
-                          borderRadius: BorderRadius.circular(5),
-                          onTap: () {
-                            setState(() {
-                              _isColumnVisible = false;
-                              _dialogShown = true;
-                            });
-                          },
-                          child: FlutterCustomText(
-                            text: 'CALL OFF',
-                            color: AppColors().blackColor,
+                        SizedBox(height: 10,),
+                        Text("Enter Your Bid",style: GoogleFonts.inriaSans(color: Colors.white),),
+                        SizedBox(height: 10,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            SizedBox(
+                              height: 40.h,
+                              width: 150.w,
+                              child: TextFormField(
+                                style: TextStyle(color: Colors.white), // Text color set to white
+                                decoration: InputDecoration(
+                                  border: OutlineInputBorder(),
+                                  prefixIcon: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: GradientIcon(
+                                      child: Icon(
+                                        Icons.currency_rupee,
+                                        color: Colors.white,
+                                        size: 15,
+                                      ),
+                                    ),
+                                  ),
+                                  contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
+                                ),
+                              ),
+                            ),
+                            SizedBox(height: 40.h, width: 100.w,
+                              child: GradientColoredButton(
+                                borderRadius: BorderRadius.circular(5),
+                                onTap: () {
+                                  _resetTimer();
+                                },
+                                child: FlutterCustomText(
+                                  text: 'Bid',
+                                  color: AppColors().blackColor,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 10,),
+                        Center(
+                          child: SizedBox(height: 34.h,width: 200.w,
+                            child: GradientColoredButton(
+                              borderRadius: BorderRadius.circular(5),
+                              onTap: () {
+                                setState(() {
+                                  _isColumnVisible = false;
+                                  _dialogShown = true;
+                                });
+                              },
+                              child: FlutterCustomText(
+                                text: 'CALL OFF',
+                                color: AppColors().blackColor,
+                              ),
+                            ),
                           ),
                         ),
-                      ),
-                    ),
-                      SizedBox(height: 20,)
-                  ],)
-
-
-
-
-              ],),
+                        SizedBox(height: 20,)
+                      ],
+                    )
+                ],
+              ),
             ),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              border: Border.all(
-                color: Colors.white
-              )
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(
+                    color: Colors.white
+                )
             ),
           ),
-
         ],),
       ),
     );
   }
 }
-
-
-
-
 
 class TimeupScreen extends StatefulWidget {
   @override
@@ -355,8 +355,6 @@ class _TimeupScreenState extends State<TimeupScreen>
   late Animation<double> _iconScaleAnimation;
   late Animation<Offset> _textSlideAnimation;
   late Animation<double> _buttonFadeAnimation;
-
-
 
   @override
   void initState() {
@@ -401,7 +399,6 @@ class _TimeupScreenState extends State<TimeupScreen>
     Future.delayed(Duration(milliseconds: 400), () => _textController.forward());
     Future.delayed(Duration(milliseconds: 800), () => _buttonController.forward());
 
-
     Future.delayed(Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
@@ -409,8 +406,6 @@ class _TimeupScreenState extends State<TimeupScreen>
       );
     });
   }
-
-
 
   @override
   void dispose() {
@@ -431,8 +426,8 @@ class _TimeupScreenState extends State<TimeupScreen>
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ScaleTransition(
-                scale: _iconScaleAnimation,
-                child: GradientIcon(child: Icon(Icons.alarm,color: Colors.white,size: 120,))
+                  scale: _iconScaleAnimation,
+                  child: GradientIcon(child: Icon(Icons.alarm,color: Colors.white,size: 120,))
               ),
               SizedBox(height: 20),
               SlideTransition(
@@ -450,4 +445,3 @@ class _TimeupScreenState extends State<TimeupScreen>
     );
   }
 }
-

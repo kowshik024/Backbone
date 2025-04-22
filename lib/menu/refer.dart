@@ -30,7 +30,7 @@ class ReferAndEarnScreen extends StatelessWidget {
         leading: IconButton(onPressed: (){
           Navigator.pop(context);
         }, icon: Icon(Icons.arrow_back_ios, color: Colors.white)),
-        title: Text("Refer & Earn", style: TextStyle(color: Colors.white)),
+        title: Text("Refer & Earn", style: GoogleFonts.inriaSans(color: Colors.white)),
         actions:[
           GestureDetector(
             onTap: () {},
@@ -73,10 +73,8 @@ class ReferAndEarnScreen extends StatelessWidget {
                       SizedBox(height: 6),
                       Text(
                         "Join our team of professionals and\ngrow your career with Backbone Chitfunds.",
-                        style: TextStyle(
-                          color: Colors.white60,
-                          fontSize: 13,
-                        ),
+                        style: GoogleFonts.inriaSans(color: Colors.white60,
+                          fontSize: 13,),
                         textAlign: TextAlign.center,
                       ),
                       SizedBox(height: 16),
@@ -87,6 +85,7 @@ class ReferAndEarnScreen extends StatelessWidget {
                         enableBorder: false,
                         verticalContentPadding: 8,
                         hintText: 'Name',
+                        hintStyle: GoogleFonts.inriaSans(),
                 
                       ),
                       SizedBox(height: 10),
@@ -97,6 +96,7 @@ class ReferAndEarnScreen extends StatelessWidget {
                         enableBorder: false,
                         verticalContentPadding: 8,
                         hintText: 'Mobile NO',
+                        hintStyle: GoogleFonts.inriaSans(),
                 
                       ),
                       SizedBox(height: 10),
@@ -107,6 +107,7 @@ class ReferAndEarnScreen extends StatelessWidget {
                         enableBorder: false,
                         verticalContentPadding: 8,
                         hintText: 'Mail ID',
+                        hintStyle: GoogleFonts.inriaSans(),
                 
                       ),
                       SizedBox(height: 10),
@@ -118,10 +119,8 @@ class ReferAndEarnScreen extends StatelessWidget {
                           },
                           child: Text(
                             "Already Agent?",
-                            style: TextStyle(
-                              color: Colors.white,
-                              decoration: TextDecoration.underline,
-                            ),
+                            style: GoogleFonts.inriaSans(color: Colors.white,
+                              decoration: TextDecoration.underline,),
                           ),
                         ),
                       ),

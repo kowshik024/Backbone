@@ -43,13 +43,13 @@ class _ChitHistoryScreenState extends State<ChitHistoryScreen> with SingleTicker
                   child: TabBar(
                     controller: _tabController,
                     unselectedLabelStyle: TextStyle(
-                      fontFamily: 'Inria Sans',
+                      fontFamily: 'InriaSans',
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w500,
                       color: Colors.white,
                     ),
                     labelStyle: TextStyle(
-                      fontFamily: 'Inria Sans',
+                      fontFamily: 'InriaSans',
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w500,
                       color: Colors.black,
@@ -111,6 +111,7 @@ class _ChitHistoryTabState extends State<ChitHistoryTab> {
   ];
 
   List<String> chitDates =[
+    
     'May -2023',
     'June -2023',
 
@@ -136,7 +137,7 @@ class _ChitHistoryTabState extends State<ChitHistoryTab> {
                       children: [
                         Padding(
                           padding:  EdgeInsets.only(left: 16),
-                          child: Text(chitDates[index],style: TextStyle(fontSize: 20,fontWeight: FontWeight.w400),),
+                          child: Text(chitDates[index],style: GoogleFonts.inriaSans(fontSize: 20,fontWeight: FontWeight.w400),),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -156,47 +157,58 @@ class _ChitHistoryTabState extends State<ChitHistoryTab> {
                     ),
                   ),
                   Container(
-                    height: 160.h,
+                    height: 168.h,
                     width: 320.w,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Text('Chit Value',style:GoogleFonts.inriaSans(color: Colors.white),),
-                              GradientText(text: "₹ 1,00,000",),
-                              Text('Total Inst',style: GoogleFonts.inriaSans(color: Colors.white)),
-                              GradientText(text: "25"),
-                              Text('Auction Details',style: GoogleFonts.inriaSans(color: Colors.white),),
-                              GradientText(text: "12/06/2023"),
-                            ],),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text('Paid',style: GoogleFonts.inriaSans(color: Colors.white),),
-                              GradientText(text: '25/25'),
-                              Text('Status',style: GoogleFonts.inriaSans(color: Colors.white)),
-                              Text('completed',style: GoogleFonts.inriaSans(color: Colors.green))
-                            ],),
-                        )
-                      ],),
+                    padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                            bottomRight: Radius.circular(20),
-                            bottomLeft: Radius.circular(20)
-                        ),
-                        border: Border.all(
-                            color: Colors.white
-                        )
+                      borderRadius: BorderRadius.only(
+                        bottomRight: Radius.circular(20),
+                        bottomLeft: Radius.circular(20),
+                      ),
+                      border: Border.all(color: Colors.white),
                     ),
+                    child: Row(
+
+                      children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(height: 6.h,),
+                          Text('Chit Value',style:GoogleFonts.inriaSans(color: Colors.white),),
+                          SizedBox(height: 6.h,),
+                          GradientText(text: "₹ 1,00,000",),
+                          SizedBox(height: 6.h,),
+                          Text('Total Inst',style:GoogleFonts.inriaSans(color: Colors.white),),
+                          SizedBox(height: 6.h,),
+                          GradientText(text: "25",),
+                          SizedBox(height: 6.h,),
+                          Text('Auction Details',style:GoogleFonts.inriaSans(color: Colors.white),),
+                          SizedBox(height: 6.h,),
+                          GradientText(text: "10/03/2022",),
+                          SizedBox(height: 6.h,),
+
+                        ],
+                      ),
+                      SizedBox(width: 90.w,),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                        SizedBox(height: 6.h,),
+                        Text('Paid',style:GoogleFonts.inriaSans(color: Colors.white),),
+                        SizedBox(height: 6.h,),
+                        GradientText(text: "25/25",),
+                        SizedBox(height: 6.h,),
+                        Text('Status',style:GoogleFonts.inriaSans(color: Colors.white),),
+                        SizedBox(height: 6.h,),
+                        Text('completed',style:GoogleFonts.inriaSans(color: Colors.green),),
+
+
+
+                      ],)
+                    ],) ,
                   )
+
+
                 ],),
               ),
             );
@@ -220,7 +232,7 @@ class PaymentHistoryTab extends StatelessWidget {
             width: 47.h,
             frameRate: 30,
           ),
-          title: GradientText(text: title,fontWeight: FontWeight.w700,fontSize:14.sp),
+          title: GradientText(text: title,fontWeight: FontWeight.w700,fontSize:12.sp),
           subtitle: Text("Transaction ID: $transactionId\n$date", style: GoogleFonts.inriaSans(color: Colors.white,fontWeight: FontWeight.w400)),
           trailing: Column(
             crossAxisAlignment: CrossAxisAlignment.end,

@@ -18,6 +18,7 @@ import 'package:backbone/utils/svg_image.dart';
 import 'package:flutter/material.dart';
 import 'package:gif_view/gif_view.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Home_Screen extends StatefulWidget {
   const Home_Screen({super.key});
@@ -27,13 +28,12 @@ class Home_Screen extends StatefulWidget {
 }
 
 class _Home_ScreenState extends State<Home_Screen> {
-
   var chosenvalue;
   List<String> numberlist = [
-    "1,00,000","2,00,000","5,00,000","10,00,000",
+    "1,00,000", "2,00,000", "5,00,000", "10,00,000",
   ];
 
-  void _dropdownCallback(String? value){
+  void _dropdownCallback(String? value) {
     setState(() {
       chosenvalue = value;
     });
@@ -43,24 +43,26 @@ class _Home_ScreenState extends State<Home_Screen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors().blackColor,
-        body: SafeArea(
-          child: Container(
+      body: SafeArea(
+        child: Container(
           padding: context.horizontalPadding,
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 GradientText(
+
                   text: 'Welcome to',
                   fontSize: 20.sp,
                   fontWeight: FontWeight.w400,
                 ),
                 GradientText(
-                  text: 'Backbone Chit Funds',
+                  text: 'Backbone Chit Funds!',
                   fontSize: 20.sp,
-                  fontWeight: FontWeight.w400,
+                  fontWeight: FontWeight.bold,
                 ),
                 context.verticalSpacing(10.h),
+                SizedBox(height: 25.h),
                 ClipRRect(
                   child: ImageCard(
                     imageUrl: AppImages().homeBanner,
@@ -69,40 +71,41 @@ class _Home_ScreenState extends State<Home_Screen> {
                     fit: BoxFit.fill,
                   ),
                 ),
-                SizedBox(height: 10.h,),
+                SizedBox(height: 24.h),
                 Row(
                   children: [
                     Expanded(
-                      child: SizedBox(width: 140.w,height: 36.h,
+                      child: SizedBox(
+                        width: 140.w,
+                        height: 36.h,
                         child: GradientBorderedButton(
                           onTap: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=> My_Chit_Plans()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => My_Chit_Plans()));
                           },
                           borderRadius: BorderRadius.circular(50.r),
                           isStack: true,
-                          child: GradientText(
-                              text: "View Chit Plans",
-                              fontSize: 12.sp),
+                          child: GradientText(text: "View Chit Plans", fontSize: 12.sp,),
                         ),
                       ),
                     ),
-                    SizedBox(width:16.w),
+                    SizedBox(width: 16.w),
                     Expanded(
-                      child: SizedBox(width: 160.w,height: 36.h,
+                      child: SizedBox(
+                        width: 160.w,
+                        height: 36.h,
                         child: GradientBorderedButton(
                           onTap: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>New_Chits()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => New_Chits()));
                           },
                           borderRadius: BorderRadius.circular(50.r),
                           isStack: true,
-                          child: GradientText(
-                              text: "New Chit Availability",
-                              fontSize: 12.sp),
+                          child: GradientText(text: "New Chit Availability", fontSize: 12.sp,),
                         ),
                       ),
                     ),
                   ],
                 ),
+                SizedBox(height: 24.h),
                 context.verticalSpacing(10.h),
                 GradientContainer(
                   child: Column(
@@ -127,49 +130,50 @@ class _Home_ScreenState extends State<Home_Screen> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     GradientText(
-                                      text: 'Chit Value',
+                                      text: 'Chit Value ₹',
                                       fontSize: 14.sp,
                                       fontWeight: FontWeight.w400,
                                     ),
                                     context.verticalSpacing(2.h),
-                                       Container(
-                                         padding: EdgeInsets.all(1.r),
-                                         decoration:BoxDecoration(
-                                           borderRadius:BorderRadius.circular(10.r) ,
-                                           gradient: LinearGradient(colors: AppColors().gradients)
-                                         ),
-                                         child: Container(
-                                           decoration: BoxDecoration(
-                                             color: Colors.black,
-                                             borderRadius:BorderRadius.circular(10.r) ,
-                                           ),
-                                           padding: EdgeInsets.all(2.r),
-                                           child: DropdownButtonFormField<String>(
-                                             decoration: InputDecoration(
-                                               border: InputBorder.none,
-                                               filled: true,
-                                               fillColor: AppColors().blackColor,
-                                               hintText: "ex: 1,00,000",
-                                               hintStyle: TextStyle(color: Colors.white)
-                                             ),
-                                             style: TextStyle(color: Colors.white),
-                                            dropdownColor: Colors.black,
-                                            value: chosenvalue,
-                                            items: numberlist.map((String value) {
-                                              return DropdownMenuItem<String>(
-                                                value: value,
-                                                child: Text(value),
-                                              );
-                                            }).toList(),
-                                            onChanged: (String? newvalue) {
-                                              setState(() {
-                                                chosenvalue = newvalue;
-                                              });
-                                            },
-                                                                                 ),
-                                         ),
-                                       ),
-
+                                    Container(
+                                      padding: EdgeInsets.all(1.r),
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10.r),
+                                        gradient: LinearGradient(colors: AppColors().gradients),
+                                      ),
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          color: Colors.black,
+                                          borderRadius: BorderRadius.circular(8.r),
+                                        ),
+                                        padding: EdgeInsets.all(2.r),
+                                        child: DropdownButtonFormField<String>(
+                                          decoration: InputDecoration(
+                                            border: InputBorder.none,
+                                            filled: true,
+                                            fillColor: AppColors().blackColor,
+                                          ),
+                                          hint: Text(
+                                            "ex: 1,00,000",
+                                            style: TextStyle(color: Colors.grey),
+                                          ),
+                                          style: TextStyle(color: Colors.white),
+                                          dropdownColor: Colors.black,
+                                          value: chosenvalue,
+                                          items: numberlist.map((String value) {
+                                            return DropdownMenuItem<String>(
+                                              value: value,
+                                              child: Text(value),
+                                            );
+                                          }).toList(),
+                                          onChanged: (String? newvalue) {
+                                            setState(() {
+                                              chosenvalue = newvalue;
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ),
                                   ],
                                 ),
                               ),
@@ -192,7 +196,8 @@ class _Home_ScreenState extends State<Home_Screen> {
                                     fillColor: AppColors().blackColor,
                                     enableBorder: false,
                                     verticalContentPadding: 10.h,
-                                    hintText: 'eg.,12',
+                                    hintText: 'ex.,12',
+                                    hintStyle: TextStyle(color: Colors.grey),
                                   ),
                                 ],
                               ),
@@ -209,35 +214,42 @@ class _Home_ScreenState extends State<Home_Screen> {
                           children: [
                             Expanded(
                               child: SizedBox(
+                                width: 160.w,
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     GradientText(
-                                      text: 'EMI',
+                                      text: 'EMI ₹',
                                       fontSize: 14.sp,
                                       fontWeight: FontWeight.w400,
                                     ),
                                     context.verticalSpacing(2.h),
-                                    FlutterInputField(
-                                      inputType: TextInputType.text,
-                                      filled: true,
-                                      fillColor: AppColors().blackColor,
-                                      enableBorder: false,
-                                      verticalContentPadding: 10.h,
-                                      hintText: 'eg.,5000',
-          
-                                      maxLength: 10,
+                                    Container(
+                                      width: 160.w,
+                                      child: FlutterInputField(
+                                        inputType: TextInputType.text,
+                                        filled: true,
+                                        fillColor: AppColors().blackColor,
+                                        enableBorder: false,
+                                        verticalContentPadding: 10.h,
+                                        hintText: 'ex.,5000',
+                                        hintStyle: TextStyle(color: Colors.grey),
+                                        maxLength: 10,
+                                      ),
                                     ),
                                   ],
                                 ),
                               ),
                             ),
                             context.horizontalSpacing(16.w),
-                            GifView.asset(
-                              'assets/homescreen.gif',
-                              height: 80.h,
-                              width: 80.w,
-                              frameRate: 30,
+                            Padding(
+                              padding: const EdgeInsets.only(right: 41),
+                              child: GifView.asset(
+                                'assets/homescreen.gif',
+                                height: 80.h,
+                                width: 80.w,
+                                frameRate: 30,
+                              ),
                             )
                           ],
                         ),
@@ -248,8 +260,7 @@ class _Home_ScreenState extends State<Home_Screen> {
                         children: [
                           Expanded(
                             child: FlutterCustomText(
-                              text:
-                              'Note :\nEnter Values In Multiples of Lakhs In Investment',
+                              text: 'Note :\nEnter Values In Multiples of Lakhs In Investment',
                               fontSize: 11.sp,
                               fontWeight: FontWeight.w300,
                             ),
@@ -270,6 +281,7 @@ class _Home_ScreenState extends State<Home_Screen> {
                           ),
                         ],
                       ),
+                      SizedBox(height: 25.h),
                     ],
                   ),
                 ),
@@ -277,8 +289,8 @@ class _Home_ScreenState extends State<Home_Screen> {
               ],
             ),
           ),
-              ),
         ),
-      );
+      ),
+    );
   }
 }

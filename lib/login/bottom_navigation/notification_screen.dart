@@ -75,7 +75,7 @@ class _Notification_ScreenState extends State<Notification_Screen> with SingleTi
           leading: IconButton(onPressed: (){
             Navigator.pop(context);
           }, icon: Icon(Icons.arrow_back_ios,color: Colors.white,size: 24.sp,)),
-          title: Text("Notification",style: GoogleFonts.inriaSans(color: Colors.white,fontSize: 16.sp),),
+          title: Text("Notification",style: GoogleFonts.inriaSans(color: Colors.white,fontSize: 20.sp),),
           backgroundColor: AppColors().blackColor,
         ),
         resizeToAvoidBottomInset: true,
@@ -92,13 +92,13 @@ class _Notification_ScreenState extends State<Notification_Screen> with SingleTi
                     controller: _tabController,
                     unselectedLabelStyle: TextStyle(
                       fontFamily: 'Inria Sans',
-                      fontSize: 14.sp,
+                      fontSize: 13.sp,
                       fontWeight: FontWeight.w500,
                       color: Colors.white,
                     ),
                     labelStyle: TextStyle(
                       fontFamily: 'Inria Sans',
-                      fontSize: 14.sp,
+                      fontSize: 13.sp,
                       fontWeight: FontWeight.w500,
                       color: Colors.black,
                     ),
@@ -114,7 +114,7 @@ class _Notification_ScreenState extends State<Notification_Screen> with SingleTi
                     ),
                     tabAlignment: TabAlignment.fill,
                     tabs: [
-                      Tab(text: 'Official notification'),
+                      Tab(text: 'Official Notification'),
                       Tab(text: 'Payment Notification'),
                     ],
                   ),
@@ -160,12 +160,18 @@ class NotificationList extends StatelessWidget {
                 width: 60.h,
                 frameRate: 30,
               ),
-              title:GradientText(text: notification['title']??'',fontSize: 14.sp,fontWeight: FontWeight.w700,),
-              subtitle: FlutterCustomText(text:  notification['description'] ?? '',color: Colors.white,fontSize: 12.sp,fontWeight: FontWeight.w400,),
-              trailing: Text(
-                notification['time'] ?? '',
-                style: TextStyle(color: Colors.white, fontSize: 12.sp,fontWeight: FontWeight.w400,),
+              title:Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  GradientText(text: notification['title']??'',fontSize: 14.sp,fontWeight: FontWeight.w700,),
+                  Text(
+                    notification['time'] ?? '',
+                    style: GoogleFonts.inriaSans(color: Colors.white, fontSize: 12.sp,fontWeight: FontWeight.w400,),
+                  ),
+                ],
               ),
+              subtitle: FlutterCustomText(text:  notification['description'] ?? '',color: Colors.white,fontSize: 12.sp,fontWeight: FontWeight.w400,),
+
             ),
 
           ),

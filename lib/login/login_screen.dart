@@ -42,7 +42,7 @@ class _Login_ScreenState extends State<Login_Screen> {
           url: AppImages().backIcon,
           onTap: () {
             Navigator.pop(context);
-            },
+          },
         ),
       ),
       body: SingleChildScrollView(
@@ -91,6 +91,7 @@ class _Login_ScreenState extends State<Login_Screen> {
                   SizedBox(height:13.h),
                   SizedBox(height: 44.h,width: 280.w,
                     child: FlutterInputField(
+
                       controller: chitIdController,
                       inputType: TextInputType.text,
                       filled: true,
@@ -102,6 +103,7 @@ class _Login_ScreenState extends State<Login_Screen> {
                   SizedBox(height: 20.h),
                   SizedBox(height: 44.h,width: 280.w,
                     child: FlutterInputField(
+                      verticalContentPadding: 10,
                       controller: passwordController,
                       inputType: TextInputType.text,
                       filled: true,
@@ -111,7 +113,7 @@ class _Login_ScreenState extends State<Login_Screen> {
                       hintText: 'Enter Password',
                       suffixIcon: IconButton(
                         icon: GradientIcon(
-                        child:  isPasswordObscure
+                          child:  isPasswordObscure
                               ? Icon(Icons.visibility_off_outlined,color: AppColors().whiteColor )
                               : Icon(Icons.visibility_outlined,color: AppColors().whiteColor,),
                         ),
@@ -123,6 +125,7 @@ class _Login_ScreenState extends State<Login_Screen> {
                       ),
                     ),
                   ),
+                  SizedBox(height: 12.h,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
@@ -131,6 +134,7 @@ class _Login_ScreenState extends State<Login_Screen> {
                           Navigator.push(context, MaterialPageRoute(builder: (context)=> Forget_password()));
                         },
                         child: GradientText(
+
                           text: 'ForgotPassword?',
                           fontSize: 15.sp,
                           fontWeight: FontWeight.w400,
@@ -139,6 +143,7 @@ class _Login_ScreenState extends State<Login_Screen> {
                       ),
                     ],
                   ),
+                  SizedBox(height: 25.h,),
                 ],
               ),
             ),
@@ -178,13 +183,13 @@ class _Login_ScreenState extends State<Login_Screen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-              FlutterCustomText(
-                text: "Guest mode  ",
-                color: Colors.white,
-                fontWeight: FontWeight.w400,
-              ),
+                FlutterCustomText(
+                  text: "Guest mode  ",
+                  color: Colors.white,
+                  fontWeight: FontWeight.w400,
+                ),
                 Icon(Icons.arrow_forward_ios,color: Colors.white,size:18,)
-            ],),
+              ],),
           ],
         ),
       ),

@@ -38,6 +38,7 @@ class GradientText extends StatelessWidget {
         color: Colors.white,
         decoration: decoration,
         fontStyle: fontStyle,
+
       ),
     );
   }

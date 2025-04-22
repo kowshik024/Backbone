@@ -115,7 +115,7 @@ class _Bottom_NavigationState extends State<Bottom_Navigation> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(page[_selectedIndex]['title']),
+          title: Text(page[_selectedIndex]['title'],style: GoogleFonts.inriaSans(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.white),),
           iconTheme: IconThemeData(color: Colors.white),
           foregroundColor: Colors.white,
           backgroundColor: Colors.transparent,
@@ -147,61 +147,61 @@ class _Bottom_NavigationState extends State<Bottom_Navigation> {
                   SizedBox(width: 8.w),
                   GradientText(text: "Menu",fontSize: 16.sp,),
                 ],),
-                Expanded(
-                  child: ListView.builder(
-                      itemCount: chitPlans.length,
-                      itemBuilder: (context,index){
-                        return GestureDetector(
-                          onTap: (){
-                            switch(chitPlans[index]['title']){
-                              case 'Profile':
+                ListView.builder(
+                    itemCount: chitPlans.length,
+                     shrinkWrap: true,
+                    itemBuilder: (context,index){
+                      return GestureDetector(
+                        onTap: (){
+                          switch(chitPlans[index]['title']){
+                            case 'Profile':
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => profile ()));
+                              break;
+                              case 'Verification':
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => profile ()));
+                                        builder: (context) => VerificationScreen ()));
                                 break;
-                                case 'Verification':
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => VerificationScreen ()));
-                                  break;
-                               case  'Settings':
+                             case  'Settings':
+                               Navigator.push(
+                                   context,
+                                   MaterialPageRoute(
+                                       builder: (context) => SettingsPage ()));
+                               break;
+                               case 'Terms & Conditions':
                                  Navigator.push(
                                      context,
                                      MaterialPageRoute(
-                                         builder: (context) => SettingsPage ()));
+                                         builder: (context) => Terms ()));
                                  break;
-                                 case 'Terms & Conditions':
+                                 case 'Refer & Earn':
                                    Navigator.push(
                                        context,
                                        MaterialPageRoute(
-                                           builder: (context) => Terms ()));
+                                           builder: (context) => ReferAndEarnScreen ()));
                                    break;
-                                   case 'Refer & Earn':
-                                     Navigator.push(
-                                         context,
-                                         MaterialPageRoute(
-                                             builder: (context) => ReferAndEarnScreen ()));
-                                     break;
-                              default:
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(content: Text('Coming Soon...',style: TextStyle(color: Colors.white),)));
-                            }
-                          },
-                          child: Container(height: 40.h,width: 251.w,
-                            decoration: BoxDecoration(
-                              border: Border(bottom: BorderSide(color: Color(0xffDEAB3D)))
-                            ),
-                            child: ListTile(
-                              leading: GradientIcon(child: Icon(chitPlans[index]["icon"],color: Colors.white,size: 24.sp,)),
-                              title: GradientText(text: chitPlans[index]["title"],fontSize:14.sp,),
-                              trailing: GradientIcon(child: Icon(Icons.arrow_forward_ios,size: 18.sp,color: Colors.white,))
-                            ),
+                            default:
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(content: Text('Coming Soon...',style: TextStyle(color: Colors.white),)));
+                          }
+                        },
+                        child: Container(height: 60.h,width: 251.w,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            border: Border(bottom: BorderSide(color: Color(0xffDEAB3D)))
                           ),
-                        );
-                      }),
-                ),
+                          child: ListTile(
+                            leading: GradientIcon(child: Icon(chitPlans[index]["icon"],color: Colors.white,size: 24.sp,)),
+                            title: GradientText(text: chitPlans[index]["title"],fontSize:14.sp,),
+                            trailing: GradientIcon(child: Icon(Icons.arrow_forward_ios,size: 18.sp,color: Colors.white,))
+                          ),
+                        ),
+                      );
+                    }),
                 Spacer(),
                 GestureDetector(
                   onTap: (){
