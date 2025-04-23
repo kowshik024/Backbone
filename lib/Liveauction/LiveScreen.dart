@@ -208,7 +208,7 @@ class _LivescreenState extends State<Livescreen> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Text("January Month Chit",style: TextStyle(color: Colors.white),),
+                    child: Text("January Month Chit",style: GoogleFonts.inriaSans(color: Colors.white),),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -228,11 +228,11 @@ class _LivescreenState extends State<Livescreen> {
                                 children: [
                                   Image(image: AssetImage('assets/manemoji.png')),
                                   Column(children: [
-                                    Text("Token No",style: TextStyle(color: Colors.white),),
+                                    Text("Token No",style: GoogleFonts.inriaSans(color: Colors.white),),
                                     GradientText(text: "SSC 901")
                                   ],),
                                   Column(children: [
-                                    Text("Bid value",style: TextStyle(color: Colors.white),),
+                                    Text("Bid value",style: GoogleFonts.inriaSans(color: Colors.white),),
                                     GradientText(text: "₹ 10,00,000")
                                   ],)
                                 ],

@@ -32,6 +32,16 @@ class _Register_RefState extends State<Register_Ref> {
       _isDropdownVisible = !_isDropdownVisible;
     });
   }
+  var chosenvalue;
+  List<String> numberlist = [
+    "1,00,000", "2,00,000", "5,00,000", "10,00,000",
+  ];
+
+  void _dropdownCallback(String? value) {
+    setState(() {
+      chosenvalue = value;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -108,18 +118,43 @@ class _Register_RefState extends State<Register_Ref> {
                         hintStyle: GoogleFonts.inriaSans(),
                       ),
                       SizedBox(height: 10),
-                      FlutterInputField(
-                        inputType: TextInputType.text,
-                        filled: true,
-                        fillColor: AppColors().blackColor,
-                        enableBorder: false,
-                        verticalContentPadding: 8,
-                        hintText: 'Select Scheme',
-                        hintStyle: GoogleFonts.inriaSans(),
-                        controller: schemeController,
-                        suffixIcon: IconButton(
-                          icon: Icon(Icons.keyboard_arrow_down, color: Colors.white),
-                          onPressed: _toggleDropdown,
+                      Container(
+                        padding: EdgeInsets.all(1.r),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.r),
+                          gradient: LinearGradient(colors: AppColors().gradients),
+                        ),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.black,
+                            borderRadius: BorderRadius.circular(8.r),
+                          ),
+                          padding: EdgeInsets.all(2.r),
+                          child: DropdownButtonFormField<String>(
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              filled: true,
+                              fillColor: AppColors().blackColor,
+                            ),
+                            hint: Text(
+                              "ex: 1,00,000",
+                              style: GoogleFonts.inriaSans(color: Colors.white38),
+                            ),
+                            style: TextStyle(color: Colors.white),
+                            dropdownColor: Colors.black,
+                            value: chosenvalue,
+                            items: numberlist.map((String value) {
+                              return DropdownMenuItem<String>(
+                                value: value,
+                                child: Text(value),
+                              );
+                            }).toList(),
+                            onChanged: (String? newvalue) {
+                              setState(() {
+                                chosenvalue = newvalue;
+                              });
+                            },
+                          ),
                         ),
                       ),
                       if (_isDropdownVisible)

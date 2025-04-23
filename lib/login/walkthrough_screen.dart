@@ -19,16 +19,16 @@ class _Walkthrough_ScreenState extends State<Walkthrough_Screen> {
 
   final List<Map<String, String>> pages = [
     {
-      'title': '“TRUSTED BY 1500+ HAPPY CLIENTS!”',
-      'description': '"Over 1500 happy clients trust us to deliver seamless and exceptional experiences. Join them and achieve your goals with ease!"'
+      'title': 'Trusted and reliable',
+      'description': 'We have a strong reputation for transparency reliability in the chit funds industry, ensuring your money is safe and well managed.'
     },
     {
-      'title': '“37 YEARS OF INDUSTRY EXPERIENCE!”',
-      'description': 'With 37 Years Of Industry Experience, We Bring Unmatched Expertise And A Proven Track Record Of Success. Our Long-Standing Commitment To Excellence Ensures Innovative Solutions And Exceptional Results, Making Us A Trusted Leader In The Field.'
+      'title': 'Flexible Plans',
+      'description': 'We offer a variety of chit schemes tailored to different financial needs whether your saving for personal goals, business investment or emergencies.'
     },
     {
-      'title': '“100+ NO. OF CHIT SCHEMES!”',
-      'description': 'With 100+ Successful Chit Schemes, We Offer Reliable And Secure Financial Solutions, Helping Customers Achieve Their Goals With Trust And Transparency.'
+      'title': 'High Returns and Low risk (doubt)',
+      'description': 'Unlike traditional saving options chit fund provide access to lump sum amount while maintain financial discipline with competitive returns compare to banks'
     },
   ];
 
@@ -83,7 +83,7 @@ class _Walkthrough_ScreenState extends State<Walkthrough_Screen> {
                       pages[currentIndex]['title']!,
                       key: ValueKey(pages[currentIndex]['title']),
                       textAlign: TextAlign.center,
-                      style: GoogleFonts.poppins(
+                      style: GoogleFonts.inriaSans(
                         color: Colors.white,
                         fontSize: 14,
                         fontWeight: FontWeight.w300,
@@ -98,7 +98,9 @@ class _Walkthrough_ScreenState extends State<Walkthrough_Screen> {
                       key: ValueKey(pages[currentIndex]['description']),
                       text: pages[currentIndex]['description']!,
                       textAlign: TextAlign.center,
+
                       fontSize: 14,
+
                       fontWeight: FontWeight.w300,
                     ),
                   ),

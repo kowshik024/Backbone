@@ -7,10 +7,12 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import '../constant/app_colors.dart';
+import '../constant/app_images.dart';
 import '../login/bottom_navigation/bottom_navigation_screen.dart';
 import '../utils/flutter_custom_text.dart';
 import '../utils/flutter_input_field.dart';
 import '../utils/gradient_coloured_button.dart';
+
 
 
 
@@ -27,9 +29,13 @@ class _PersonalDetailScreenState extends State<profile> {
   Future<void> _pickImage() async {
     final pickedFile = await ImagePicker().pickImage(source: ImageSource.gallery);
     if (pickedFile != null) {
+      File selectedImage = File(pickedFile.path);
+
       setState(() {
-        _image = File(pickedFile.path);
+        _image = selectedImage;
       });
+
+      GlobalUserData.instance.profileImage = selectedImage; // ✅ store globally
     }
   }
 
@@ -118,12 +124,16 @@ class _PersonalDetailScreenState extends State<profile> {
         padding:  EdgeInsets.only(right: 20.w,left: 20.w),
         child:  SizedBox(height: 40.h,width: 320.w,
           child: FlutterInputField(
+
+
             inputType: TextInputType.text,
             filled: true,
             fillColor: AppColors().blackColor,
             enableBorder: false,
-            verticalContentPadding:8.h,
+            verticalContentPadding:10.h,
             hintText: 'Enter Your name',
+            hintStyle: GoogleFonts.inriaSans(),
+
           ),
         ),
       ),
@@ -142,7 +152,7 @@ class _PersonalDetailScreenState extends State<profile> {
                 filled: true,
                 fillColor: AppColors().blackColor,
                 enableBorder: false,
-                verticalContentPadding: 8.h,
+                verticalContentPadding: 10.h,
                 hintText: 'Enter Your user ID',
                 hintStyle: GoogleFonts.inriaSans(),
               ),
@@ -163,7 +173,7 @@ class _PersonalDetailScreenState extends State<profile> {
                 filled: true,
                 fillColor: AppColors().blackColor,
                 enableBorder: false,
-                verticalContentPadding: 8.h,
+                verticalContentPadding: 10.h,
                 hintText: 'Enter Your Mobile No',
                 hintStyle: GoogleFonts.inriaSans(),
               ),
@@ -185,7 +195,7 @@ class _PersonalDetailScreenState extends State<profile> {
                 filled: true,
                 fillColor: AppColors().blackColor,
                 enableBorder: false,
-                verticalContentPadding: 8.h,
+                verticalContentPadding: 10.h,
                 hintText: 'Enter Your Email ID',
                 hintStyle: GoogleFonts.inriaSans(),
                 suffixIcon: Image(image: AssetImage('assets/edit.png')),
@@ -224,7 +234,7 @@ class _PersonalDetailScreenState extends State<profile> {
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>RegistrationSuccessPage()));
                 },
                 child: FlutterCustomText(
-                  text: 'request',
+                  text: 'Request',
                   color: AppColors().blackColor,
                 ),
               ),

@@ -10,6 +10,7 @@ import 'package:backbone/utils/image_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gif_view/gif_view.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../constant/app_colors.dart';
 import '../utils/flutter_custom_text.dart';
@@ -83,9 +84,9 @@ class _SealingauctionState extends State<Sealingauction> {
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text("Live Auction Room Starts at",style: TextStyle(color: Colors.white),),
+                                Text("Live Auction Room Starts at",style: GoogleFonts.inriaSans(color: Colors.white),),
                                 GradientText(text: '02:30 PM'),
-                                Text("January Month Chit",style: TextStyle(color: Colors.white),),
+                                Text("January Month Chit",style: GoogleFonts.inriaSans(color: Colors.white),),
                                 GradientText(text: '₹ 10,00,000'),
                               ],),
                           ),

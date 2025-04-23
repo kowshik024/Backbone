@@ -4,6 +4,7 @@ import 'package:backbone/menu/update.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gif_view/gif_view.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../utils/gradient_icon.dart';
 import '../utils/gradient_text.dart';
@@ -19,7 +20,7 @@ class SettingsPage extends StatelessWidget {
             Navigator.pop(context);
           }, icon: Icon(Icons.arrow_back_ios)),
           backgroundColor: Color(0xff000000),
-          title: Text('Settings', style: TextStyle(color:Color(0xffFFFFFF))),
+          title: Text('Settings', style: GoogleFonts.inriaSans(color:Color(0xffFFFFFF))),
           iconTheme: IconThemeData(color:Color(0xffFFFFFF)),
           actions: [GifView.asset(
             'assets/whatsapp.gif',

@@ -33,7 +33,7 @@ class _New_ChitsState extends State<New_Chits> {
         ),
         title: Text(
           "New Chits",
-          style: GoogleFonts.inriaSans(fontSize: 16.sp, color: Colors.white),
+          style: GoogleFonts.inriaSans(fontSize: 20.sp, color: Colors.white,fontWeight: FontWeight.w400),
         ),
         actions: [
           ActionButton(

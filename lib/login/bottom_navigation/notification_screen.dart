@@ -90,14 +90,14 @@ class _Notification_ScreenState extends State<Notification_Screen> with SingleTi
                   borderRadius: BorderRadius.circular(50.r),
                   child: TabBar(
                     controller: _tabController,
-                    unselectedLabelStyle: TextStyle(
-                      fontFamily: 'Inria Sans',
+                    unselectedLabelStyle: GoogleFonts.inriaSans(
+
                       fontSize: 13.sp,
                       fontWeight: FontWeight.w500,
                       color: Colors.white,
                     ),
-                    labelStyle: TextStyle(
-                      fontFamily: 'Inria Sans',
+                    labelStyle: GoogleFonts.inriaSans(
+
                       fontSize: 13.sp,
                       fontWeight: FontWeight.w500,
                       color: Colors.black,

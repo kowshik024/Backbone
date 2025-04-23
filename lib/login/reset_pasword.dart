@@ -61,6 +61,7 @@ class _ResetPaswordState extends State<ResetPasword> {
                     text: 'Backbone Chit Funds',
                     fontSize: 30.sp,
                     fontWeight: FontWeight.w700,
+
                   ),
                 ],
               ),
@@ -80,6 +81,7 @@ class _ResetPaswordState extends State<ResetPasword> {
                 enableBorder: false,
                 obscure: isPasswordObscure,
                 hintText: 'Enter New Password',
+                verticalContentPadding: 10,
                 suffixIcon: IconButton(
                   icon: GradientIcon(
                     child:  isPasswordObscure
@@ -103,7 +105,8 @@ class _ResetPaswordState extends State<ResetPasword> {
                 fillColor: AppColors().blackColor,
                 enableBorder: false,
                 obscure: isConformnewpasswordObscure,
-                hintText: 'Conform New Password',
+                hintText: 'Confirm New Password',
+                verticalContentPadding: 10,
                 suffixIcon: IconButton(
                   icon: GradientIcon(
                     child:  isConformnewpasswordObscure

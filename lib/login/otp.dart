@@ -118,7 +118,7 @@ class _Mobile_NumberState extends State<Mobile_Number> {
                 child: SizedBox(height: 44,width: 300,
                   child: GradientColoredButton(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Otp_Screen()));
+
                     },
                     child: FlutterCustomText(
                       text: 'Send OTP',

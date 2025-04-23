@@ -1,3 +1,6 @@
+import 'dart:ui';
+import 'dart:io';
+
 class AppImages {
   static final AppImages instance = AppImages._internal();
 
@@ -66,3 +69,16 @@ class AppImages {
   String  sbi = 'assets/sbi.png';
   String  visa = 'assets/visa.png';
 }
+
+
+
+class GlobalUserData {
+  static final GlobalUserData instance = GlobalUserData._internal();
+
+  File? profileImage;
+
+  GlobalUserData._internal();
+
+  factory GlobalUserData() => instance;
+}
+

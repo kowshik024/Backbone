@@ -36,7 +36,7 @@ class _My_Chit_PlansState extends State<My_Chit_Plans> {
         ),
         title: Text(
           "Chit Plans",
-          style: GoogleFonts.inriaSans(fontSize: 16.sp, color: Colors.white),
+          style: GoogleFonts.inriaSans(fontSize: 20.sp, color: Colors.white,fontWeight: FontWeight.w400),
         ),
         actions: [
           ActionButton(

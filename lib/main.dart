@@ -14,6 +14,7 @@ import 'login/bottom_navigation/home_screen.dart';
 import 'login/bottom_navigation/new_chit.dart';
 import 'login/bottom_navigation/notification_screen.dart';
 import 'login/login_screen.dart';
+import 'login/otp.dart';
 import 'login/otp_screen.dart';
 import 'menu/profile.dart';
 import 'menu/refer.dart';

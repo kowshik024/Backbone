@@ -1,7 +1,10 @@
+import 'dart:async';
+
 import 'package:backbone/constant/app_colors.dart';
 import 'package:backbone/constant/app_images.dart';
 import 'package:backbone/login/forgot_password.dart';
 import 'package:backbone/login/otp_screen.dart';
+import 'package:backbone/login/welcome_screen.dart';
 import 'package:backbone/utils/action_button.dart';
 import 'package:backbone/login/bottom_navigation/bottom_navigation_screen.dart';
 import 'package:backbone/utils/flutter_custom_text.dart';
@@ -14,6 +17,9 @@ import 'package:backbone/utils/gradient_text.dart';
 import 'package:backbone/utils/image_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:pinput/pinput.dart';
+
+import '../utils/svg_image.dart';
 
 class Login_Screen extends StatefulWidget {
   const Login_Screen({super.key});
@@ -41,7 +47,7 @@ class _Login_ScreenState extends State<Login_Screen> {
         leading: ActionButton(
           url: AppImages().backIcon,
           onTap: () {
-            Navigator.pop(context);
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Welcome_Screen()));
           },
         ),
       ),
@@ -125,7 +131,7 @@ class _Login_ScreenState extends State<Login_Screen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 12.h,),
+
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
@@ -143,7 +149,7 @@ class _Login_ScreenState extends State<Login_Screen> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 25.h,),
+
                 ],
               ),
             ),
@@ -171,7 +177,7 @@ class _Login_ScreenState extends State<Login_Screen> {
                   SizedBox(height: 44.h,width: 260.w,
                     child: GradientBorderedButton(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>Otp_Screen()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>NumberOTP()));
                       },
                       child: GradientText(text: 'Mobile Number'),
                     ),

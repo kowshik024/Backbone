@@ -46,7 +46,7 @@ class _Bottom_NavigationState extends State<Bottom_Navigation> {
     {"title": "Home"},
     {"title": "My Chits"},
     {"title": "Live Auction"},
-    {"title": "history"}
+    {"title": "History"}
   ];
 
   int index =0;

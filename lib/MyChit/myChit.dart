@@ -42,6 +42,7 @@ class _MychitState extends State<Mychit> {
   List<bool> _isEditingList = [];
   List<TextEditingController> _controllers = [];
   List<bool> _isDownloadingList = []; // Track download state for each chit
+  bool _isExpanded = false;
 
   @override
   void initState() {
@@ -109,12 +110,10 @@ class _MychitState extends State<Mychit> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Expanded(
-                      child: Text(
-                        "Total Chit Overview: ${selectedCount} Chit(s) selected", // Include selected count
-                        style: GoogleFonts.inriaSans(color: Colors.white, fontSize: 16.sp),
-                        overflow: TextOverflow.ellipsis, // Ensure text doesn't overflow
-                      ),
+                    Text(
+                      "Total Chit Amount:", // Include selected count
+                      style: GoogleFonts.inriaSans(color: Colors.white, fontSize: 16.sp),
+                      overflow: TextOverflow.ellipsis, // Ensure text doesn't overflow
                     ),
                     Padding(
                       padding: EdgeInsets.only(right: 17.w),
@@ -140,13 +139,309 @@ class _MychitState extends State<Mychit> {
                   ],
                 ),
               ),
+
+
+              
+
+             Padding(
+            padding: EdgeInsets.all(8.r),
+            child: Column(
+              children: [
+                Container(
+                  height: 50.h,
+                  width: 334.w,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: GradientText(
+                          text: "Current Chit Overview",
+                          fontSize: 20,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              // Toggle the profile section visibility
+                              _isExpanded = !_isExpanded;
+                            });
+                          },
+                          icon: Icon(
+                            _isExpanded
+                                ? Icons.keyboard_arrow_up_rounded
+                                : Icons.keyboard_arrow_down_rounded,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(color: Colors.white),
+                  ),
+                ),
+                _isExpanded
+                    ? Column(
+                  children: [
+                    SizedBox(height: 20.h),
+                    Center(
+                      child: SizedBox(
+                        child: GestureDetector(
+
+                          child: Container(
+                            height: 150.h,
+                            width: 150.h,
+                            child:
+                            Container(
+                              height: 145,
+                              width: 145,
+                              child:  GlobalUserData().profileImage == null
+                                ? Icon(Icons.person,size: 40.sp,)
+                                : ClipOval(
+                              child: SizedBox(
+                                height: double.infinity,
+                                width: double.infinity,
+                                child: Image.file(
+                                  GlobalUserData().profileImage!,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+
+                              decoration: BoxDecoration(
+                                color: Colors.grey,
+                                shape: BoxShape.circle,
+
+                              ),
+                            ),
+                            padding: EdgeInsets.all(10.r),
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(colors: AppColors().gradients),
+                              shape: BoxShape.circle,
+
+                              border: Border.all(color: Colors.grey),
+                            ),
+
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 20.h),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 36, bottom: 22),
+                      child: Row(
+                        children: [
+                          Text(
+                            'Name : ',
+                            style: GoogleFonts.inriaSans(fontSize: 18, color: Colors.white),
+                          ),
+                          GradientText(
+                            text: "Nandha kumar",
+                            fontSize: 20,
+                            fontWeight: FontWeight.w400,
+                          )
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 36),
+                      child: Row(
+                        children: [
+                          Text(
+                            'User ID : ',
+                            style: GoogleFonts.inriaSans(fontSize: 18, color: Colors.white),
+                          ),
+                          GradientText(
+                            text: "SSC123",
+                            fontSize: 20,
+                            fontWeight: FontWeight.w400,
+                          )
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(8.r),
+                      child: Column(
+                        children: [
+                          Container(
+                            height: 41.h,
+                            width: 320.w,
+                            child: Padding(
+                              padding: EdgeInsets.all(8.r),
+                              child:Text('Chit Overview',style: GoogleFonts.inriaSans(fontSize: 20,fontWeight: FontWeight.w400),) ,
+
+                            ),
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: gradients,
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomRight,
+                              ),
+                              borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(20.r),
+                                  topRight: Radius.circular(20.r)),
+                            ),
+                          ),
+                          Container(
+                            width: 320.w,
+                            height: 257.h,
+                            child:
+                            Padding(
+                              padding: const EdgeInsets.only(left: 8.0,right: 8,top: 8),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 8.0,right: 27),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Text("Total Chit Value", style: GoogleFonts.inriaSans(color: Colors.white)),
+                                            GradientText(text: "₹ 10,00,000"),
+
+                                          ],
+                                        ),
+                                        Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Text("UnPriced Chit Value", style: GoogleFonts.inriaSans(color: Colors.white)),
+                                            GradientText(text: "₹ 12,00,000"),
+
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Text("Priced Chit Value", style: GoogleFonts.inriaSans(color: Colors.white)),
+                                            GradientText(text: "₹ 12,00,000"),
+
+                                          ],
+                                        ),
+
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: GradientText(text: "LOANS:",fontSize: 18,),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Text("Intrest", style: GoogleFonts.inriaSans(color: Colors.white)),
+                                            GradientText(text: "₹ 12,00,000"),
+
+                                          ],
+                                        ),
+                                        Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Text("Outstanding Principale", style: GoogleFonts.inriaSans(color: Colors.white)),
+                                            GradientText(text: "₹ 2,00,000"),
+
+                                          ],
+                                        ),
+
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Text("Total Chit Due", style: GoogleFonts.inriaSans(color: Colors.white)),
+                                            GradientText(text: "₹ 12,00,000"),
+
+                                          ],
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(left: 12.0),
+                                          child: SizedBox(
+                                            height: 30.h,
+                                            width: 94.w,
+                                            child: GestureDetector(
+                                              onTap: () {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(builder: (context) => PaymentPage()),
+                                                );
+                                              },
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                  gradient: LinearGradient(colors: AppColors().gradients),
+                                                  borderRadius: BorderRadius.circular(20.r),
+                                                ),
+                                                child: Center(
+                                                  child: Text(
+                                                    "Pay",
+                                                    style: GoogleFonts.inriaSans(fontSize: 14.sp, color: Colors.black),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+
+
+                                      ],
+                                    ),
+                                  ),
+
+                                ],
+                              ),
+                            ),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  bottomRight: Radius.circular(20.r),
+                                  bottomLeft: Radius.circular(20.r)),
+                              border: Border.all(color: Colors.white),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                )
+                    : Container(),
+
+              ],
+            ),
+          ),
+
               SizedBox(height: 30.h),
               ListView.builder(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
                 itemCount: chitNames.length,
                 itemBuilder: (context, index) {
-                  return Padding(
+                  return
+                    Padding(
                     padding: EdgeInsets.all(8.r),
                     child: Column(
                       children: [
@@ -200,10 +495,14 @@ class _MychitState extends State<Mychit> {
                                         });
                                       },
                                       icon: SvgImageCard(
+                                        height: 18,
+                                        width: 18,
                                         imageUrl: AppImages().edit,
                                         fit: BoxFit.cover,
                                       ),
                                     ),
+
+
                                     SizedBox(width: 20.w),
                                     GestureDetector(
                                       onTap: () {
@@ -233,59 +532,141 @@ class _MychitState extends State<Mychit> {
                         Container(
                           width: 320.w,
                           height: 206.h,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text("Chit Value", style: TextStyle(color: Colors.white)),
-                                  GradientText(text: "₹ 1,00,000"),
-                                  Text("Total Inst", style: TextStyle(color: Colors.white)),
-                                  GradientText(text: "25"),
-                                  Text("Auction Details", style: TextStyle(color: Colors.white)),
-                                  GradientText(text: "12/06/2025"),
-                                  Text("₹ 1,00,000", style: TextStyle(color: Colors.white)),
-                                ],
-                              ),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text("Paid", style: TextStyle(color: Colors.white)),
-                                  GradientText(text: "12/25"),
-                                  Text("Status", style: TextStyle(color: Colors.white)),
-                                  GradientText(text: "NPS"),
-                                  Text("Current Bal", style: TextStyle(color: Colors.white)),
-                                  GradientText(text: "₹ 45,000"),
-                                  SizedBox(
-                                    height: 30.h,
-                                    width: 94.w,
-                                    child: GestureDetector(
-                                      onTap: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(builder: (context) => PaymentPage()),
-                                        );
-                                      },
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          gradient: LinearGradient(colors: AppColors().gradients),
-                                          borderRadius: BorderRadius.circular(20.r),
+                          child:
+                          Padding(
+                            padding: const EdgeInsets.only(left: 8.0,right: 8,top: 8),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 8.0,right: 27),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text("Chit Value", style: GoogleFonts.inriaSans(color: Colors.white)),
+                                          GradientText(text: "₹ 10,00,000"),
+
+                                        ],
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(right: 30),
+                                        child: Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Text("Paid", style: GoogleFonts.inriaSans(color: Colors.white)),
+                                            GradientText(text: "12/25"),
+
+                                          ],
                                         ),
-                                        child: Center(
-                                          child: Text(
-                                            "Pay",
-                                            style: GoogleFonts.inriaSans(fontSize: 14.sp, color: Colors.black),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 8.0,right: 27),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text("Total Inst", style: GoogleFonts.inriaSans(color: Colors.white)),
+                                          GradientText(text: "25"),
+
+                                        ],
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(right: 30),
+                                        child: Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Text("Status", style: GoogleFonts.inriaSans(color: Colors.white)),
+                                            GradientText(text: "12/25"),
+
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 8.0,right: 27),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text("Auction Details", style: GoogleFonts.inriaSans(color: Colors.white)),
+                                          GradientText(text: "12/06/2025"),
+
+                                        ],
+                                      ),
+                                      Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text("Current Bal", style: GoogleFonts.inriaSans(color: Colors.white)),
+                                          GradientText(text: "₹ 40,000"),
+
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text("₹ 12,00,000", style: GoogleFonts.inriaSans(color: Colors.white)),
+
+
+                                        ],
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(left: 12.0),
+                                        child: SizedBox(
+                                          height: 30.h,
+                                          width: 94.w,
+                                          child: GestureDetector(
+                                            onTap: () {
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(builder: (context) => PaymentPage()),
+                                              );
+                                            },
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                gradient: LinearGradient(colors: AppColors().gradients),
+                                                borderRadius: BorderRadius.circular(20.r),
+                                              ),
+                                              child: Center(
+                                                child: Text(
+                                                  "Pay",
+                                                  style: GoogleFonts.inriaSans(fontSize: 14.sp, color: Colors.black),
+                                                ),
+                                              ),
+                                            ),
                                           ),
                                         ),
                                       ),
-                                    ),
+
+
+                                    ],
                                   ),
-                                ],
-                              ),
-                            ],
+                                ),
+
+                              ],
+                            ),
                           ),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.only(
