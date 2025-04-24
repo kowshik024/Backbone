@@ -6,6 +6,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../constant/app_colors.dart';
+import '../constant/app_images.dart';
+import '../login/bottom_navigation/notification_screen.dart';
+import '../utils/action_button.dart';
 import '../utils/flutter_custom_text.dart';
 import '../utils/flutter_input_field.dart';
 import '../utils/gradient_coloured_button.dart';
@@ -57,7 +60,9 @@ class _Register_RefState extends State<Register_Ref> {
           icon: Icon(Icons.arrow_back_ios, color: Colors.white),
         ),
         title: Text("Refer & Earn", style: GoogleFonts.inriaSans(color: Colors.white)),
-        actions: [Icon(Icons.notifications_none, color: Colors.white)],
+        actions: [ActionButton(url: AppImages().bellIcon, onTap: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>Notification_Screen()));
+        }),],
       ),
       body: SafeArea(
         child: Padding(

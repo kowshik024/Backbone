@@ -25,6 +25,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 
 
+
 class Bottom_Navigation extends StatefulWidget {
   @override
   _Bottom_NavigationState createState() => _Bottom_NavigationState();
@@ -34,12 +35,12 @@ class _Bottom_NavigationState extends State<Bottom_Navigation> {
   int _selectedIndex = 0;
 
   final List<Map<String, dynamic>> chitPlans = [
-    {"title": "Profile","icon": Icons.person_2_outlined,},
-    {"title": "Verification","icon": Icons.domain_verification},
-    {"title": "Settings","icon": Icons.settings},
-    {"title": "Terms & Conditions","icon": Icons.paste_outlined},
-    {"title": "Refer & Earn","icon": Icons.currency_rupee},
-    {"title": "Complaint & Help","icon": Icons.help_outline_outlined},
+    {"title": "Profile","icon": 'assets/menu1.svg',},
+    {"title": "Verification","icon": 'assets/menu2.svg'},
+    {"title": "Settings","icon":'assets/menu3.svg' },
+    {"title": "Terms & Conditions","icon":'assets/menu4.svg'},
+    {"title": "Refer & Earn","icon": 'assets/menu5.svg'},
+    {"title": "Complaint & Help","icon":'assets/menu6.svg' },
   ];
 
   final List<Map<String, dynamic>> page = [
@@ -195,7 +196,7 @@ class _Bottom_NavigationState extends State<Bottom_Navigation> {
                             border: Border(bottom: BorderSide(color: Color(0xffDEAB3D)))
                           ),
                           child: ListTile(
-                            leading: GradientIcon(child: Icon(chitPlans[index]["icon"],color: Colors.white,size: 24.sp,)),
+                            leading: SvgImageCard(imageUrl: chitPlans[index]['icon']),
                             title: GradientText(text: chitPlans[index]["title"],fontSize:14.sp,),
                             trailing: GradientIcon(child: Icon(Icons.arrow_forward_ios,size: 18.sp,color: Colors.white,))
                           ),

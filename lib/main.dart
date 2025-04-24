@@ -7,12 +7,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'Liveauction/LiveScreen.dart';
 import 'Liveauction/Liveauction.dart';
+import 'Liveauction/SealingAuction.dart';
 import 'MyChit/myChit.dart';
 import 'login/bottom_navigation/chit_plans.dart';
 import 'login/bottom_navigation/ff.dart';
 import 'login/bottom_navigation/home_screen.dart';
 import 'login/bottom_navigation/new_chit.dart';
 import 'login/bottom_navigation/notification_screen.dart';
+import 'login/forget_otp.dart';
 import 'login/login_screen.dart';
 import 'login/otp.dart';
 import 'login/otp_screen.dart';

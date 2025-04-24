@@ -51,7 +51,7 @@ class _ChitHistoryScreenState extends State<ChitHistoryScreen> with SingleTicker
                     labelStyle: TextStyle(
                       fontFamily: 'InriaSans',
                       fontSize: 14.sp,
-                      fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.bold,
                       color: Colors.black,
                     ),
                     dividerHeight: 0,
@@ -232,7 +232,10 @@ class PaymentHistoryTab extends StatelessWidget {
             width: 47.h,
             frameRate: 30,
           ),
-          title: GradientText(text: title,fontWeight: FontWeight.w700,fontSize:12.sp),
+          title: Padding(
+            padding: const EdgeInsets.only(top: 5,bottom: 5),
+            child: GradientText(text: title,fontWeight: FontWeight.bold,fontSize:13.sp),
+          ),
           subtitle: Text("Transaction ID: $transactionId\n$date", style: GoogleFonts.inriaSans(color: Colors.white,fontWeight: FontWeight.w400)),
           trailing: Column(
             crossAxisAlignment: CrossAxisAlignment.end,

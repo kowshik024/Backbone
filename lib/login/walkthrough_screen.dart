@@ -60,7 +60,7 @@ class _Walkthrough_ScreenState extends State<Walkthrough_Screen> {
                 right: 10,
                 top: 10,
                 child: Visibility(
-                  visible: !isLastPage,
+                  visible: currentIndex == 0,
                   child: GradientColoredButton(
                     borderRadius: BorderRadius.circular(20),
                     onTap: () {
@@ -75,6 +75,7 @@ class _Walkthrough_ScreenState extends State<Walkthrough_Screen> {
                 ),
               ),
               Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   AnimatedSwitcher(
@@ -98,9 +99,7 @@ class _Walkthrough_ScreenState extends State<Walkthrough_Screen> {
                       key: ValueKey(pages[currentIndex]['description']),
                       text: pages[currentIndex]['description']!,
                       textAlign: TextAlign.center,
-
                       fontSize: 14,
-
                       fontWeight: FontWeight.w300,
                     ),
                   ),
@@ -123,7 +122,6 @@ class _Walkthrough_ScreenState extends State<Walkthrough_Screen> {
                       });
                     },
                   ),
-
                   SizedBox(height: 30),
                   SizedBox(
                     height: 44,
@@ -136,13 +134,10 @@ class _Walkthrough_ScreenState extends State<Walkthrough_Screen> {
                       ),
                     ),
                   ),
-
-
                 ],
               ),
             ],
           ),
-
         ),
       ),
     );

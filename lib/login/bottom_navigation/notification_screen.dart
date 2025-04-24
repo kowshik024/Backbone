@@ -98,8 +98,8 @@ class _Notification_ScreenState extends State<Notification_Screen> with SingleTi
                     ),
                     labelStyle: GoogleFonts.inriaSans(
 
-                      fontSize: 13.sp,
-                      fontWeight: FontWeight.w500,
+                      fontSize: 15.sp,
+                      fontWeight: FontWeight.bold,
                       color: Colors.black,
                     ),
                     dividerHeight: 0,
@@ -160,15 +160,18 @@ class NotificationList extends StatelessWidget {
                 width: 60.h,
                 frameRate: 30,
               ),
-              title:Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  GradientText(text: notification['title']??'',fontSize: 14.sp,fontWeight: FontWeight.w700,),
-                  Text(
-                    notification['time'] ?? '',
-                    style: GoogleFonts.inriaSans(color: Colors.white, fontSize: 12.sp,fontWeight: FontWeight.w400,),
-                  ),
-                ],
+              title:Padding(
+                padding: const EdgeInsets.only(top: 5,bottom:5 ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    GradientText(text: notification['title']??'',fontSize: 15.sp,fontWeight: FontWeight.bold,),
+                    Text(
+                      notification['time'] ?? '',
+                      style: GoogleFonts.inriaSans(color: Colors.white, fontSize: 12.sp,fontWeight: FontWeight.w400,),
+                    ),
+                  ],
+                ),
               ),
               subtitle: FlutterCustomText(text:  notification['description'] ?? '',color: Colors.white,fontSize: 12.sp,fontWeight: FontWeight.w400,),
 

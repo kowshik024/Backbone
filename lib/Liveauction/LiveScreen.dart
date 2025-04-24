@@ -208,7 +208,7 @@ class _LivescreenState extends State<Livescreen> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Text("January Month Chit",style: GoogleFonts.inriaSans(color: Colors.white),),
+                    child: Text("January Month Chit",style: GoogleFonts.inriaSans(color: Colors.white,fontSize: 18.sp,fontWeight: FontWeight.bold),),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),

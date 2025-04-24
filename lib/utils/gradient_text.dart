@@ -32,6 +32,7 @@ class GradientText extends StatelessWidget {
         ).createShader(bounds);
       },
       child: FlutterCustomText(
+        textAlign: textAlign,
         text: text,
         fontSize: fontSize,
         fontWeight: fontWeight,

@@ -85,13 +85,14 @@ class _MychitState extends State<Mychit> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
                 padding: EdgeInsets.only(left: 22.w),
                 child: Row(
                   children: [
                     FlutterCustomText(
-                      text: "${selectedCount} Chit selected", // Display the selected count
+                      text: "(${selectedCount} Chit selected)", // Display the selected count
                       fontSize: 16.sp,
                       color: Colors.white,
                     ),
@@ -105,39 +106,36 @@ class _MychitState extends State<Mychit> {
                   ],
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.only(left: 16.w, right: 16.w),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text(
-                      "Total Chit Amount:", // Include selected count
-                      style: GoogleFonts.inriaSans(color: Colors.white, fontSize: 16.sp),
-                      overflow: TextOverflow.ellipsis, // Ensure text doesn't overflow
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(right: 17.w),
-                      child: GradientText(text: '₹ ${totalAmount}'), // Show the total amount
-                    ),
-                    SizedBox(
-                      height: 34.h,
-                      width: 100.w,
-                      child: GradientColoredButton(
-                        borderRadius: BorderRadius.circular(30),
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => PaymentPage()),
-                          );
-                        },
-                        child: FlutterCustomText(
-                          text: 'Pay',
-                          color: AppColors().blackColor,
-                        ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text(
+                    "Total Chit Amount:", // Include selected count
+                    style: GoogleFonts.inriaSans(color: Colors.white, fontSize: 16.sp),
+                    overflow: TextOverflow.ellipsis, // Ensure text doesn't overflow
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(right: 17.w),
+                    child: GradientText(text: '₹ ${totalAmount}'), // Show the total amount
+                  ),
+                  SizedBox(
+                    height: 34.h,
+                    width: 100.w,
+                    child: GradientColoredButton(
+                      borderRadius: BorderRadius.circular(30),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => PaymentPage()),
+                        );
+                      },
+                      child: FlutterCustomText(
+                        text: 'Pay',
+                        color: AppColors().blackColor,
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
 
 
@@ -466,28 +464,27 @@ class _MychitState extends State<Mychit> {
                                     ),
                                     SizedBox(width: 10.w),
                                     _isEditingList[index]
-                                        ? SizedBox(
-                                      width: 100.w,
-                                      child: TextFormField(
-                                        controller: _controllers[index],
-                                        style: GoogleFonts.inriaSans(fontSize: 16.sp, color: Colors.black),
-                                        autofocus: true,
-                                        onFieldSubmitted: (value) {
-                                          setState(() {
-                                            chitNames[index] = value;
-                                            _isEditingList[index] = false;
-                                          });
-                                        },
-                                      ),
-                                    )
+                                        ? Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: SizedBox(
+                                                                                width: 100.w,
+                                                                                child: TextFormField(
+                                          controller: _controllers[index],
+                                          style: GoogleFonts.inriaSans(fontSize: 16.sp, color: Colors.black),
+                                          autofocus: true,
+                                          onFieldSubmitted: (value) {
+                                            setState(() {
+                                              chitNames[index] = value;
+                                              _isEditingList[index] = false;
+                                            });
+                                          },
+                                                                                ),
+                                                                              ),
+                                        )
                                         : Text(
                                       chitNames[index],
                                       style: GoogleFonts.inriaSans(fontSize: 16.sp),
                                     ),
-                                  ],
-                                ),
-                                Row(
-                                  children: [
                                     IconButton(
                                       onPressed: () {
                                         setState(() {
@@ -501,6 +498,11 @@ class _MychitState extends State<Mychit> {
                                         fit: BoxFit.cover,
                                       ),
                                     ),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+
 
 
                                     SizedBox(width: 20.w),

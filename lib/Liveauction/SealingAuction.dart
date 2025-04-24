@@ -84,9 +84,9 @@ class _SealingauctionState extends State<Sealingauction> {
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text("Live Auction Room Starts at",style: GoogleFonts.inriaSans(color: Colors.white),),
+                                Text("Live Auction Room Starts at",style: GoogleFonts.inriaSans(color: Colors.white,fontSize: 15.sp,fontWeight: FontWeight.bold),),
                                 GradientText(text: '02:30 PM'),
-                                Text("January Month Chit",style: GoogleFonts.inriaSans(color: Colors.white),),
+                                Text("January Month Chit",style: GoogleFonts.inriaSans(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 15.sp),),
                                 GradientText(text: '₹ 10,00,000'),
                               ],),
                           ),

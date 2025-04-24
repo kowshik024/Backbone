@@ -175,28 +175,26 @@ class _Forgot_otpState extends State<Forgot_otp> {
                         },
                       ),
                     ),
-                    SizedBox(height: 20.h),
-                    Padding(
-                        padding:  EdgeInsets.only(left: 40.w),
-                        child: Row(
-                          children: [
-                            Container(
-                              child: Text("${countdown}s",
-                                  style: TextStyle(color: Colors.white,fontSize: 15)),
-                            ),
-                            Padding(
-                              padding:  EdgeInsets.only(left:180.w),
-                              child: Container(
-                                child: TextButton(onPressed: (){
-                                  setState(() {
-                                    countdown = 30;
-                                    startCountdown();
-                                  });
-                                }, child: GradientText(text: "Resend OTP?",decoration: TextDecoration.underline,)),
-                              ),
-                            )
-                          ],
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+
+                      children: [
+                        SizedBox(width: 10.w,),
+                        Container(
+                          child: Text("${countdown}s",
+                              style: TextStyle(color: Colors.white,fontSize: 15)),
+                        ),
+                        SizedBox(width: 170.w,),
+                        Container(
+                          child: TextButton(onPressed: (){
+                            setState(() {
+                              countdown = 30;
+                              startCountdown();
+                            });
+                          }, child: GradientText(text: "Resend OTP?",decoration: TextDecoration.underline,)),
                         )
+                      ],
                     ),
                   ],
                 ),

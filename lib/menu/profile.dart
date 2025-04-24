@@ -198,7 +198,7 @@ class _PersonalDetailScreenState extends State<profile> {
                 verticalContentPadding: 10.h,
                 hintText: 'Enter Your Email ID',
                 hintStyle: GoogleFonts.inriaSans(),
-                suffixIcon: Image(image: AssetImage('assets/edit.png')),
+                suffixIcon: Image(image: AssetImage('assets/edit.png',),width: 18,height: 18,),
               ),
             ),
           ),
@@ -221,7 +221,10 @@ class _PersonalDetailScreenState extends State<profile> {
                 verticalContentPadding: 8.h,
                 hintText: 'Enter Your Address',
                 hintStyle: GoogleFonts.inriaSans(),
-                suffixIcon: Image(image: AssetImage('assets/edit.png')),
+
+                suffixIcon: GestureDetector(
+                    onTap: (){},
+                    child: Image(image: AssetImage('assets/edit.png'))),
               ),
             ),
           ),
