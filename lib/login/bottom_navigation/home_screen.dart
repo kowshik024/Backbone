@@ -51,7 +51,6 @@ class _Home_ScreenState extends State<Home_Screen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 GradientText(
-
                   text: 'Welcome to',
                   fontSize: 20.sp,
                   fontWeight: FontWeight.w400,

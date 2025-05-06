@@ -157,7 +157,7 @@ class _ChitHistoryTabState extends State<ChitHistoryTab> {
                     ),
                   ),
                   Container(
-                    height: 168.h,
+                    height: 190.h,
                     width: 320.w,
                     padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
                     decoration: BoxDecoration(
