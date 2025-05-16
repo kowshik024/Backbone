@@ -22,7 +22,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gif_view/gif_view.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
+import '../../services/api_services.dart';
 
 
 
@@ -122,7 +124,25 @@ class _Bottom_NavigationState extends State<Bottom_Navigation> {
           backgroundColor: Colors.transparent,
           actions: [
             GestureDetector(
-              onTap: () {},
+              onTap: () async {
+                if (whatsappNumber == null) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text("WhatsApp number not available")),
+                  );
+                  return;
+                }
+
+                final message = Uri.encodeComponent("Hello, I need assistance.");
+                final url = "https://wa.me/$whatsappNumber?text=$message";
+
+                if (await canLaunchUrl(Uri.parse(url))) {
+                  await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text("Could not open WhatsApp")),
+                  );
+                }
+              },
               child: GifView.asset(
                 'assets/whatsapp.gif',
                 height: 46.h,

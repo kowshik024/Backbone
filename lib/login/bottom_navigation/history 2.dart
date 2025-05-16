@@ -6,6 +6,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gif_view/gif_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../services/chit_api_service.dart';
+
 
 
 class ChitHistoryScreen extends StatefulWidget {
@@ -20,6 +22,7 @@ class _ChitHistoryScreenState extends State<ChitHistoryScreen> with SingleTicker
   void initState() {
     _tabController = TabController(length: 2, vsync: this);
     super.initState();
+    ChitApiService().fetchChitList();
   }
 
 

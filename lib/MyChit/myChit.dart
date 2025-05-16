@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:backbone/MyChit/PaymentPage.dart';
 import 'package:backbone/constant/app_colors.dart';
 import 'package:backbone/utils/svg_image.dart';
@@ -5,6 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:backbone/constant/app_images.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:http/http.dart' as http;
+import '../services/api_services.dart';
+import '../services/api_services.dart' as globals;
 import '../utils/flutter_custom_text.dart';
 import '../utils/gradient_coloured_button.dart';
 import '../utils/gradient_text.dart';
@@ -47,6 +52,8 @@ class _MychitState extends State<Mychit> {
   @override
   void initState() {
     super.initState();
+    fetchChitDetails();
+
     _checkboxStates = List<bool>.filled(chitNames.length, false);
     _isEditingList = List<bool>.filled(chitNames.length, false);
     _controllers = List.generate(chitNames.length, (index) => TextEditingController());
@@ -77,6 +84,31 @@ class _MychitState extends State<Mychit> {
       _isDownloadingList[index] = !_isDownloadingList[index]; // Toggle individual download state
     });
   }
+  Future<void> fetchChitDetails() async {
+    final url = Uri.parse('https://chitsoft.in/wapp/api/mobile3/');
+
+    try {
+      final response = await http.post(
+        url,
+        body: {
+          'type': '507',
+          'cid': '98387658',
+          'cus_id': globalCustomerId ?? null,
+        },
+      );
+
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+        print('API Response: $data');
+        // Do something with the data
+      } else {
+        print('Server error: ${response.statusCode}');
+      }
+    } catch (e) {
+      print('Network error: $e');
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {

@@ -21,6 +21,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:http/http.dart' as http;
 import 'package:pinput/pinput.dart';
 
+
+import '../services/api_services.dart' as globals;
 import '../utils/svg_image.dart';
 
 class Login_Screen extends StatefulWidget {
@@ -58,6 +60,9 @@ class _Login_ScreenState extends State<Login_Screen> {
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
         debugPrint('Response data: $data');
+        globals.globalCustomerId = data['cus_id'].toString();
+        print(globals.globalCustomerId);
+
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => Bottom_Navigation()),
@@ -208,7 +213,6 @@ class _Login_ScreenState extends State<Login_Screen> {
                     SizedBox(height: 44.h,width: 260.w,
                       child: GradientColoredButton(
                         onTap: () {
-
                          if (chitIdController.text.isEmpty && passwordController.text.isEmpty
                          ){
                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Please Enter ID & password')));

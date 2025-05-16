@@ -20,6 +20,8 @@ import 'package:gif_view/gif_view.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../services/api_services.dart';
+
 class Home_Screen extends StatefulWidget {
   const Home_Screen({super.key});
 
@@ -29,16 +31,14 @@ class Home_Screen extends StatefulWidget {
 
 class _Home_ScreenState extends State<Home_Screen> {
   var chosenvalue;
-  List<String> numberlist = [
-    "1,00,000", "2,00,000", "5,00,000", "10,00,000",
-  ];
+  List<String> numberList = Chitlist().chitlist;
 
   void _dropdownCallback(String? value) {
     setState(() {
       chosenvalue = value;
     });
   }
-
+  bool showChitList = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -159,7 +159,7 @@ class _Home_ScreenState extends State<Home_Screen> {
                                           style: TextStyle(color: Colors.white),
                                           dropdownColor: Colors.black,
                                           value: chosenvalue,
-                                          items: numberlist.map((String value) {
+                                          items: numberList.map((String value) {
                                             return DropdownMenuItem<String>(
                                               value: value,
                                               child: Text(value),
@@ -190,7 +190,7 @@ class _Home_ScreenState extends State<Home_Screen> {
                                   ),
                                   context.verticalSpacing(2.h),
                                   FlutterInputField(
-                                    inputType: TextInputType.text,
+                                    inputType: TextInputType.number,
                                     filled: true,
                                     fillColor: AppColors().blackColor,
                                     enableBorder: false,
@@ -226,7 +226,7 @@ class _Home_ScreenState extends State<Home_Screen> {
                                     Container(
                                       width: 160.w,
                                       child: FlutterInputField(
-                                        inputType: TextInputType.text,
+                                        inputType: TextInputType.number,
                                         filled: true,
                                         fillColor: AppColors().blackColor,
                                         enableBorder: false,
@@ -270,7 +270,17 @@ class _Home_ScreenState extends State<Home_Screen> {
                             child: GradientColoredButton(
                               height: 40.h,
                               width: 130.w,
-                              onTap: () {},
+                              onTap: () {
+                                if (chosenvalue != null && numberList.contains(chosenvalue!)) {
+                                  setState(() {
+                                    showChitList = true;
+                                  });
+                                } else {
+                                  setState(() {
+                                    showChitList = false;
+                                  });
+                                }
+                              },
                               borderRadius: BorderRadius.circular(50.r),
                               child: FlutterCustomText(
                                 text: 'Enter',
@@ -284,6 +294,31 @@ class _Home_ScreenState extends State<Home_Screen> {
                     ],
                   ),
                 ),
+                if (showChitList)
+                  Container(
+                    margin: EdgeInsets.only(top: 15.h),
+                    padding: EdgeInsets.all(12.r),
+                    decoration: BoxDecoration(
+                      color: Colors.white10,
+                      borderRadius: BorderRadius.circular(10.r),
+                    ),
+                    height: 150.h,
+                    child: ListView.builder(
+                      itemCount: 1, // update this if you have actual data
+                      itemBuilder: (context, index) {
+                        return ListTile(
+                          title: Text(
+                            "Selected Chit: ₹$chosenvalue",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          subtitle: Text(
+                            "Details or EMI info goes here",
+                            style: TextStyle(color: Colors.grey),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
                 context.verticalSpacing(15.h),
               ],
             ),
